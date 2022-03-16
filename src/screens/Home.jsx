@@ -13,7 +13,7 @@ const Home = ({ cname }) => {
       <ProductCarousel />
       <TopProducts />
       <NewGames />
-      <FeaturedGames />
+      <FeaturedGames isHomePage={true} />
       <div className={(styles.productHeading, styles.seeAllGames)}>
         <Link to="/products" className="st-1 button btn-plain btn-primary">
           See all Games

@@ -2,7 +2,7 @@ import { NewGamesCard } from "../../components";
 import { products } from "../../constants";
 import styles from "./NewGames.module.css";
 
-let productsList = products.filter((item) => item.isNew);
+let productsList = products.filter((item) => item.isLatest);
 productsList = [...productsList, ...productsList, ...productsList];
 
 const NewGames = () => {

@@ -1,4 +1,3 @@
-import { ASSETS_URL } from "../../constants";
 import { TopProductCard } from "../../components";
 import { products } from "../../constants";
 import styles from "./TopProducts.module.css";
@@ -16,7 +15,7 @@ const TopProducts = () => {
         {productsList.map((item) => (
           <TopProductCard
             key={item.id}
-            imageSrc={`${ASSETS_URL}${item.imageSrc}`}
+            imageSrc={item.imageSrc}
             title={item.title}
             desc={item.desc}
             price={item.price}

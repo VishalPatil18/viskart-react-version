@@ -13,7 +13,7 @@ const ProductListing = () => {
       <div className={styles.productsWrapper}>
         <Filters cname={styles.sidebar} />
         <div className={styles.mainBody}>
-          <FeaturedGames showingProductsCaption="(showing 6 products)" />
+          <FeaturedGames />
           <Pagination />
         </div>
       </div>

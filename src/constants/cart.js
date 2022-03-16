@@ -1,25 +1,26 @@
 const cart = [
   {
     id: 0,
-    title: "Fall Guys",
+    title: "Fall Guys: Ultimate Knockout",
     desc: "a massively 60 multiplayer game",
-    vendor: "",
-    imageSrc: "/fallguys.png",
+    categoryName: ["arcade-and-puzzle"],
+    vendor: "mediatonic",
     price: "49.99",
     discount: "0",
-    isNew: true,
+    isLatest: true,
     isTop: true,
+    imageSrc: "https://raw.githubusercontent.com/VishalPatil18/VISKart/development/assets/fallguys.png"
   },
   {
-    id: 1,
     title: "Cricket 2007",
-    desc: "fight for survival in a post-apocalyptic open world",
+    desc: "enjoy the immersive cricketing action across platform",
+    categoryName: ["sports"],
     vendor: "EA Sports",
-    imageSrc: "/cricket07.png",
     price: "99.99",
     discount: "40",
-    isNew: false,
+    isLatest: false,
     isTop: false,
+    imageSrc: "https://raw.githubusercontent.com/VishalPatil18/VISKart/development/assets/cricket07.png"
   },
 ];
 
