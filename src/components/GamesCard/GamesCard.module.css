@@ -1,0 +1,72 @@
+.cardBody {
+  justify-self: center;
+  width: 250px;
+}
+
+.cardImgAdjustment {
+  height: 250px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.badgeIconWidth {
+  width: 50px;
+}
+
+.cardTitle {
+  padding: var(--space-xs) var(--space-xs) 0;
+  text-align: center;
+}
+
+.cardContent {
+  padding: 0;
+}
+
+.cardPrice {
+  padding: 0 var(--space-xs);
+  text-align: center;
+  width: 100%;
+}
+
+.cardNewPrice {
+  margin-left: var(--space-xxs);
+}
+
+.iconButton {
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: var(--br-full); 
+  box-shadow: none;
+  display: flex;
+  height: 40px;
+  justify-content: center;
+  padding: 0;
+  width: 40px;
+}
+
+.iconButton:hover {
+  background-color: black;
+  transition: 0.2s ease-in;
+}
+
+.cardFooter {
+  border-top: none;
+  padding: 0;
+}
+
+.cardFooterRight {
+  gap: 5px;
+  position: absolute;
+  right: 5px;
+  top: 200px;
+}
+
+.cardFooterLeft {
+  border-right: none;
+}
+
+.cardFooter .buyButton {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  padding: var(--space-xxs) var(--space-xs);
+}

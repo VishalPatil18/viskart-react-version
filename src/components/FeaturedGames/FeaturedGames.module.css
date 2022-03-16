@@ -1,0 +1,23 @@
+.products_heading {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--space-xl);
+}
+
+.main_products {
+  column-gap: var(--space-md);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  margin-top: var(--space-md);
+  row-gap: var(--space-xl);
+}
+
+.featuredGamesWrapper {
+  width: 100%;
+}
+
+.showingProductsCaption {
+  color: var(--grey-5);
+  font-size: var(--fs-xs-1);
+  margin: auto auto auto var(--space-sm);
+}

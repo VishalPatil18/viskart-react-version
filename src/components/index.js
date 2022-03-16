@@ -1,0 +1,15 @@
+export { Breadcrumb } from "./Breadcrumb/Breadcrumb";
+export { FeaturedGames } from "./FeaturedGames/FeaturedGames";
+export { Filters } from "./Filters/Filters";
+export { Footer } from "./Footer/Footer";
+export { GamesCard } from "./GamesCard/GamesCard";
+export { HorizontalCard } from "./HorizontalCard/HorizontalCard";
+export { Navbar } from "./Navbar/Navbar";
+export { NewGames } from "./NewGames/NewGames";
+export { NewGamesCard } from "./NewGamesCard/NewGamesCard";
+export { Pagination } from "./Pagination/Pagination";
+export { PriceDetails } from "./PriceDetails/PriceDetails";
+export { ProductCarousel } from "./ProductCarousel/ProductCarousel";
+export { TopProductCard } from "./TopProductCard/TopProductCard";
+export { TopProducts } from "./TopProducts/TopProducts";
+export { WishlistCard } from "./WishlistCard/WishlistCard";

@@ -1,0 +1,48 @@
+const wishlist = [
+  {
+    id: 0,
+    title: "Cricket 2007",
+    desc: "fight for survival in a post-apocalyptic open world",
+    vendor: "EA Sports",
+    imageSrc: "/cricket07.png",
+    price: "99.99",
+    discount: "40",
+    isNew: false,
+    isTop: false,
+  },
+  {
+    id: 1,
+    title: "Crazy Taxi",
+    desc: "",
+    vendor: "Dreamcast Games",
+    imageSrc: "/crazytaxi.png",
+    price: "39.99",
+    discount: "20",
+    isNew: false,
+    isTop: false,
+  },
+  {
+    id: 2,
+    title: "NFS Most Wanted",
+    desc: "",
+    vendor: "EA Games",
+    imageSrc: "/nfsmw.webp",
+    price: "99.99",
+    discount: "50",
+    isNew: false,
+    isTop: false,
+  },
+  {
+    id: 3,
+    title: "Fifa 07",
+    desc: "",
+    vendor: "EA Games",
+    imageSrc: "/fifa07.jpg",
+    price: "99.99",
+    discount: "10",
+    isNew: false,
+    isTop: false,
+  },
+];
+
+export { wishlist };
