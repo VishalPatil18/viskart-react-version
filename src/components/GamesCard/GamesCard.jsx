@@ -1,4 +1,4 @@
-import { ASSETS_URL, ICONS_URL } from "../../constants";
+import { ICONS_URL } from "../../constants";
 import styles from "./GamesCard.module.css";
 
 const GamesCard = ({ title, vendor, imageSrc, price, discount }) => {
@@ -14,24 +14,28 @@ const GamesCard = ({ title, vendor, imageSrc, price, discount }) => {
           <span className="card__discount">{discount}% OFF</span>
         </div>
         <img
-          src={`${ASSETS_URL}${imageSrc}`}
+          src={imageSrc}
           className={`card__img ${styles.cardImgAdjustment}`}
           alt="card-image"
         />
-        <div className={`card__title ${styles.cardTitle}`}>
-          <h1 className="h-5">{title}</h1>
+        <div className={`card__title ${styles.cardTitleWrapper}`}>
+          <h1 title={title} className={`h-5 ${styles.cardTitle}`}>
+            {title}
+          </h1>
           <p className="caption">{vendor}</p>
         </div>
         <div className="card__content">
           <p className={`bd-5 ${styles.cardPrice}`}>
-            ${discount === "0" ? price : <strike>{price}</strike>}
-            {discount !== "0" && (
+            ${discount !== "0" && <strike>{price}</strike>}
+            {
               <span
                 className={`card__content--newprice ${styles.cardNewPrice}`}
               >
-                {Number.parseFloat(price * (discount / 100)).toFixed(2)}
+                {discount === "0"
+                  ? price
+                  : Number.parseFloat(price * (discount / 100)).toFixed(2)}
               </span>
-            )}
+            }
             /-
           </p>
         </div>
@@ -41,7 +45,7 @@ const GamesCard = ({ title, vendor, imageSrc, price, discount }) => {
           <button
             className={`button btn-sm btn-solid-primary card__button ${styles.buyButton}`}
           >
-            Add to Cart $
+            Add to Cart - $
             {discount !== "0"
               ? Number.parseFloat(price * (discount / 100)).toFixed(2)
               : price}

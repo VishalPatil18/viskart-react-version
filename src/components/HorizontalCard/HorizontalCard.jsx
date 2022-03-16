@@ -1,4 +1,4 @@
-import { ASSETS_URL, ICONS_URL } from "../../constants";
+import { ICONS_URL } from "../../constants";
 import styles from "./HorizontalCard.module.css";
 
 const HorizontalCard = ({ title, desc, price, discount, imageSrc }) => {
@@ -12,11 +12,7 @@ const HorizontalCard = ({ title, desc, price, discount, imageSrc }) => {
         />
         <span className="card__discount">{discount}% OFF</span>
       </div>
-      <img
-        className={styles.myItemImage}
-        src={`${ASSETS_URL + imageSrc}`}
-        alt={title}
-      />
+      <img className={styles.myItemImage} src={imageSrc} alt={title} />
       <div className={styles.cardBody}>
         <div className="my-item__disc">
           <h5 className="h-5">{title}</h5>

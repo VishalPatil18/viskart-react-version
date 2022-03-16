@@ -1,21 +1,28 @@
 import { GamesCard } from "../../components";
-import { products } from "../../constants";
 import styles from "./FeaturedGames.module.css";
+import { useData } from "../../context/dataContext";
 
-const productsList = products.filter((item) => !item.isNew);
+const FeaturedGames = ({ isHomePage = false }) => {
+  const { dataState, dataDispatch } = useData();
+  console.log("Data State is ", dataState);
+  let products = dataState.products;
+  if (isHomePage) {
+    products = dataState.products
+      .slice(0, 12)
+      .sort(() => (Math.random() > 0.5 ? 1 : -1));
+  }
 
-const FeaturedGames = ({ showingProductsCaption }) => {
   return (
     <div className={styles.featuredGamesWrapper}>
       <div className={styles.products_heading}>
         <h5 className="h-5">Featured Games</h5>
         <p className={styles.showingProductsCaption}>
-          {showingProductsCaption}
+          {!isHomePage && `(showing ${products.length} products)`}
         </p>
         <button className="st-1 button btn-plain btn-primary">See all</button>
       </div>
       <section className={styles.main_products}>
-        {productsList.map((item) => (
+        {products.map((item) => (
           <GamesCard
             title={item.title}
             vendor={item.vendor}

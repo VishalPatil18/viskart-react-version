@@ -1,4 +1,4 @@
-import { ASSETS_URL, ICONS_URL } from "../../constants";
+import { ICONS_URL } from "../../constants";
 import styles from "./WishlistCard.module.css";
 
 const WishlistCard = ({ title, vendor, imageSrc, price, discount }) => {
@@ -14,7 +14,7 @@ const WishlistCard = ({ title, vendor, imageSrc, price, discount }) => {
           <span className="card__discount">{discount}% OFF</span>
         </div>
         <img
-          src={`${ASSETS_URL}${imageSrc}`}
+          src={imageSrc}
           className={`card__img ${styles.cardImgAdjustment}`}
           alt="card-image"
         />
