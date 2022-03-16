@@ -1,0 +1,52 @@
+.productsHeading {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto var(--space-lg);
+  width: 100%;
+}
+
+.productsAndPrice {
+  display: flex;
+  gap: var(--space-md);
+  width: 100%;
+}
+
+.myProducts {
+  background-color: var(--light);
+  border-radius: var(--br-xl);
+  display: flex;
+  flex-direction: column;
+  flex: 2;
+  gap: var(--space-md);
+  padding: var(--space-md);
+}
+
+.priceDetails {
+  border-radius: var(--br-xl);
+  flex: 1.25;
+  height: 100%;
+  width: 100%;
+}
+
+.cardCaption {
+  text-align: center;
+  width: 100%;
+}
+
+.shareCartBtn {
+  margin: var(--space-lg) 0;
+  width: 100%;
+}
+
+.shareCartBtn > img {
+  margin-right: var(--space-xs);
+}
+
+/*
+***************** MEDIA QUERIES *****************
+*/
+@media screen and (max-width: 880px) {
+  .productsAndPrice {
+    flex-direction: column;
+  }
+}

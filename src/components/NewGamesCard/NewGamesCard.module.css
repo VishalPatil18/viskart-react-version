@@ -1,0 +1,17 @@
+.newItem {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  height: 200px;
+  justify-content: space-between;
+  text-align: center;
+  width: 100px;
+}
+
+.newItemImage {
+  border-radius: var(--br-md);
+  height: 100px;
+  object-fit: cover;
+  width: 100px;
+}

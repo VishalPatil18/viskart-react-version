@@ -1,0 +1,14 @@
+.productsHeading {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto var(--space-lg);
+  width: 100%;
+}
+
+.wishlistItems {
+  display: grid;
+  gap: var(--space-md);
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  justify-content: center;
+  margin-top: var(--space-xl);
+}
