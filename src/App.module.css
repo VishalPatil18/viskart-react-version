@@ -1,0 +1,11 @@
+.main {
+  height: 100%;
+  padding: var(--space-sm) 10%;
+  width: 100%;
+}
+
+.seeAllGames {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-xl);
+}

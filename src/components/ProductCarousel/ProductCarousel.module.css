@@ -1,0 +1,39 @@
+.mainCarousel {
+  height: 300px;
+  margin: var(--space-md) auto 0;
+  position: relative;
+  width: 100%;
+}
+
+.mainCarouselImage {
+  -webkit-backdrop-filter: blur(0px);
+  backdrop-filter: blur(0px);
+  border-radius: var(--br-xl);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.mainCarouselCaption {
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 0 var(--br-xl);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  bottom: 0;
+  color: white;
+  left: 0;
+  padding: var(--space-sm) var(--space-md);
+  position: absolute;
+}
+
+/*
+***************** MEDIA QUERIES *****************
+*/
+@media screen and (max-width: 540px) {
+  .mainCarouselCaption {
+    border-radius: 0;
+    border-bottom-left-radius: var(--br-xl);
+    border-bottom-right-radius: var(--br-xl);
+    width: 100%;
+  }
+}

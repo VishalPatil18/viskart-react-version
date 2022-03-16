@@ -1,0 +1,82 @@
+.horizontalCard {
+  background-color: white;
+  border-radius: var(--br-xl);
+  box-shadow: var(--bs-xs);
+  display: flex;
+  height: 250px;
+  position: relative;
+  width: 100%;
+}
+
+.horizontalCard:hover {
+  box-shadow: var(--bs-sm);
+  transition: 0.2s ease-in;
+}
+
+.myItemImage {
+  border-bottom-left-radius: var(--br-xl);
+  border-top-left-radius: var(--br-xl);
+  flex-shrink: 0;
+  object-fit: cover;
+  width: 40%;
+}
+
+.cardBody {
+  color: var(--dark);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-sm);
+  width: 100%;
+}
+
+.cardContentNewprice {
+  color: var(--danger);
+  font-size: var(--fs-md-2);
+}
+
+.cardButtonWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: auto;
+}
+
+.cardBadge {
+  left: 20px;
+  position: absolute;
+  top: -5px;
+  width: 50px;
+}
+
+.topItemButton {
+  flex: 1;
+  margin: 0px;
+}
+
+.shareCartBtn {
+  margin: var(--space-lg) 0;
+  width: 100%;
+}
+
+.shareCartBtn > img {
+  margin-right: var(--space-xs);
+}
+
+/*
+***************** MEDIA QUERIES *****************
+*/
+@media screen and (max-width: 680px) {
+  .horizontalCard {
+    flex-direction: column;
+    height: initial;
+  }
+
+  .myItemImage {
+    border-radius: 0;
+    border-top-left-radius: var(--br-xl);
+    border-top-right-radius: var(--br-xl);
+    height: 250px;
+    width: 100%;
+  }
+}

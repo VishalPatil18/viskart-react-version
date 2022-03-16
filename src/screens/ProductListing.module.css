@@ -1,0 +1,28 @@
+.sidebar {
+  background-color: var(--secondary-theme-background);
+  height: 100%;
+  left: 0;
+  overflow-y: scroll;
+  padding: 0 var(--space-lg) var(--space-lg);
+  position: sticky;
+  top: 125px;
+  width: 320px;
+}
+
+.productsPage {
+  width: 100%;
+}
+
+.productsWrapper {
+  display: flex;
+  width: 100%;
+}
+
+.mainBody {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 var(--space-lg);
+  width: 100%;
+}

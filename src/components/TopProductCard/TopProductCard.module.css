@@ -1,0 +1,25 @@
+.topItem {
+  align-items: center;
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.topItemImage {
+  border-radius: var(--br-md);
+  height: 60px;
+  object-fit: cover;
+  width: 60px;
+}
+
+.topItemDisc {
+  margin-left: var(--space-sm);
+}
+
+.topItemDisc .st-1 {
+  color: var(--dark);
+}
+
+.topItemButton {
+  margin-left: auto;
+}
