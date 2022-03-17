@@ -17,7 +17,7 @@ const User = ({cname}) => {
 
   return (
     <section className={cname}>
-      {/* <p className={styles.greet}>Hello, {authState.user.username}👋</p> */}
+      {authState.user && <p className={styles.greet}>Hello, {authState.user.username}👋</p>}
       <button className="button btn-solid-primary" onClick={logoutHandler}>Logout</button>
     </section>
   );

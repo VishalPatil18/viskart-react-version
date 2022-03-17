@@ -23,7 +23,6 @@ const AuthProvider = ({ children }) => {
     } catch (error) {
       console.log("ERROR: ", error);
     }
-    console.log("Authstate token changed");
   }, []);
   
   return (

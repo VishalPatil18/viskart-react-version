@@ -85,14 +85,14 @@ const Navbar = () => {
           />
         </button>
         {() => console.log("Auth State in Navbar: ", authState)}
-        {authState.token !== null ? (
+        {authState.user ? (
           <Link to="/user" className={styles.profileBadge}>
             <img
               className="icon-md icon-light"
               src={`${ICONS_URL}/user.svg`}
               alt="login"
             />
-            {authState.user.username}
+            <p>{authState.user.username}</p>
           </Link>
         ) : (
           <button

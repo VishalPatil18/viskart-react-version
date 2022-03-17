@@ -1,11 +1,7 @@
 import axios from "axios";
 
-const signupService = (email, username, password) => {
-  return axios.post("/api/auth/signup", {
-    email: email,
-    username: username,
-    password: password,
-  });
+const signupService = (signup) => {
+  return axios.post("/api/auth/signup", signup);
 };
 
 export { signupService };

@@ -33,7 +33,7 @@ const AuthModal = ({ authModalOpen, setAuthModalOpen }) => {
         }))
       : setSignup((prevState) => ({
           ...prevState,
-          [action]: e.target.value,
+          [inputType]: e.target.value,
         }));
   };
 
@@ -43,13 +43,16 @@ const AuthModal = ({ authModalOpen, setAuthModalOpen }) => {
       const response = await loginService(login);
       if (response.status === 200) {
         localStorage.setItem("viskartToken", response.data.encodedToken);
-        localStorage.setItem("viskartUser", JSON.stringify(response.data.foundUser));
-        authDispatch(authState, {
+        localStorage.setItem(
+          "viskartUser",
+          JSON.stringify(response.data.foundUser)
+        );
+        authDispatch({
           type: "LOGIN",
           payload: {
-            token: response.data.token,
-            user: response.data.foundUser
-          }
+            token: response.data.encodedToken,
+            user: response.data.foundUser,
+          },
         });
         modalHandler("CLOSE");
         alert("Login Successful");
@@ -70,21 +73,22 @@ const AuthModal = ({ authModalOpen, setAuthModalOpen }) => {
   const signUpHandler = async (e) => {
     try {
       e.preventDefault();
-      let response = await signupService(
-        signup.email,
-        signup.username,
-        signup.password
-      );
+      let response = await signupService(signup);
+      console.log("Signup: ", signup);
       if (response.status === 201) {
-        authDispatch(authState, {
+        authDispatch({
           type: "SIGNUP",
           payload: {
-            token: response.data.token,
-            user: response.data.createdUser
-          }
+            token: response.data.encodedToken,
+            user: response.data.createdUser,
+          },
         });
+        console.log("User:", authState.user);
         localStorage.setItem("viskartToken", response.data.encodedToken);
-        localStorage.setItem("viskartUser", JSON.stringify(response.data.createdUser));
+        localStorage.setItem(
+          "viskartUser",
+          JSON.stringify(response.data.createdUser)
+        );
         modalHandler("CLOSE");
         alert("Signup Successful");
         navigate("/");
