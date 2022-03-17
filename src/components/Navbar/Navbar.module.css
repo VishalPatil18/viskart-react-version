@@ -116,6 +116,20 @@
   width: 20px;
 }
 
+.profileBadge {
+  display: flex;
+  gap: var(--space-xxxs);
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fs-xs-2);
+  margin: auto 1rem;
+  border-radius: var(--br-full);
+  padding: var(--space-xxxs) var(--space-xs);
+  background-color: var(--primary);
+  color: white;
+  box-shadow: var(--bs-xs);
+}
+
 /*
 ***************** MEDIA QUERIES *****************
 */

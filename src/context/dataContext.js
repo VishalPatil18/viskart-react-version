@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
-import { dataReducer, initialState } from "../redux/dataReducer";
+import { dataReducer, initialState } from "../redux";
 import axios from "axios";
 
 const DataContext = createContext({

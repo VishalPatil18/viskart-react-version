@@ -1,8 +1,21 @@
+import { useState } from "react";
+import { AuthModal } from "../../components";
 import { ASSETS_URL, ICONS_URL } from "../../constants";
+import { useAuth } from "../../context";
 import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
 
 const Navbar = () => {
+  const { authState } = useAuth();
+
+  const [authModalOpen, setAuthModalOpen] = useState({
+    login: false,
+    signup: false,
+  });
+  const authModalHandler = () => {
+    setAuthModalOpen({ login: true, signup: false });
+  };
+
   return (
     <header className={styles.header}>
       <div className={(styles.headerItem, styles.headerLogo)}>
@@ -63,14 +76,6 @@ const Navbar = () => {
           />
         </button>
 
-        <button className={`txt-center ${styles.headerMenuItem}`}>
-          <img
-            className="icon-md icon-dark"
-            src={`${ICONS_URL}/user.svg`}
-            alt="login"
-          />
-        </button>
-
         <button className={`button btn-plain-icon ${styles.themeSwitcher}`}>
           <img
             className="icon-dark"
@@ -79,7 +84,35 @@ const Navbar = () => {
             id="theme-icon"
           />
         </button>
+        {() => console.log("Auth State in Navbar: ", authState)}
+        {authState.token !== null ? (
+          <Link to="/user" className={styles.profileBadge}>
+            <img
+              className="icon-md icon-light"
+              src={`${ICONS_URL}/user.svg`}
+              alt="login"
+            />
+            {authState.user.username}
+          </Link>
+        ) : (
+          <button
+            className={`txt-center ${styles.headerMenuItem}`}
+            onClick={authModalHandler}
+          >
+            <img
+              className="icon-md icon-dark"
+              src={`${ICONS_URL}/user.svg`}
+              alt="login"
+            />
+          </button>
+        )}
       </div>
+      {(authModalOpen.login || authModalOpen.signup) && (
+        <AuthModal
+          authModalOpen={authModalOpen}
+          setAuthModalOpen={setAuthModalOpen}
+        />
+      )}
     </header>
   );
 };

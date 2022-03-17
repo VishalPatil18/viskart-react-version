@@ -1,0 +1,21 @@
+.modalContainer {
+  z-index: 2;
+  display: flex;
+  overflow: hidden;
+}
+
+.rememberMeContainer {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.forgetPassword {
+  background-color: initial;
+  border: none;
+  cursor: pointer;
+}
+
+.guestLogin {
+  margin-right: auto;
+}
