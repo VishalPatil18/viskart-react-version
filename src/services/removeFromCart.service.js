@@ -4,7 +4,7 @@ const removeFromCartService = (item, cart, remove) => {
   }
 
   return cart.reduce((acc, curr) => {
-    if (curr.id === item.id) {
+    if (curr._id === item._id) {
       if (item.quantity > 1)
         acc = [...acc, { ...curr, quantity: curr.quantity - 1 }];
     } else acc = [...acc, curr];

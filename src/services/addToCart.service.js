@@ -1,10 +1,10 @@
 const addToCartService = (item, cart) => {
-  const isItemPresent = cart.find((cartItem) => item.id === cartItem.id);
+  const isItemPresent = cart.find((cartItem) => item._id === cartItem._id);
   if (isItemPresent !== undefined) {
     return cart.reduce(
       (acc, curr) => [
         ...acc,
-        curr.id === item.id ? { ...curr, quantity: curr.quantity + 1 } : curr,
+        curr._id === item._id ? { ...curr, quantity: curr.quantity + 1 } : curr,
       ],
       []
     );

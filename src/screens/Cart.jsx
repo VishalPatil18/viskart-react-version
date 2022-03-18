@@ -40,7 +40,7 @@ const Cart = ({ cname }) => {
             )}
             {authState.user &&
               authState.user.cart.map((item) => (
-                <HorizontalCard key={item.id} item={item} />
+                <HorizontalCard key={item._id} item={item} />
               ))}
           </section>
 
