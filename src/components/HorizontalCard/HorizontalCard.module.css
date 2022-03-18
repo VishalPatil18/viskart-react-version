@@ -76,6 +76,23 @@
   margin-right: var(--space-xs);
 }
 
+.quantityButton {
+  align-items: center;
+  background-color: var(--primary);
+  border-radius: var(--br-full);
+  color: white;
+  display: flex;
+  height: 25px;
+  justify-content: center;
+  padding: 0rem;
+  width: 25px;
+}
+
+.quantityValue {
+  font-size: var(--fs-sm-1);
+  font-weight: var(--fw-6);
+}
+
 /*
 ***************** MEDIA QUERIES *****************
 */

@@ -1,7 +1,13 @@
+import { useAuth } from "../../context";
+import { getPriceDetails } from "../../utilities";
 import { ICONS_URL } from "../../constants";
 import styles from "./PriceDetails.module.css";
 
 const PriceDetails = () => {
+  const { authState } = useAuth();
+  const { totalPrice, totalDiscount, totalAmount, totalItems } =
+    getPriceDetails(authState.user.cart);
+
   return (
     <div className={styles.card}>
       <div className="card__title">
@@ -9,12 +15,12 @@ const PriceDetails = () => {
       </div>
       <div className={styles.cardContent}>
         <div className={styles.priceDesc}>
-          <p className="bd-5">Price(2 items)</p>
-          <p className="st-1 price-value">$149.00</p>
+          <p className="bd-5">Price ({totalItems} items)</p>
+          <p className="st-1 price-value">${totalPrice}</p>
         </div>
         <div className={styles.priceDesc}>
           <p className="bd-5">Discount</p>
-          <p className="st-1 price-value">-$25.00</p>
+          <p className="st-1 price-value">-${totalDiscount}</p>
         </div>
         <div className={styles.priceDesc}>
           <p className="bd-5">Delivery Charges</p>
@@ -22,10 +28,12 @@ const PriceDetails = () => {
         </div>
         <div className={styles.totalAmount}>
           <p className="bd-5">TOTAL AMOUNT</p>
-          <p className="st-1 price-value">$129.00</p>
+          <p className="st-1 price-value">${Number(totalAmount) + 5}</p>
         </div>
         <div className={styles.priceDesc}>
-          <p className="cp card-caption">You will save $25 on this order</p>
+          <p className="cp card-caption">
+            You will save ${totalDiscount} on this order
+          </p>
           <button className={`button txt-center ${styles.applyCouponsBtn}`}>
             <img
               className="icon-md icon-success"
@@ -37,7 +45,7 @@ const PriceDetails = () => {
         </div>
       </div>
       <button className={`button btn-solid-primary ${styles.palceOrderBtn}`}>
-        Place Order - $129.00
+        Place Order - ${Number(totalAmount) + 5}
       </button>
     </div>
   );

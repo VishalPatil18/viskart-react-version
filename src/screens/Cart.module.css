@@ -42,6 +42,23 @@
   margin-right: var(--space-xs);
 }
 
+.emptyCartMsg {
+  color: var(--grey-5);
+  font-size: var(--fs-md-2);
+  font-weight: var(--fw-5);
+  margin-bottom: var(--space-md);
+  text-align: center;
+}
+
+.emptyCartMsgWrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+}
+
 /*
 ***************** MEDIA QUERIES *****************
 */
