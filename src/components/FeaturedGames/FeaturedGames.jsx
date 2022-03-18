@@ -3,7 +3,7 @@ import styles from "./FeaturedGames.module.css";
 import { useData } from "../../context/dataContext";
 
 const FeaturedGames = ({ isHomePage = false }) => {
-  const { dataState, dataDispatch } = useData();
+  const { dataState } = useData();
   let products = dataState.products.sort(() => (Math.random() > 0.5 ? 1 : -1));
   if (isHomePage) {
     products = dataState.products.slice(0, 12);
@@ -20,13 +20,7 @@ const FeaturedGames = ({ isHomePage = false }) => {
       </div>
       <section className={styles.main_products}>
         {products.map((item) => (
-          <GamesCard
-            title={item.title}
-            vendor={item.vendor}
-            imageSrc={item.imageSrc}
-            price={item.price}
-            discount={item.discount}
-          />
+          <GamesCard item={item} />
         ))}
       </section>
     </div>

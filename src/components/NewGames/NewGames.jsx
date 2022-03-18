@@ -15,7 +15,7 @@ const NewGames = () => {
       <section className={styles.newProducts}>
         {productsList.map((item) => (
           <NewGamesCard
-            key={item.id}
+            key={item._id}
             title={item.title}
             price={item.price}
             imageSrc={item.imageSrc}

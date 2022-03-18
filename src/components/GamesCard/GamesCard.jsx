@@ -1,39 +1,54 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { addToCartHandler } from "../../utilities";
+import { useAuth } from "../../context";
 import { ICONS_URL } from "../../constants";
 import styles from "./GamesCard.module.css";
 
-const GamesCard = ({ title, vendor, imageSrc, price, discount }) => {
+const GamesCard = ({ item }) => {
+  const { authDispatch } = useAuth();
+  const [itemAdded, setItemAdded] = useState(false);
+
   return (
-    <article className={`card card__ecommerce ${styles.cardBody}`}>
+    <article
+      key={item._id}
+      className={`card card__ecommerce ${styles.cardBody}`}
+    >
       <div className="card__body">
-        {discount !== "0" && <div className="card__badge">
-          <img
-            className={`badge__icon icon-danger ${styles.badgeIconWidth}`}
-            src={`${ICONS_URL}/bookmark.svg`}
-            alt="bookmark-icon"
-          />
-          <span className="card__discount">{discount}% OFF</span>
-        </div>}
+        {item.discount !== "0" && (
+          <div className="card__badge">
+            <img
+              className={`badge__icon icon-danger ${styles.badgeIconWidth}`}
+              src={`${ICONS_URL}/bookmark.svg`}
+              alt="bookmark-icon"
+            />
+            <span className="card__discount">{item.discount}% OFF</span>
+          </div>
+        )}
         <img
-          src={imageSrc}
+          src={item.imageSrc}
           className={`card__img ${styles.cardImgAdjustment}`}
           alt="card-image"
         />
         <div className={`card__title ${styles.cardTitleWrapper}`}>
-          <h1 title={title} className={`h-5 ${styles.cardTitle}`}>
-            {title}
+          <h1 title={item.title} className={`h-5 ${styles.cardTitle}`}>
+            {item.title}
           </h1>
-          <p className="caption">{vendor}</p>
+          <p className="caption">{item.vendor}</p>
         </div>
         <div className="card__content">
           <p className={`bd-5 ${styles.cardPrice}`}>
-            ${discount !== "0" && <strike>{price}</strike>}
+            ${item.discount !== "0" && <strike>{item.price}</strike>}
             {
               <span
                 className={`card__content--newprice ${styles.cardNewPrice}`}
               >
-                {discount === "0"
-                  ? price
-                  : (price - Number.parseFloat(price * (discount / 100))).toFixed(2)}
+                {item.discount === "0"
+                  ? item.price
+                  : (
+                      item.price -
+                      Number.parseFloat(item.price * (item.discount / 100))
+                    ).toFixed(2)}
               </span>
             }
             /-
@@ -42,14 +57,30 @@ const GamesCard = ({ title, vendor, imageSrc, price, discount }) => {
       </div>
       <div className={`card__footer ${styles.cardFooter}`}>
         <div className={`card__footer--left ${styles.cardFooterLeft}`}>
-          <button
-            className={`button btn-sm btn-solid-primary card__button ${styles.buyButton}`}
-          >
-            Add to Cart - $
-            {discount !== "0"
-              ? (price - Number.parseFloat(price * (discount / 100))).toFixed(2)
-              : price}
-          </button>
+          {!itemAdded ? (
+            <button
+              className={`button btn-sm btn-solid-primary card__button ${styles.buyButton}`}
+              onClick={() => {
+                setItemAdded(true);
+                return addToCartHandler(item, authDispatch);
+              }}
+            >
+              Add to Cart - $
+              {item.discount !== "0"
+                ? (
+                    item.price -
+                    Number.parseFloat(item.price * (item.discount / 100))
+                  ).toFixed(2)
+                : item.price}
+            </button>
+          ) : (
+            <Link
+              to="/cart"
+              className={`button btn-sm btn-solid-success card__button ${styles.buyButton}`}
+            >
+              Move to Cart
+            </Link>
+          )}
         </div>
         <div className={`card__footer--right ${styles.cardFooterRight}`}>
           <button className={`button ${styles.iconButton}`}>

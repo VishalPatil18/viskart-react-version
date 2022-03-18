@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 import { dataReducer, initialState } from "../redux";
-import axios from "axios";
+import { productsService } from "../services";
 
 const DataContext = createContext({
   dataState: {},
@@ -13,7 +13,7 @@ const DataProvider = ({ children }) => {
   useEffect(() => {
     (async () => {
       try {
-        const response = await axios.get("/api/products");
+        const response = await productsService();
         dataDispatch({ type: "INITIAL_DATA", payload: response.data.products });
       } catch (error) {
         console.log("ERROR: ", error);

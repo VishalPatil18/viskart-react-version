@@ -14,7 +14,7 @@ const TopProducts = () => {
       <section className={styles.topProducts}>
         {productsList.map((item) => (
           <TopProductCard
-            key={item.id}
+            key={item._id}
             imageSrc={item.imageSrc}
             title={item.title}
             desc={item.desc}

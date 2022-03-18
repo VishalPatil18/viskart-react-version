@@ -3,7 +3,6 @@
   border-radius: var(--br-xl);
   box-shadow: var(--bs-xs);
   display: flex;
-  height: 250px;
   position: relative;
   width: 100%;
 }
@@ -74,6 +73,23 @@
 
 .shareCartBtn > img {
   margin-right: var(--space-xs);
+}
+
+.quantityButton {
+  align-items: center;
+  background-color: var(--primary);
+  border-radius: var(--br-full);
+  color: white;
+  display: flex;
+  height: 25px;
+  justify-content: center;
+  padding: 0rem;
+  width: 25px;
+}
+
+.quantityValue {
+  font-size: var(--fs-sm-1);
+  font-weight: var(--fw-6);
 }
 
 /*
