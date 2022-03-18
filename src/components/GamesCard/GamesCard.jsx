@@ -5,14 +5,14 @@ const GamesCard = ({ title, vendor, imageSrc, price, discount }) => {
   return (
     <article className={`card card__ecommerce ${styles.cardBody}`}>
       <div className="card__body">
-        <div className="card__badge">
+        {discount !== "0" && <div className="card__badge">
           <img
             className={`badge__icon icon-danger ${styles.badgeIconWidth}`}
             src={`${ICONS_URL}/bookmark.svg`}
             alt="bookmark-icon"
           />
           <span className="card__discount">{discount}% OFF</span>
-        </div>
+        </div>}
         <img
           src={imageSrc}
           className={`card__img ${styles.cardImgAdjustment}`}
@@ -33,7 +33,7 @@ const GamesCard = ({ title, vendor, imageSrc, price, discount }) => {
               >
                 {discount === "0"
                   ? price
-                  : Number.parseFloat(price * (discount / 100)).toFixed(2)}
+                  : (price - Number.parseFloat(price * (discount / 100))).toFixed(2)}
               </span>
             }
             /-
@@ -47,7 +47,7 @@ const GamesCard = ({ title, vendor, imageSrc, price, discount }) => {
           >
             Add to Cart - $
             {discount !== "0"
-              ? Number.parseFloat(price * (discount / 100)).toFixed(2)
+              ? (price - Number.parseFloat(price * (discount / 100))).toFixed(2)
               : price}
           </button>
         </div>

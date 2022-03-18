@@ -30,6 +30,13 @@
   width: 100%;
 }
 
+.cardTitle {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 23vw;
+}
+
 .cardContentNewprice {
   color: var(--danger);
   font-size: var(--fs-md-2);
@@ -47,6 +54,12 @@
   position: absolute;
   top: -5px;
   width: 50px;
+}
+
+.newPrice {
+  color: var(--danger);
+  font-size: var(--fs-md-2);
+  margin-left: var(--space-xxs);
 }
 
 .topItemButton {

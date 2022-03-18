@@ -4,12 +4,9 @@ import { useData } from "../../context/dataContext";
 
 const FeaturedGames = ({ isHomePage = false }) => {
   const { dataState, dataDispatch } = useData();
-  console.log("Data State is ", dataState);
-  let products = dataState.products;
+  let products = dataState.products.sort(() => (Math.random() > 0.5 ? 1 : -1));
   if (isHomePage) {
-    products = dataState.products
-      .slice(0, 12)
-      .sort(() => (Math.random() > 0.5 ? 1 : -1));
+    products = dataState.products.slice(0, 12);
   }
 
   return (

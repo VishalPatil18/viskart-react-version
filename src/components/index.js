@@ -1,3 +1,4 @@
+export { AuthModal } from "./AuthModal/AuthModal";
 export { Breadcrumb } from "./Breadcrumb/Breadcrumb";
 export { FeaturedGames } from "./FeaturedGames/FeaturedGames";
 export { Filters } from "./Filters/Filters";
