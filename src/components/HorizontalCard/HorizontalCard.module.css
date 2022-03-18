@@ -3,7 +3,6 @@
   border-radius: var(--br-xl);
   box-shadow: var(--bs-xs);
   display: flex;
-  height: 250px;
   position: relative;
   width: 100%;
 }
