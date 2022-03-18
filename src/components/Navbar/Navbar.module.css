@@ -117,19 +117,19 @@
 }
 
 .profileBadge {
-  display: flex;
-  gap: var(--space-xxxs);
   align-items: center;
-  justify-content: flex-start;
-  font-size: var(--fs-xs-2);
-  margin: auto 1rem;
-  border-radius: var(--br-full);
-  padding: var(--space-xxxs) var(--space-xs);
   background-color: var(--primary);
-  color: white;
+  border-radius: var(--br-full);
   box-shadow: var(--bs-xs);
-  width: fit-content;
+  color: white;
+  display: flex;
+  font-size: var(--fs-xs-2);
+  gap: var(--space-xxxs);
+  justify-content: flex-start;
+  margin: auto 1rem;
   max-width: 120px;
+  padding: var(--space-xxxs) var(--space-xs);
+  width: fit-content;
 }
 
 .profileBadge > p {

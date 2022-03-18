@@ -74,7 +74,6 @@ const AuthModal = ({ authModalOpen, setAuthModalOpen }) => {
     try {
       e.preventDefault();
       let response = await signupService(signup);
-      console.log("Signup: ", signup);
       if (response.status === 201) {
         authDispatch({
           type: "SIGNUP",
@@ -83,7 +82,6 @@ const AuthModal = ({ authModalOpen, setAuthModalOpen }) => {
             user: response.data.createdUser,
           },
         });
-        console.log("User:", authState.user);
         localStorage.setItem("viskartToken", response.data.encodedToken);
         localStorage.setItem(
           "viskartUser",
@@ -92,9 +90,10 @@ const AuthModal = ({ authModalOpen, setAuthModalOpen }) => {
         modalHandler("CLOSE");
         alert("Signup Successful");
         navigate("/");
+      } else {
+        throw new Error("Something went wrong! Please try again later.");
       }
     } catch (error) {
-      console.log(error);
       alert(error);
     }
   };
