@@ -87,6 +87,11 @@
   width: 25px;
 }
 
+.disabledBtn {
+  background-color: var(--grey-2);
+  cursor: not-allowed;
+}
+
 .quantityValue {
   font-size: var(--fs-sm-1);
   font-weight: var(--fw-6);

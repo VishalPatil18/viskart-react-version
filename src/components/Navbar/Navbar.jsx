@@ -1,20 +1,12 @@
-import { useState } from "react";
 import { AuthModal } from "../../components";
 import { ASSETS_URL, ICONS_URL } from "../../constants";
-import { useAuth } from "../../context";
+import { useAuth, useAuthModal } from "../../context";
 import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
 
 const Navbar = () => {
   const { authState } = useAuth();
-
-  const [authModalOpen, setAuthModalOpen] = useState({
-    login: false,
-    signup: false,
-  });
-  const authModalHandler = () => {
-    setAuthModalOpen({ login: true, signup: false });
-  };
+  const { authModalState, authModalHandler } = useAuthModal();
 
   return (
     <header className={styles.header}>
@@ -46,20 +38,49 @@ const Navbar = () => {
         </div>
       </div>
       <div className={(styles.headerItem, styles.headerMenuWrapper)}>
-        <Link to="/cart" className={`txt-center ${styles.headerMenuItem}`}>
-          <img
-            className="icon-md icon-dark"
-            src={`${ICONS_URL}/shopping-cart.svg`}
-            alt="cart"
-          />
-        </Link>
-        <Link to="/wishlist" className={`txt-center ${styles.headerMenuItem}`}>
-          <img
-            className="icon-md icon-dark"
-            src={`${ICONS_URL}/heart.svg`}
-            alt="heart"
-          />
-        </Link>
+        {authState.user ? (
+          <Link to="/cart" className={`txt-center ${styles.headerMenuItem}`}>
+            <img
+              className="icon-md icon-dark"
+              src={`${ICONS_URL}/shopping-cart.svg`}
+              alt="cart"
+            />
+          </Link>
+        ) : (
+          <button
+            className={`txt-center ${styles.headerMenuItem}`}
+            onClick={() => authModalHandler("LOGIN")}
+          >
+            <img
+              className="icon-md icon-dark"
+              src={`${ICONS_URL}/shopping-cart.svg`}
+              alt="cart"
+            />
+          </button>
+        )}
+        {authState.user ? (
+          <Link
+            to="/wishlist"
+            className={`txt-center ${styles.headerMenuItem}`}
+          >
+            <img
+              className="icon-md icon-dark"
+              src={`${ICONS_URL}/heart.svg`}
+              alt="heart"
+            />
+          </Link>
+        ) : (
+          <button
+            className={`txt-center ${styles.headerMenuItem}`}
+            onClick={() => authModalHandler("LOGIN")}
+          >
+            <img
+              className="icon-md icon-dark"
+              src={`${ICONS_URL}/heart.svg`}
+              alt="cart"
+            />
+          </button>
+        )}
         <button className={`txt-center ${styles.headerMenuItem}`}>
           <img
             className="icon-md icon-dark"
@@ -84,7 +105,6 @@ const Navbar = () => {
             id="theme-icon"
           />
         </button>
-        {() => console.log("Auth State in Navbar: ", authState)}
         {authState.user ? (
           <Link to="/user" className={styles.profileBadge}>
             <img
@@ -97,7 +117,7 @@ const Navbar = () => {
         ) : (
           <button
             className={`txt-center ${styles.headerMenuItem}`}
-            onClick={authModalHandler}
+            onClick={() => authModalHandler("OPEN")}
           >
             <img
               className="icon-md icon-dark"
@@ -107,12 +127,7 @@ const Navbar = () => {
           </button>
         )}
       </div>
-      {(authModalOpen.login || authModalOpen.signup) && (
-        <AuthModal
-          authModalOpen={authModalOpen}
-          setAuthModalOpen={setAuthModalOpen}
-        />
-      )}
+      {(authModalState.login || authModalState.signup) && <AuthModal />}
     </header>
   );
 };

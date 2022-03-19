@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useAuth } from "../../context";
+import { useAuth, useAuthModal } from "../../context";
 import { loginService, signupService } from "../../services";
 import { useNavigate } from "react-router";
 import { ICONS_URL } from "../../constants";
@@ -10,9 +10,10 @@ const dummyUser = {
   password: "babluTailor123",
 };
 
-const AuthModal = ({ authModalOpen, setAuthModalOpen }) => {
+const AuthModal = () => {
+  const { authModalState, authModalHandler } = useAuthModal();
   const navigate = useNavigate();
-  const { authState, authDispatch } = useAuth();
+  const { authDispatch } = useAuth();
 
   const [login, setLogin] = useState({
     email: "",
@@ -54,7 +55,7 @@ const AuthModal = ({ authModalOpen, setAuthModalOpen }) => {
             user: response.data.foundUser,
           },
         });
-        modalHandler("CLOSE");
+        authModalHandler("CLOSE");
         alert("Login Successful");
         navigate("/");
       }
@@ -87,7 +88,7 @@ const AuthModal = ({ authModalOpen, setAuthModalOpen }) => {
           "viskartUser",
           JSON.stringify(response.data.createdUser)
         );
-        modalHandler("CLOSE");
+        authModalHandler("CLOSE");
         alert("Signup Successful");
         navigate("/");
       } else {
@@ -103,25 +104,10 @@ const AuthModal = ({ authModalOpen, setAuthModalOpen }) => {
     setLogin(dummyUser);
   };
 
-  const modalHandler = (action) => {
-    setAuthModalOpen(() => {
-      switch (action) {
-        case "CLOSE":
-          return { login: false, signup: false };
-        case "SIGNUP":
-          return { login: false, signup: true };
-        case "LOGIN":
-          return { login: true, signup: false };
-        default:
-          return { login: false, signup: false };
-      }
-    });
-  };
-
   return (
     <>
       <div className={`modal__container ${styles.modalContainer}`}>
-        {authModalOpen.login ? (
+        {authModalState.login ? (
           <form
             className="modal mdl__icons mdl-primary"
             onSubmit={loginHandler}
@@ -130,7 +116,7 @@ const AuthModal = ({ authModalOpen, setAuthModalOpen }) => {
               <h1 className="h-5">Login</h1>
               <button
                 className="button btn-action btn-plain-icon modal__title--close"
-                onClick={() => modalHandler("CLOSE")}
+                onClick={() => authModalHandler("CLOSE")}
               >
                 <img
                   className="icon-light icon-lg button__icon"
@@ -195,7 +181,7 @@ const AuthModal = ({ authModalOpen, setAuthModalOpen }) => {
               />
               <button
                 className="button btn-outline-primary modal__footer--btn"
-                onClick={() => modalHandler("SIGNUP")}
+                onClick={() => authModalHandler("SIGNUP")}
               >
                 Sign Up
               </button>
@@ -210,7 +196,7 @@ const AuthModal = ({ authModalOpen, setAuthModalOpen }) => {
               <h1 className="h-5">Sign Up</h1>
               <button
                 className="button btn-action btn-plain-icon modal__title--close"
-                onClick={() => modalHandler("CLOSE")}
+                onClick={() => authModalHandler("CLOSE")}
               >
                 <img
                   className="icon-light icon-lg button__icon"
@@ -271,7 +257,7 @@ const AuthModal = ({ authModalOpen, setAuthModalOpen }) => {
               />
               <button
                 className="button btn-outline-primary modal__footer--btn"
-                onClick={() => modalHandler("LOGIN")}
+                onClick={() => authModalHandler("LOGIN")}
               >
                 Login
               </button>

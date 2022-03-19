@@ -1,19 +1,18 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { addToCartHandler } from "../../utilities";
-import { useAuth } from "../../context";
+import { useCart, useAuth, useAuthModal } from "../../context";
 import { ICONS_URL } from "../../constants";
 import styles from "./GamesCard.module.css";
 
 const GamesCard = ({ item }) => {
-  const { authDispatch } = useAuth();
+  const { cartDispatch } = useCart();
+  const { authState } = useAuth();
+  const { authModalHandler } = useAuthModal();
   const [itemAdded, setItemAdded] = useState(false);
 
   return (
-    <article
-      key={item._id}
-      className={`card card__ecommerce ${styles.cardBody}`}
-    >
+    <article className={`card card__ecommerce ${styles.cardBody}`}>
       <div className="card__body">
         {item.discount !== "0" && (
           <div className="card__badge">
@@ -61,8 +60,12 @@ const GamesCard = ({ item }) => {
             <button
               className={`button btn-sm btn-solid-primary card__button ${styles.buyButton}`}
               onClick={() => {
-                setItemAdded(true);
-                return addToCartHandler(item, authDispatch);
+                if (authState.token) {
+                  setItemAdded(true);
+                  return addToCartHandler(item, cartDispatch, authState);
+                }
+
+                return authModalHandler("LOGIN");
               }}
             >
               Add to Cart - $

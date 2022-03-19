@@ -1,11 +1,11 @@
-import { removeFromCartService } from "../services";
+import { updateCartService } from "../services";
 
-const removeFromCartHandler = async (item, cartDispatch, token) => {
+const updateCartHandler = async (item, cartDispatch, token, action) => {
   try {
-    const response = await removeFromCartService(item, token);
+    const response = await updateCartService(item, token, action);
     if (response.status === 200) {
       cartDispatch({
-        type: "REMOVE_FROM_CART",
+        type: "UPDATE_CART",
         payload: {
           cart: response.data.cart,
         },
@@ -18,4 +18,4 @@ const removeFromCartHandler = async (item, cartDispatch, token) => {
   }
 };
 
-export { removeFromCartHandler };
+export { updateCartHandler };
