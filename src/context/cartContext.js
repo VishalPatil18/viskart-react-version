@@ -17,10 +17,7 @@ const CartProvider = ({ children }) => {
     authState.token
       ? (async () => {
           try {
-            console.log("Authstate token in cartcontext", authState.token);
-            console.log("Useeffect called initially");
             const response = await cartService(authState.token);
-            console.log(response.data.cart);
             cartDispatch({
               type: "INITIAL_DATA",
               payload: response.data.cart,
@@ -29,7 +26,7 @@ const CartProvider = ({ children }) => {
             console.log("ERROR: ", error);
           }
         })()
-      : console.log("Useeffect called initially but authstate.user is false");
+      : null;
   }, []);
 
   return (
