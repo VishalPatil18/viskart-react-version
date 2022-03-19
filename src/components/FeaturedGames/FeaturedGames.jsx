@@ -20,7 +20,7 @@ const FeaturedGames = ({ isHomePage = false }) => {
       </div>
       <section className={styles.main_products}>
         {products.map((item) => (
-          <GamesCard item={item} />
+          <GamesCard key={item._id} item={item} />
         ))}
       </section>
     </div>

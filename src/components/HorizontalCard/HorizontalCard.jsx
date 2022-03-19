@@ -1,10 +1,12 @@
-import { useAuth } from "../../context";
-import { addToCartHandler, removeFromCartHandler } from "../../utilities";
+import { useAuth, useCart } from "../../context";
+import { updateCartHandler, removeFromCartHandler } from "../../utilities";
 import { ICONS_URL } from "../../constants";
 import styles from "./HorizontalCard.module.css";
 
 const HorizontalCard = ({ item }) => {
-  const { authDispatch } = useAuth();
+  const { authState } = useAuth();
+  const { cartDispatch } = useCart();
+
   return (
     <article className={styles.horizontalCard}>
       {item.discount !== "0" && (
@@ -43,15 +45,32 @@ const HorizontalCard = ({ item }) => {
         </p>
         <div className={styles.cardButtonWrapper}>
           <button
-            className={`button ${styles.quantityButton}`}
-            onClick={() => removeFromCartHandler(item, authDispatch, false)}
+            className={`button ${styles.quantityButton} ${
+              item.qty <= 1 ? styles.disabledBtn : null
+            }`}
+            onClick={() =>
+              updateCartHandler(
+                item,
+                cartDispatch,
+                authState.token,
+                "decrement"
+              )
+            }
+            disabled={item.qty <= 1}
           >
             -
           </button>
-          <p className={styles.quantityValue}>{item.quantity}</p>
+          <p className={styles.quantityValue}>{item.qty}</p>
           <button
             className={`button ${styles.quantityButton}`}
-            onClick={() => addToCartHandler(item, authDispatch)}
+            onClick={() =>
+              updateCartHandler(
+                item,
+                cartDispatch,
+                authState.token,
+                "increment"
+              )
+            }
           >
             +
           </button>
@@ -59,7 +78,9 @@ const HorizontalCard = ({ item }) => {
         <div className={styles.cardButtonWrapper}>
           <button
             className={`button btn-solid-danger ${styles.topItemButton}`}
-            onClick={() => removeFromCartHandler(item, authDispatch, true)}
+            onClick={() =>
+              removeFromCartHandler(item, cartDispatch, authState.token)
+            }
           >
             Remove
           </button>

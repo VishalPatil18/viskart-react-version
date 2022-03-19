@@ -1,12 +1,12 @@
-import { useAuth } from "../../context";
+import { useCart } from "../../context";
 import { getPriceDetails } from "../../utilities";
 import { ICONS_URL } from "../../constants";
 import styles from "./PriceDetails.module.css";
 
 const PriceDetails = () => {
-  const { authState } = useAuth();
+  const { cartState } = useCart();
   const { totalPrice, totalDiscount, totalAmount, totalItems } =
-    getPriceDetails(authState.user.cart);
+    getPriceDetails(cartState.cart);
 
   return (
     <div className={styles.card}>

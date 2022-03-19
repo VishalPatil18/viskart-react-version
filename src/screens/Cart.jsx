@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import { HorizontalCard, PriceDetails, Breadcrumb } from "../components";
 import { ICONS_URL } from "../constants";
-import { useAuth } from "../context";
+import { useAuth, useCart } from "../context";
 import styles from "./Cart.module.css";
 
 const Cart = ({ cname }) => {
+  const { cartState } = useCart();
   const { authState } = useAuth();
 
   return (
@@ -18,18 +19,18 @@ const Cart = ({ cname }) => {
       <div className={cname}>
         <div className={styles.productsHeading}>
           <h5 className="h-5">
-            My Cart{" "}
-            {authState.user.cart.length !== 0 && (
-              <span>({authState.user.cart.length})</span>
+            My Cart
+            {cartState.cart.length !== 0 && (
+              <span>({cartState.cart.length})</span>
             )}
           </h5>
         </div>
         <div className={styles.productsAndPrice}>
           <section className={styles.myProducts}>
-            {authState.user.cart.length === 0 && (
+            {cartState.cart.length === 0 && (
               <div className={styles.emptyCartMsgWrapper}>
                 <p className={styles.emptyCartMsg}>
-                  Your Cart is Empty! <br /> Add something to make us happy{" "}
+                  Your Cart is Empty! <br /> Add something to make us happy
                   <br />
                   🙃
                 </p>
@@ -39,12 +40,12 @@ const Cart = ({ cname }) => {
               </div>
             )}
             {authState.user &&
-              authState.user.cart.map((item) => (
+              cartState.cart.map((item) => (
                 <HorizontalCard key={item._id} item={item} />
               ))}
           </section>
 
-          {authState.user.cart.length !== 0 && (
+          {cartState.cart.length !== 0 && (
             <aside className={styles.priceDetails}>
               <PriceDetails />
               <button

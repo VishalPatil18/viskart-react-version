@@ -4,7 +4,12 @@ import "./index.css";
 import App from "./App";
 import { makeServer } from "./server";
 import { BrowserRouter } from "react-router-dom";
-import { DataProvider, AuthProvider } from "./context";
+import {
+  DataProvider,
+  AuthProvider,
+  CartProvider,
+  AuthModalProvider,
+} from "./context";
 
 // Call make Server
 makeServer();
@@ -12,11 +17,15 @@ makeServer();
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <AuthProvider>
+      <AuthModalProvider>
         <DataProvider>
-          <App />
+          <AuthProvider>
+            <CartProvider>
+              <App />
+            </CartProvider>
+          </AuthProvider>
         </DataProvider>
-      </AuthProvider>
+      </AuthModalProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
