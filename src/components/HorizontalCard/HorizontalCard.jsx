@@ -93,7 +93,7 @@ const HorizontalCard = ({ item }) => {
             className={`button btn-solid-primary ${styles.topItemButton}`}
             onClick={() => {
               removeFromCartHandler(item, cartDispatch, authState.token);
-              addToWishlistHandler(item, wishlistDispatch, authState);
+              addToWishlistHandler(item, wishlistDispatch, authState.token);
             }}
           >
             Move to Wishlist

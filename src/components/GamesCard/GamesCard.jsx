@@ -101,14 +101,14 @@ const GamesCard = ({ item }) => {
                   return addToWishlistHandler(
                     item,
                     wishlistDispatch,
-                    authState
+                    authState.token
                   );
                 } else {
                   setIsWishlisted(false);
                   return removeFromWishlistHandler(
                     item,
                     wishlistDispatch,
-                    authState
+                    authState.token
                   );
                 }
               }

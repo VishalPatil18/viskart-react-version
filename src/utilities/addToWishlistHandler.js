@@ -1,9 +1,8 @@
 import { addToWishlistService } from "../services";
 
-const addToWishlistHandler = async (item, wishlistDispatch, authState) => {
+const addToWishlistHandler = async (item, wishlistDispatch, token) => {
   try {
-    const response = await addToWishlistService(item, authState.token);
-    console.log(response);
+    const response = await addToWishlistService(item, token);
     if (response.status === 201) {
       wishlistDispatch({
         type: "ADD_TO_WISHLIST",
