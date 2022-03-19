@@ -1,10 +1,11 @@
 import { TopProductCard } from "../../components";
-import { products } from "../../constants";
+import { useData } from "../../context";
 import styles from "./TopProducts.module.css";
 
-const productsList = products.filter((item) => item.isTop);
-
 const TopProducts = () => {
+  const { dataState } = useData();
+  const products = dataState.products.filter((item) => item.isTop);
+
   return (
     <>
       <div className={styles.productsHeading}>
@@ -12,7 +13,7 @@ const TopProducts = () => {
         <button className="st-1 button btn-plain btn-primary">See all</button>
       </div>
       <section className={styles.topProducts}>
-        {productsList.map((item) => (
+        {products.map((item) => (
           <TopProductCard
             key={item._id}
             imageSrc={item.imageSrc}

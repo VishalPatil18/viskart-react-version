@@ -13,10 +13,16 @@
   width: 50px;
 }
 
-.cardTitle {
+.cardTitleWrapper {
   padding-bottom: 0;
   padding: var(--space-xs);
   text-align: center;
+}
+
+.cardTitle {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .cardContent {

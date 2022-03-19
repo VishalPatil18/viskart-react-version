@@ -1,11 +1,16 @@
-import { useAuth, useCart } from "../../context";
-import { updateCartHandler, removeFromCartHandler } from "../../utilities";
+import { useAuth, useCart, useWishlist } from "../../context";
+import {
+  updateCartHandler,
+  removeFromCartHandler,
+  addToWishlistHandler,
+} from "../../utilities";
 import { ICONS_URL } from "../../constants";
 import styles from "./HorizontalCard.module.css";
 
 const HorizontalCard = ({ item }) => {
   const { authState } = useAuth();
   const { cartDispatch } = useCart();
+  const { wishlistDispatch } = useWishlist();
 
   return (
     <article className={styles.horizontalCard}>
@@ -86,8 +91,12 @@ const HorizontalCard = ({ item }) => {
           </button>
           <button
             className={`button btn-solid-primary ${styles.topItemButton}`}
+            onClick={() => {
+              removeFromCartHandler(item, cartDispatch, authState.token);
+              addToWishlistHandler(item, wishlistDispatch, authState);
+            }}
           >
-            Add to Wishlist
+            Move to Wishlist
           </button>
         </div>
       </div>

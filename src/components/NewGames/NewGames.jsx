@@ -1,11 +1,11 @@
 import { NewGamesCard } from "../../components";
-import { products } from "../../constants";
+import { useData } from "../../context";
 import styles from "./NewGames.module.css";
 
-let productsList = products.filter((item) => item.isLatest);
-productsList = [...productsList, ...productsList, ...productsList];
-
 const NewGames = () => {
+  const { dataState } = useData();
+  const products = dataState.products.filter((item) => item.isLatest);
+
   return (
     <>
       <div className={styles.productsHeading}>
@@ -13,7 +13,7 @@ const NewGames = () => {
         <button className="st-1 button btn-plain btn-primary">See all</button>
       </div>
       <section className={styles.newProducts}>
-        {productsList.map((item) => (
+        {products.map((item) => (
           <NewGamesCard
             key={item._id}
             title={item.title}

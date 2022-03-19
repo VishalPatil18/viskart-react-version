@@ -1,15 +1,21 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { addToCartHandler } from "../../utilities";
-import { useCart, useAuth, useAuthModal } from "../../context";
+import {
+  addToCartHandler,
+  addToWishlistHandler,
+  removeFromWishlistHandler,
+} from "../../utilities";
+import { useCart, useAuth, useAuthModal, useWishlist } from "../../context";
 import { ICONS_URL } from "../../constants";
 import styles from "./GamesCard.module.css";
 
 const GamesCard = ({ item }) => {
   const { cartDispatch } = useCart();
   const { authState } = useAuth();
+  const { wishlistDispatch } = useWishlist();
   const { authModalHandler } = useAuthModal();
   const [itemAdded, setItemAdded] = useState(false);
+  const [isWishlisted, setIsWishlisted] = useState();
 
   return (
     <article className={`card card__ecommerce ${styles.cardBody}`}>
@@ -81,15 +87,39 @@ const GamesCard = ({ item }) => {
               to="/cart"
               className={`button btn-sm btn-solid-success card__button ${styles.buyButton}`}
             >
-              Move to Cart
+              Go to Cart
             </Link>
           )}
         </div>
         <div className={`card__footer--right ${styles.cardFooterRight}`}>
-          <button className={`button ${styles.iconButton}`}>
+          <button
+            className={`button ${styles.iconButton}`}
+            onClick={() => {
+              if (authState.token) {
+                if (!isWishlisted) {
+                  setIsWishlisted(true);
+                  return addToWishlistHandler(
+                    item,
+                    wishlistDispatch,
+                    authState
+                  );
+                } else {
+                  setIsWishlisted(false);
+                  return removeFromWishlistHandler(
+                    item,
+                    wishlistDispatch,
+                    authState
+                  );
+                }
+              }
+              return authModalHandler("LOGIN");
+            }}
+          >
             <img
               className="icon-sm icon-danger"
-              src={`${ICONS_URL}/heart.svg`}
+              src={`${ICONS_URL}/${
+                isWishlisted ? "heart" : "heart-regular"
+              }.svg`}
               alt="heart-icon"
             />
           </button>

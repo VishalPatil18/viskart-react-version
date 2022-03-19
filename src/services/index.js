@@ -1,7 +1,10 @@
 export { addToCartService } from "./addToCart.service";
+export { addToWishlistService } from "./addToWishlist.service";
 export { cartService } from "./cart.service";
 export { loginService } from "./login.service";
 export { productsService } from "./products.service";
 export { removeFromCartService } from "./removeFromCart.service";
+export { removeFromWishlistService } from "./removeFromWishlist.service";
 export { signupService } from "./signup.service";
 export { updateCartService } from "./updateCart.service";
+export { wishlistService } from "./wishlist.service";

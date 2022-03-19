@@ -6,9 +6,27 @@
 }
 
 .wishlistItems {
-  display: grid;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
   gap: var(--space-md);
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   justify-content: center;
   margin-top: var(--space-xl);
+}
+
+.emptyWishlistMsg {
+  color: var(--grey-5);
+  font-size: var(--fs-md-2);
+  font-weight: var(--fw-5);
+  margin-bottom: var(--space-md);
+  text-align: center;
+}
+
+.emptyWishlistMsgWrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
 }
