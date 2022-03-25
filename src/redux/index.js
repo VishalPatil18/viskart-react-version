@@ -1,4 +1,4 @@
 export { authReducer, initialAuthState } from "./authReducer";
 export { cartReducer, initialCartState } from "./cartReducer";
-export { dataReducer, initialState } from "./dataReducer";
+export { filterReducer, initialFilterState } from "./filterReducer";
 export { wishlistReducer, initialWishlistState } from "./wishlistReducer";

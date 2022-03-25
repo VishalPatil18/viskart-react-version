@@ -22,8 +22,8 @@ const WishlistProvider = ({ children }) => {
           try {
             const response = await wishlistService(authState.token);
             wishlistDispatch({
-              type: "INITIAL_DATA",
-              payload: response.data.wishList,
+              type: "INITIAL_WISHLIST",
+              payload: { wishlist: response.data.wishlist },
             });
           } catch (error) {
             console.log("ERROR: ", error);

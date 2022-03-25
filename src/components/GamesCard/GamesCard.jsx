@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import {
   addToCartHandler,
   addToWishlistHandler,
+  isInArrayList,
   removeFromWishlistHandler,
 } from "../../utilities";
 import { useCart, useAuth, useAuthModal, useWishlist } from "../../context";
@@ -10,12 +11,16 @@ import { ICONS_URL } from "../../constants";
 import styles from "./GamesCard.module.css";
 
 const GamesCard = ({ item }) => {
-  const { cartDispatch } = useCart();
+  const { cartState, cartDispatch } = useCart();
   const { authState } = useAuth();
-  const { wishlistDispatch } = useWishlist();
+  const { wishlistState, wishlistDispatch } = useWishlist();
   const { authModalHandler } = useAuthModal();
-  const [itemAdded, setItemAdded] = useState(false);
-  const [isWishlisted, setIsWishlisted] = useState();
+  const [itemAdded, setItemAdded] = useState(
+    isInArrayList(item, cartState.cart)
+  );
+  const [isWishlisted, setIsWishlisted] = useState(
+    isInArrayList(item, wishlistState.wishlist)
+  );
 
   return (
     <article className={`card card__ecommerce ${styles.cardBody}`}>

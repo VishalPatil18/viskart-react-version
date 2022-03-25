@@ -16,7 +16,9 @@ export const products = [
     discount: "0",
     isLatest: true,
     isTop: true,
-    imageSrc: "https://raw.githubusercontent.com/VishalPatil18/VISKart/development/assets/fallguys.png"
+    rating: 4.2,
+    imageSrc:
+      "https://raw.githubusercontent.com/VishalPatil18/VISKart/development/assets/fallguys.png",
   },
   {
     _id: uuid(),
@@ -28,7 +30,9 @@ export const products = [
     discount: "0",
     isLatest: true,
     isTop: true,
-    imageSrc: "https://raw.githubusercontent.com/VishalPatil18/VISKart/development/assets/minecraft.png"
+    rating: 3.7,
+    imageSrc:
+      "https://raw.githubusercontent.com/VishalPatil18/VISKart/development/assets/minecraft.png",
   },
   {
     _id: uuid(),
@@ -40,7 +44,9 @@ export const products = [
     discount: "0",
     isLatest: true,
     isTop: true,
-    imageSrc: "https://raw.githubusercontent.com/VishalPatil18/VISKart/development/assets/pubg.png"
+    rating: 4.7,
+    imageSrc:
+      "https://raw.githubusercontent.com/VishalPatil18/VISKart/development/assets/pubg.png",
   },
   {
     _id: uuid(),
@@ -52,7 +58,9 @@ export const products = [
     discount: "0",
     isLatest: true,
     isTop: true,
-    imageSrc: "https://raw.githubusercontent.com/VishalPatil18/VISKart/development/assets/dyinglight2.jpg"
+    rating: 4.8,
+    imageSrc:
+      "https://raw.githubusercontent.com/VishalPatil18/VISKart/development/assets/dyinglight2.jpg",
   },
   {
     _id: uuid(),
@@ -64,7 +72,9 @@ export const products = [
     discount: "40",
     isLatest: false,
     isTop: false,
-    imageSrc: "https://raw.githubusercontent.com/VishalPatil18/VISKart/development/assets/cricket07.png"
+    rating: 3.2,
+    imageSrc:
+      "https://raw.githubusercontent.com/VishalPatil18/VISKart/development/assets/cricket07.png",
   },
   {
     _id: uuid(),
@@ -76,7 +86,9 @@ export const products = [
     discount: "20",
     isLatest: false,
     isTop: false,
-    imageSrc: "https://raw.githubusercontent.com/VishalPatil18/VISKart/development/assets/crazytaxi.png"
+    rating: 2.2,
+    imageSrc:
+      "https://raw.githubusercontent.com/VishalPatil18/VISKart/development/assets/crazytaxi.png",
   },
   {
     _id: uuid(),
@@ -88,7 +100,9 @@ export const products = [
     discount: "50",
     isLatest: false,
     isTop: false,
-    imageSrc: "https://raw.githubusercontent.com/VishalPatil18/VISKart/development/assets/nfsmw.webp"
+    rating: 3.9,
+    imageSrc:
+      "https://raw.githubusercontent.com/VishalPatil18/VISKart/development/assets/nfsmw.webp",
   },
   {
     _id: uuid(),
@@ -100,7 +114,9 @@ export const products = [
     discount: "30",
     isLatest: false,
     isTop: false,
-    imageSrc: "https://raw.githubusercontent.com/VishalPatil18/VISKart/development/assets/roadrash.webp"
+    rating: 4.9,
+    imageSrc:
+      "https://raw.githubusercontent.com/VishalPatil18/VISKart/development/assets/roadrash.webp",
   },
   {
     _id: uuid(),
@@ -112,7 +128,9 @@ export const products = [
     discount: "10",
     isLatest: false,
     isTop: false,
-    imageSrc: "https://raw.githubusercontent.com/VishalPatil18/VISKart/development/assets/fifa07.jpg"
+    rating: 4.5,
+    imageSrc:
+      "https://raw.githubusercontent.com/VishalPatil18/VISKart/development/assets/fifa07.jpg",
   },
   {
     _id: uuid(),
@@ -124,7 +142,9 @@ export const products = [
     discount: "25",
     isLatest: false,
     isTop: false,
-    imageSrc: "https://raw.githubusercontent.com/VishalPatil18/VISKart/development/assets/tod.png"
+    rating: 1.2,
+    imageSrc:
+      "https://raw.githubusercontent.com/VishalPatil18/VISKart/development/assets/tod.png",
   },
   {
     _id: uuid(),
@@ -136,7 +156,9 @@ export const products = [
     discount: "50",
     isLatest: true,
     isTop: false,
-    imageSrc: "https://cdn.akamai.steamstatic.com/steam/apps/1066780/capsule_616x353.jpg?t=1614103491"
+    rating: 2.2,
+    imageSrc:
+      "https://cdn.akamai.steamstatic.com/steam/apps/1066780/capsule_616x353.jpg?t=1614103491",
   },
   {
     _id: uuid(),
@@ -148,7 +170,9 @@ export const products = [
     discount: "60",
     isLatest: true,
     isTop: false,
-    imageSrc: "https://cdn.akamai.steamstatic.com/steam/apps/952060/capsule_616x353.jpg?t=1614737794"
+    rating: 4.3,
+    imageSrc:
+      "https://cdn.akamai.steamstatic.com/steam/apps/952060/capsule_616x353.jpg?t=1614737794",
   },
   {
     _id: uuid(),
@@ -160,7 +184,9 @@ export const products = [
     discount: "5",
     isLatest: true,
     isTop: false,
-    imageSrc: "https://cdn.akamai.steamstatic.com/steam/apps/1680300/capsule_616x353.jpg?t=1625692937"
+    rating: 0.8,
+    imageSrc:
+      "https://cdn.akamai.steamstatic.com/steam/apps/1680300/capsule_616x353.jpg?t=1625692937",
   },
   {
     _id: uuid(),
@@ -172,7 +198,9 @@ export const products = [
     discount: "20",
     isLatest: true,
     isTop: false,
-    imageSrc: "https://cdn.akamai.steamstatic.com/steam/apps/1134570/capsule_616x353.jpg?t=1625849641"
+    rating: 3.2,
+    imageSrc:
+      "https://cdn.akamai.steamstatic.com/steam/apps/1134570/capsule_616x353.jpg?t=1625849641",
   },
   {
     _id: uuid(),
@@ -184,7 +212,9 @@ export const products = [
     discount: "25",
     isLatest: true,
     isTop: false,
-    imageSrc: "https://cdn.akamai.steamstatic.com/steam/bundles/12218/7cg856d5iyp2m6b2/capsule_616x353.jpg?t=1570208553"
+    rating: 4.1,
+    imageSrc:
+      "https://cdn.akamai.steamstatic.com/steam/bundles/12218/7cg856d5iyp2m6b2/capsule_616x353.jpg?t=1570208553",
   },
   {
     _id: uuid(),
@@ -196,7 +226,9 @@ export const products = [
     discount: "50",
     isLatest: true,
     isTop: false,
-    imageSrc: "https://cdn.akamai.steamstatic.com/steam/apps/1172620/capsule_616x353.jpg?t=1624888981"
+    rating: 4.7,
+    imageSrc:
+      "https://cdn.akamai.steamstatic.com/steam/apps/1172620/capsule_616x353.jpg?t=1624888981",
   },
   {
     _id: uuid(),
@@ -208,7 +240,9 @@ export const products = [
     discount: "30",
     isLatest: true,
     isTop: false,
-    imageSrc: "https://cdn.akamai.steamstatic.com/steam/apps/1263850/capsule_616x353.jpg?t=1612352842"
+    rating: 3.6,
+    imageSrc:
+      "https://cdn.akamai.steamstatic.com/steam/apps/1263850/capsule_616x353.jpg?t=1612352842",
   },
   {
     _id: uuid(),
@@ -220,7 +254,9 @@ export const products = [
     discount: "70",
     isLatest: true,
     isTop: false,
-    imageSrc: "https://cdn.akamai.steamstatic.com/steam/apps/1589380/capsule_616x353.jpg?t=1625921132"
+    rating: 2.5,
+    imageSrc:
+      "https://cdn.akamai.steamstatic.com/steam/apps/1589380/capsule_616x353.jpg?t=1625921132",
   },
   {
     _id: uuid(),
@@ -232,7 +268,9 @@ export const products = [
     discount: "5",
     isLatest: true,
     isTop: false,
-    imageSrc: "https://cdn.akamai.steamstatic.com/steam/apps/1639490/capsule_616x353.jpg?t=1625852561"
+    rating: 1.7,
+    imageSrc:
+      "https://cdn.akamai.steamstatic.com/steam/apps/1639490/capsule_616x353.jpg?t=1625852561",
   },
   {
     _id: uuid(),
@@ -244,6 +282,8 @@ export const products = [
     discount: "10",
     isLatest: true,
     isTop: false,
-    imageSrc: "https://cdn.akamai.steamstatic.com/steam/apps/1380660/capsule_616x353.jpg?t=1625842713"
-  }
+    rating: 0.4,
+    imageSrc:
+      "https://cdn.akamai.steamstatic.com/steam/apps/1380660/capsule_616x353.jpg?t=1625842713",
+  },
 ];

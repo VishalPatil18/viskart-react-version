@@ -1,5 +1,6 @@
 export { AuthModal } from "./AuthModal/AuthModal";
 export { Breadcrumb } from "./Breadcrumb/Breadcrumb";
+export { CategoryFilter } from "./CategoryFilter/CategoryFilter";
 export { FeaturedGames } from "./FeaturedGames/FeaturedGames";
 export { Filters } from "./Filters/Filters";
 export { Footer } from "./Footer/Footer";
@@ -10,7 +11,10 @@ export { NewGames } from "./NewGames/NewGames";
 export { NewGamesCard } from "./NewGamesCard/NewGamesCard";
 export { Pagination } from "./Pagination/Pagination";
 export { PriceDetails } from "./PriceDetails/PriceDetails";
+export { PriceSliderFilter } from "./PriceSliderFilter/PriceSliderFilter";
 export { ProductCarousel } from "./ProductCarousel/ProductCarousel";
+export { RatingFilter } from "./RatingFilter/RatingFilter";
+export { SortByPriceFilter } from "./SortByPriceFilter/SortByPriceFilter";
 export { TopProductCard } from "./TopProductCard/TopProductCard";
 export { TopProducts } from "./TopProducts/TopProducts";
 export { WishlistCard } from "./WishlistCard/WishlistCard";

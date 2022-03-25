@@ -19,8 +19,8 @@ const CartProvider = ({ children }) => {
           try {
             const response = await cartService(authState.token);
             cartDispatch({
-              type: "INITIAL_DATA",
-              payload: response.data.cart,
+              type: "INITIAL_CART",
+              payload: { cart: response.data.cart },
             });
           } catch (error) {
             console.log("ERROR: ", error);

@@ -18,7 +18,7 @@ const Wishlist = ({ cname }) => {
         <div className={styles.productsHeading}>
           <h5 className="h-5">
             My Wishlist
-            {wishlistState.wishlist.length !== 0 && (
+            {wishlistState.wishlist.length > 0 && (
               <span>({wishlistState.wishlist.length})</span>
             )}
           </h5>

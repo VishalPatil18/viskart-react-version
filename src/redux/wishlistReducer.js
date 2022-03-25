@@ -19,6 +19,8 @@ const wishlistReducer = (wishlistState, wishlistAction) => {
         ...wishlistState,
         wishlist: wishlistAction.payload.wishlist,
       };
+    case "RESET_WISHLIST":
+      return initialWishlistState;
     default:
       return wishlistState;
   }

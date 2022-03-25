@@ -5,7 +5,7 @@ const initialCartState = {
 const cartReducer = (cartState, cartAction) => {
   switch (cartAction.type) {
     case "INITIAL_CART":
-      return { ...cartState, cart: cartAction.payload };
+      return { ...cartState, cart: cartAction.payload.cart };
     case "ADD_TO_CART":
       return {
         ...cartState,
@@ -21,6 +21,8 @@ const cartReducer = (cartState, cartAction) => {
         ...cartState,
         cart: cartAction.payload.cart,
       };
+    case "RESET_CART":
+      return initialCartState;
     default:
       return cartState;
   }
