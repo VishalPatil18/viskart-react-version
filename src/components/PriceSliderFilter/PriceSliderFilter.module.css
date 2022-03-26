@@ -1,0 +1,9 @@
+.sidebarItemTitle {
+  margin: var(--space-md) 0 var(--space-xxs);
+}
+
+.priceLabel {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}

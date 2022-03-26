@@ -1,0 +1,8 @@
+.sidebarItemTitle {
+  margin: var(--space-md) 0 var(--space-xxs);
+}
+
+.checkbox {
+  display: flex;
+  flex-direction: column;
+}

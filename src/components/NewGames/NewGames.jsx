@@ -1,9 +1,12 @@
 import { NewGamesCard } from "../../components";
-import { useData } from "../../context";
+// import { useData } from "../../context";
 import styles from "./NewGames.module.css";
 
 const NewGames = () => {
-  const { dataState } = useData();
+  /**
+   * NOTE: Comments are added for time being, would be fixed when the data context is implemented
+   */
+  // const { dataState } = useData();
   const products = dataState.products.filter((item) => item.isLatest);
 
   return (

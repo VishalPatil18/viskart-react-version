@@ -1,3 +1,4 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import { ICONS_URL } from "../../constants";
 import styles from "./Breadcrumb.module.css";
@@ -7,7 +8,7 @@ const Breadcrumb = ({ links }) => {
     <nav className={styles.breadcrumb}>
       <ul className={styles.breadcrumbList}>
         {links.map((item, i) => (
-          <>
+          <React.Fragment key={i}>
             <li className={styles.breadcrumbItem}>
               <Link
                 to={item.path}
@@ -27,7 +28,7 @@ const Breadcrumb = ({ links }) => {
                 />
               </li>
             )}
-          </>
+          </React.Fragment>
         ))}
       </ul>
     </nav>

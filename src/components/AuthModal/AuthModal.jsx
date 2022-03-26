@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { useAuth, useAuthModal } from "../../context";
-import { loginService, signupService } from "../../services";
 import { useNavigate } from "react-router";
+import { useAuth, useAuthModal, useCart, useWishlist } from "../../context";
+import { loginHandler, signupHandler, inputHandler } from "../../utilities";
 import { ICONS_URL } from "../../constants";
 import styles from "./AuthModal.module.css";
 
@@ -11,9 +11,11 @@ const dummyUser = {
 };
 
 const AuthModal = () => {
+  const { authDispatch } = useAuth();
+  const { cartDispatch } = useCart();
+  const { wishlistDispatch } = useWishlist();
   const { authModalState, authModalHandler } = useAuthModal();
   const navigate = useNavigate();
-  const { authDispatch } = useAuth();
 
   const [login, setLogin] = useState({
     email: "",
@@ -26,79 +28,6 @@ const AuthModal = () => {
     username: "",
   });
 
-  const inputHandler = (e, action, inputType) => {
-    action === "login"
-      ? setLogin((prevState) => ({
-          ...prevState,
-          [inputType]: e.target.value,
-        }))
-      : setSignup((prevState) => ({
-          ...prevState,
-          [inputType]: e.target.value,
-        }));
-  };
-
-  const loginHandler = async (e) => {
-    try {
-      e.preventDefault();
-      const response = await loginService(login);
-      if (response.status === 200) {
-        localStorage.setItem("viskartToken", response.data.encodedToken);
-        localStorage.setItem(
-          "viskartUser",
-          JSON.stringify(response.data.foundUser)
-        );
-        authDispatch({
-          type: "LOGIN",
-          payload: {
-            token: response.data.encodedToken,
-            user: response.data.foundUser,
-          },
-        });
-        authModalHandler("CLOSE");
-        alert("Login Successful");
-        navigate("/");
-      }
-      if (response.status === 404) {
-        throw new Error(
-          "The email entered is not Registered. Please Enter a valid Email"
-        );
-      } else if (response.status === 401) {
-        throw new Error("Incorrect Password! Please try again.");
-      }
-    } catch (error) {
-      alert(error);
-    }
-  };
-
-  const signUpHandler = async (e) => {
-    try {
-      e.preventDefault();
-      let response = await signupService(signup);
-      if (response.status === 201) {
-        authDispatch({
-          type: "SIGNUP",
-          payload: {
-            token: response.data.encodedToken,
-            user: response.data.createdUser,
-          },
-        });
-        localStorage.setItem("viskartToken", response.data.encodedToken);
-        localStorage.setItem(
-          "viskartUser",
-          JSON.stringify(response.data.createdUser)
-        );
-        authModalHandler("CLOSE");
-        alert("Signup Successful");
-        navigate("/");
-      } else {
-        throw new Error("Something went wrong! Please try again later.");
-      }
-    } catch (error) {
-      alert(error);
-    }
-  };
-
   const guestLoginHandler = (e) => {
     e.preventDefault();
     setLogin(dummyUser);
@@ -110,7 +39,17 @@ const AuthModal = () => {
         {authModalState.login ? (
           <form
             className="modal mdl__icons mdl-primary"
-            onSubmit={loginHandler}
+            onSubmit={(event) =>
+              loginHandler(
+                event,
+                login,
+                authDispatch,
+                cartDispatch,
+                wishlistDispatch,
+                authModalHandler,
+                navigate
+              )
+            }
           >
             <header className="modal__title">
               <h1 className="h-5">Login</h1>
@@ -133,7 +72,7 @@ const AuthModal = () => {
                     type="email"
                     value={login.email}
                     placeholder="bablu_tailor@gmail.com"
-                    onChange={(e) => inputHandler(e, "login", "email")}
+                    onChange={(event) => inputHandler(event, "email", setLogin)}
                   />
                   <label className="input__label">Email</label>
                 </div>
@@ -144,7 +83,9 @@ const AuthModal = () => {
                     type="text"
                     value={login.password}
                     placeholder="********"
-                    onChange={(e) => inputHandler(e, "login", "password")}
+                    onChange={(event) =>
+                      inputHandler(event, "password", setLogin)
+                    }
                   />
                   <label className="input__label">Password</label>
                 </div>
@@ -190,7 +131,15 @@ const AuthModal = () => {
         ) : (
           <form
             className="modal mdl__icons mdl-primary"
-            onSubmit={signUpHandler}
+            onSubmit={(event) =>
+              signupHandler(
+                event,
+                signup,
+                authDispatch,
+                authModalHandler,
+                navigate
+              )
+            }
           >
             <header className="modal__title">
               <h1 className="h-5">Sign Up</h1>
@@ -212,7 +161,9 @@ const AuthModal = () => {
                     className="input__field--text email"
                     type="text"
                     placeholder="bablu_tailor@gmail.com"
-                    onChange={(e) => inputHandler(e, "signup", "email")}
+                    onChange={(event) =>
+                      inputHandler(event, "email", setSignup)
+                    }
                   />
                   <label className="input__label">Email</label>
                 </div>
@@ -222,7 +173,9 @@ const AuthModal = () => {
                     className="input__field--text user"
                     type="text"
                     placeholder="bablu_tailor"
-                    onChange={(e) => inputHandler(e, "signup", "username")}
+                    onChange={(event) =>
+                      inputHandler(event, "username", setSignup)
+                    }
                   />
                   <label className="input__label">Username</label>
                 </div>
@@ -232,7 +185,9 @@ const AuthModal = () => {
                     className="input__field--text password"
                     type="text"
                     placeholder="********"
-                    onChange={(e) => inputHandler(e, "signup", "password")}
+                    onChange={(event) =>
+                      inputHandler(event, "password", setSignup)
+                    }
                   />
                   <label className="input__label">Password</label>
                 </div>
