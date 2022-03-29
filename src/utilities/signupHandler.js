@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import { signupService } from "../services";
 
 const signupHandler = async (
@@ -5,10 +6,13 @@ const signupHandler = async (
   signup,
   authDispatch,
   authModalHandler,
+  setLoader,
   navigate
 ) => {
   try {
     event.preventDefault();
+    authModalHandler("CLOSE");
+    setLoader(true, "Signing Up");
     const response = await signupService(signup);
     if (response.status === 201) {
       authDispatch({
@@ -23,14 +27,13 @@ const signupHandler = async (
         "viskartUser",
         JSON.stringify(response.data.createdUser)
       );
-      authModalHandler("CLOSE");
-      alert("Signup Successful");
+      setLoader(false, "I'm Working");
+      toast.success(`Signup Successful ${signup.username}!`);
       navigate("/");
-    } else {
-      throw new Error("Something went wrong! Please try again later.");
     }
   } catch (error) {
-    alert(error);
+    setLoader(false, "I'm Working");
+    toast.error(error.response.data.errors[0]);
   }
 };
 

@@ -16,3 +16,7 @@
   justify-content: center;
   margin-top: var(--space-xl);
 }
+
+.toast {
+  font-size: var(--fs-xs-1);
+}

@@ -1,11 +1,32 @@
-import { Navbar, Footer } from "./components";
+import { Navbar, Footer, Loader } from "./components";
 import { Home, ProductListing, Cart, Wishlist, User } from "./screens";
 import { Routes, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import { useLoader } from "./context";
+import "react-toastify/dist/ReactToastify.css";
 import styles from "./App.module.css";
 
 function App() {
+  const { loader } = useLoader();
+
   return (
     <div className={styles.app}>
+      {loader.loaderActive ? <Loader /> : null}
+
+      <ToastContainer
+        position="top-right"
+        autoClose={3500}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        theme="colored"
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        className={styles.toast}
+      />
+
       <Navbar />
       <Routes>
         <Route path="/" element={<Home cname={styles.main} />} />

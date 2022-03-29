@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import {
   addToCartHandler,
   addToWishlistHandler,
@@ -75,7 +76,7 @@ const GamesCard = ({ item }) => {
                   setItemAdded(true);
                   return addToCartHandler(item, cartDispatch, authState);
                 }
-
+                toast.warning("You're not logged in");
                 return authModalHandler("LOGIN");
               }}
             >
@@ -117,6 +118,7 @@ const GamesCard = ({ item }) => {
                   );
                 }
               }
+              toast.warning("You're not logged in");
               return authModalHandler("LOGIN");
             }}
           >

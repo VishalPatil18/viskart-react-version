@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import { addToWishlistService } from "../services";
 
 const addToWishlistHandler = async (item, wishlistDispatch, token) => {
@@ -10,11 +11,10 @@ const addToWishlistHandler = async (item, wishlistDispatch, token) => {
           wishlist: response.data.wishlist,
         },
       });
-    } else {
-      throw new Error("Something went wrong. Please try again later!");
     }
+    toast.info(`${item.title} added to wishlist`);
   } catch (error) {
-    alert(error);
+    toast.error(error.response.data.errors[0]);
   }
 };
 

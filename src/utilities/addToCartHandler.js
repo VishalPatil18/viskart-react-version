@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import { addToCartService } from "../services";
 
 const addToCartHandler = async (item, cartDispatch, authState) => {
@@ -10,11 +11,10 @@ const addToCartHandler = async (item, cartDispatch, authState) => {
           cart: response.data.cart,
         },
       });
-    } else {
-      throw new Error("Something went wrong. Please try again later!");
     }
+    toast.info(`${item.title} added to cart`);
   } catch (error) {
-    alert(error);
+    toast.error(error.response.data.errors[0]);
   }
 };
 

@@ -1,6 +1,7 @@
 import { AuthModal } from "../../components";
 import { ASSETS_URL, ICONS_URL } from "../../constants";
 import { useAuth, useAuthModal } from "../../context";
+import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
 
@@ -49,7 +50,10 @@ const Navbar = () => {
         ) : (
           <button
             className={`txt-center ${styles.headerMenuItem}`}
-            onClick={() => authModalHandler("LOGIN")}
+            onClick={() => {
+              toast.warning("You're not logged-in");
+              return authModalHandler("LOGIN");
+            }}
           >
             <img
               className="icon-md icon-dark"
@@ -72,7 +76,10 @@ const Navbar = () => {
         ) : (
           <button
             className={`txt-center ${styles.headerMenuItem}`}
-            onClick={() => authModalHandler("LOGIN")}
+            onClick={() => {
+              toast.warning("You're not logged-in");
+              return authModalHandler("LOGIN");
+            }}
           >
             <img
               className="icon-md icon-dark"

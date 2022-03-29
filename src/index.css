@@ -7,6 +7,12 @@
   --primary-theme-color: #001219;
   --secondary-theme-color: white;
   --secondary-theme-background: white;
+
+  --toastify-color-info: var(--primary) !important;
+  --toastify-color-success: var(--success) !important;
+  --toastify-color-warning: var(--warning) !important;
+  --toastify-color-error: var(--danger) !important;
+  --toastify-text-color-warning: var(--dark) !important;
 }
 
 html {
@@ -36,4 +42,30 @@ body {
   --primary-theme-color: white;
   --secondary-theme-color: #001219;
   --secondary-theme-background: var(--dark);
+}
+
+.Toastify__toast-theme--colored.Toastify__toast--info,
+.Toastify__toast-theme--colored.Toastify__toast--warning,
+.Toastify__toast-theme--colored.Toastify__toast--success,
+.Toastify__toast-theme--colored.Toastify__toast--error {
+  min-height: 10px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.Toastify__toast--warning .Toastify__close-button {
+  color: black;
+}
+
+.Toastify__close-button {
+  top: 55%;
+  position: absolute;
+  transform: translateY(-50%);
+  right: 15px;
+}
+
+.Toastify__close-button > svg {
+  height: 20px !important;
+  width: 20px !important;
 }

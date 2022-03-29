@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+
 const logoutHandler = (
   authDispatch,
   cartDispatch,
@@ -16,6 +18,7 @@ const logoutHandler = (
     type: "RESET_WISHLIST",
   });
   navigate("/");
+  toast.success("Logout Successful!");
 };
 
 export { logoutHandler };

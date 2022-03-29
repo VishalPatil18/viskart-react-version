@@ -6,11 +6,13 @@ import {
 } from "../../utilities";
 import { ICONS_URL } from "../../constants";
 import styles from "./HorizontalCard.module.css";
+import { useState } from "react";
 
 const HorizontalCard = ({ item }) => {
   const { authState } = useAuth();
   const { cartDispatch } = useCart();
   const { wishlistDispatch } = useWishlist();
+  const [btnDisabled, setBtnDisabled] = useState(false);
 
   return (
     <article className={styles.horizontalCard}>
@@ -51,31 +53,36 @@ const HorizontalCard = ({ item }) => {
         <div className={styles.cardButtonWrapper}>
           <button
             className={`button ${styles.quantityButton} ${
-              item.qty <= 1 ? styles.disabledBtn : null
+              item.qty <= 1 || btnDisabled ? styles.disabledBtn : null
             }`}
             onClick={() =>
               updateCartHandler(
                 item,
                 cartDispatch,
                 authState.token,
-                "decrement"
+                "decrement",
+                setBtnDisabled
               )
             }
-            disabled={item.qty <= 1}
+            disabled={item.qty <= 1 || btnDisabled}
           >
             -
           </button>
           <p className={styles.quantityValue}>{item.qty}</p>
           <button
-            className={`button ${styles.quantityButton}`}
+            className={`button ${styles.quantityButton} ${
+              btnDisabled ? styles.disabledBtn : null
+            }`}
             onClick={() =>
               updateCartHandler(
                 item,
                 cartDispatch,
                 authState.token,
-                "increment"
+                "increment",
+                setBtnDisabled
               )
             }
+            disabled={btnDisabled}
           >
             +
           </button>
