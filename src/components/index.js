@@ -1,6 +1,5 @@
 export { AuthModal } from "./AuthModal/AuthModal";
 export { Breadcrumb } from "./Breadcrumb/Breadcrumb";
-export { BtnLoader } from "./BtnLoader/BtnLoader";
 export { CategoryFilter } from "./CategoryFilter/CategoryFilter";
 export { FeaturedGames } from "./FeaturedGames/FeaturedGames";
 export { Filters } from "./Filters/Filters";
