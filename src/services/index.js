@@ -1,6 +1,7 @@
 export { addToCartService } from "./addToCart.service";
 export { addToWishlistService } from "./addToWishlist.service";
 export { cartService } from "./cart.service";
+export { getSingleProductService } from "./getSingleProduct.service";
 export { loginService } from "./login.service";
 export { productsService } from "./products.service";
 export { removeFromCartService } from "./removeFromCart.service";

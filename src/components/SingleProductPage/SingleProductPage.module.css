@@ -1,0 +1,119 @@
+.productCard {
+  background-color: var(--light);
+  border-radius: var(--br-lg);
+  display: flex;
+  height: 400px;
+  margin: var(--space-xl) 10%;
+  position: relative;
+}
+
+.imgWrapper {
+  flex-shrink: 1;
+  max-width: 450px;
+  width: 100%;
+}
+
+.productImage {
+  border-radius: var(--br-lg) 0 0 var(--br-lg);
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.detailsWrapper {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 3;
+  height: 100%;
+  padding: var(--space-sm);
+  width: 100%;
+}
+
+.vendor {
+  color: var(--grey-4);
+  font-size: var(--fs-xs-2);
+}
+
+.description {
+  font-size: var(--fs-xs-2);
+  margin-top: var(--space-xs);
+}
+
+.categoryWrapper {
+  display: flex;
+  margin: var(--space-xxs) 0;
+  width: 100%;
+}
+
+.category {
+  margin: 0 var(--space-xxs) 0 0;
+  padding: var(--space-xxxs) var(--space-xxs);
+}
+
+.btnsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xxxs);
+}
+
+.CartbtnsWrapper {
+  display: flex;
+  gap: var(--space-xxxs);
+}
+
+.addToCartBtn {
+  width: 100%;
+}
+
+.cardPrice {
+  font-size: var(--fs-sm-1);
+  margin: var(--space-sm) 0;
+}
+
+.cardNewPrice {
+  color: var(--danger);
+  font-size: var(--fs-lg-2);
+  margin-left: var(--space-xxs);
+}
+
+.ratingAndPriceWrapper {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.rating {
+  align-items: center;
+  background-color: var(--success);
+  border-radius: var(--br-xxs);
+  color: white;
+  display: flex;
+  font-size: var(--fs-xs-1);
+  gap: var(--space-xxxs);
+  padding: var(--space-xxxs) var(--space-xxs);
+  width: fit-content;
+}
+
+.ratingStar {
+  height: 15px;
+  width: 15px;
+}
+
+.wishlistBtn {
+  padding: var(--space-xxs) var(--space-xs);
+}
+
+.wishlistIcon {
+  height: 20px;
+  width: 20px;
+}
+
+.cardBadge {
+  left: initial;
+  right: 20px;
+}
+
+.badgeIconWidth {
+  width: 50px;
+}

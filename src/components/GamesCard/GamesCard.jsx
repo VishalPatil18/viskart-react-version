@@ -25,7 +25,7 @@ const GamesCard = ({ item }) => {
 
   return (
     <article className={`card card__ecommerce ${styles.cardBody}`}>
-      <div className="card__body">
+      <Link to={`/product/${item._id}`} className="card__body">
         {item.discount !== "0" && (
           <div className="card__badge">
             <img
@@ -65,7 +65,7 @@ const GamesCard = ({ item }) => {
             /-
           </p>
         </div>
-      </div>
+      </Link>
       <div className={`card__footer ${styles.cardFooter}`}>
         <div className={`card__footer--left ${styles.cardFooterLeft}`}>
           {!itemAdded ? (

@@ -28,7 +28,9 @@ const PriceDetails = () => {
         </div>
         <div className={styles.totalAmount}>
           <p className="bd-5">TOTAL AMOUNT</p>
-          <p className="st-1 price-value">${Number(totalAmount) + 5}</p>
+          <p className="st-1 price-value">
+            ${(Number(totalAmount) + 5).toFixed(2)}
+          </p>
         </div>
         <div className={styles.priceDesc}>
           <p className="cp card-caption">
@@ -45,7 +47,7 @@ const PriceDetails = () => {
         </div>
       </div>
       <button className={`button btn-solid-primary ${styles.palceOrderBtn}`}>
-        Place Order - ${Number(totalAmount) + 5}
+        Place Order - ${(Number(totalAmount) + 5).toFixed(2)}
       </button>
     </div>
   );
