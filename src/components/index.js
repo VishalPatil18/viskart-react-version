@@ -1,3 +1,6 @@
+export { AddNewAddressModal } from "./AddNewAddressModal/AddNewAddressModal";
+export { Address } from "./Address/Address";
+export { AddressCard } from "./AddressCard/AddressCard";
 export { AuthModal } from "./AuthModal/AuthModal";
 export { Breadcrumb } from "./Breadcrumb/Breadcrumb";
 export { CategoryFilter } from "./CategoryFilter/CategoryFilter";

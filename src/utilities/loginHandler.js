@@ -1,5 +1,10 @@
 import { toast } from "react-toastify";
-import { loginService, cartService, wishlistService } from "../services";
+import {
+  loginService,
+  cartService,
+  wishlistService,
+  getAddressService,
+} from "../services";
 
 const loginHandler = async (
   event,
@@ -22,11 +27,15 @@ const loginHandler = async (
         "viskartUser",
         JSON.stringify(response.data.foundUser)
       );
+      const addressResponse = await getAddressService(
+        response.data.encodedToken
+      );
       authDispatch({
         type: "LOGIN",
         payload: {
           token: response.data.encodedToken,
           user: response.data.foundUser,
+          addresses: addressResponse.data.address,
         },
       });
       const cartResponse = await cartService(response.data.encodedToken);
@@ -44,6 +53,8 @@ const loginHandler = async (
       setLoader(false, "I'm Working");
       navigate("/");
       toast.success("Login Successful!");
+    } else {
+      throw new Error("Something went wrong! Please try again later");
     }
   } catch (error) {
     setLoader(false, "I'm Working");
