@@ -1,4 +1,4 @@
-import { Navbar, Footer, Loader } from "./components";
+import { Navbar, Footer, Loader, SingleProductPage } from "./components";
 import { Home, ProductListing, Cart, Wishlist, User } from "./screens";
 import { Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
@@ -34,6 +34,7 @@ function App() {
         <Route path="/cart" element={<Cart cname={styles.main} />} />
         <Route path="/wishlist" element={<Wishlist cname={styles.main} />} />
         <Route path="/user" element={<User cname={styles.main} />} />
+        <Route path="/product/:productID" element={<SingleProductPage />} />
       </Routes>
       <Footer />
     </div>

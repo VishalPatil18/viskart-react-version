@@ -15,6 +15,7 @@ export { PriceDetails } from "./PriceDetails/PriceDetails";
 export { PriceSliderFilter } from "./PriceSliderFilter/PriceSliderFilter";
 export { ProductCarousel } from "./ProductCarousel/ProductCarousel";
 export { RatingFilter } from "./RatingFilter/RatingFilter";
+export { SingleProductPage } from "./SingleProductPage/SingleProductPage";
 export { SortByPriceFilter } from "./SortByPriceFilter/SortByPriceFilter";
 export { TopProductCard } from "./TopProductCard/TopProductCard";
 export { TopProducts } from "./TopProducts/TopProducts";
