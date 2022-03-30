@@ -29,6 +29,7 @@ const filterHandler = (
   if (sortBy) {
     filteredProducts = sortByHandler(filteredProducts, sortBy);
   }
+
   return filteredProducts;
 };
 

@@ -1,6 +1,14 @@
+import { toast } from "react-toastify";
 import { updateCartService } from "../services";
 
-const updateCartHandler = async (item, cartDispatch, token, action) => {
+const updateCartHandler = async (
+  item,
+  cartDispatch,
+  token,
+  action,
+  setBtnDisabled
+) => {
+  setBtnDisabled(true);
   try {
     const response = await updateCartService(item, token, action);
     if (response.status === 200) {
@@ -10,11 +18,11 @@ const updateCartHandler = async (item, cartDispatch, token, action) => {
           cart: response.data.cart,
         },
       });
-    } else {
-      throw new Error("Something went wrong. Please try again later");
     }
+    setBtnDisabled(false);
   } catch (error) {
-    console.log(error);
+    setBtnDisabled(false);
+    toast.error(error.response.data.errors[0]);
   }
 };
 

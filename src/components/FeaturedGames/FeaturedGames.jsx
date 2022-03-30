@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { GamesCard } from "../../components";
-import { useFilter } from "../../context";
+import { useFilter, useLoader } from "../../context";
 import { productsService } from "../../services";
 import { filterHandler } from "../../utilities";
 import styles from "./FeaturedGames.module.css";
@@ -9,17 +9,7 @@ let filteredProducts = [];
 const FeaturedGames = ({ isHomePage = false }) => {
   const [data, setData] = useState([]);
   const { filterState } = useFilter();
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const response = await productsService();
-        setData(response.data.products);
-      } catch (error) {
-        console.log(error);
-      }
-    })();
-  }, []);
+  const { setLoader } = useLoader();
 
   filteredProducts = filterHandler(
     data,
@@ -28,6 +18,20 @@ const FeaturedGames = ({ isHomePage = false }) => {
     filterState.rating,
     filterState.priceRange
   );
+
+  useEffect(() => {
+    setLoader(true);
+    (async () => {
+      try {
+        const response = await productsService();
+        setData(response.data.products);
+        setTimeout(() => setLoader(false), 1000);
+      } catch (error) {
+        setLoader(false);
+        toast.warning(error.response.data.errors[0]);
+      }
+    })();
+  }, []);
 
   return (
     <div className={styles.featuredGamesWrapper}>

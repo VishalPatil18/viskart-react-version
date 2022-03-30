@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import { loginService, cartService, wishlistService } from "../services";
 
 const loginHandler = async (
@@ -7,10 +8,13 @@ const loginHandler = async (
   cartDispatch,
   wishlistDispatch,
   authModalHandler,
+  setLoader,
   navigate
 ) => {
+  event.preventDefault();
+  authModalHandler("CLOSE");
+  setLoader(true, "Logging In");
   try {
-    event.preventDefault();
     const response = await loginService(login);
     if (response.status === 200) {
       localStorage.setItem("viskartToken", response.data.encodedToken);
@@ -37,19 +41,13 @@ const loginHandler = async (
         type: "INITIAL_WISHLIST",
         payload: { wishlist: wishlistResponse.data.wishlist },
       });
-      authModalHandler("CLOSE");
-      alert("Login Successful");
+      setLoader(false, "I'm Working");
       navigate("/");
-    }
-    if (response.status === 404) {
-      throw new Error(
-        "The email entered is not Registered. Please Enter a valid Email"
-      );
-    } else if (response.status === 401) {
-      throw new Error("Incorrect Password! Please try again.");
+      toast.success("Login Successful!");
     }
   } catch (error) {
-    alert(error);
+    setLoader(false, "I'm Working");
+    toast.error(error.response.data.errors[0]);
   }
 };
 

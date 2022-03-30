@@ -6,6 +6,7 @@ export { Filters } from "./Filters/Filters";
 export { Footer } from "./Footer/Footer";
 export { GamesCard } from "./GamesCard/GamesCard";
 export { HorizontalCard } from "./HorizontalCard/HorizontalCard";
+export { Loader } from "./Loader/Loader";
 export { Navbar } from "./Navbar/Navbar";
 export { NewGames } from "./NewGames/NewGames";
 export { NewGamesCard } from "./NewGamesCard/NewGamesCard";

@@ -1,6 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
-import { useAuth, useAuthModal, useCart, useWishlist } from "../../context";
+import {
+  useAuth,
+  useAuthModal,
+  useCart,
+  useLoader,
+  useWishlist,
+} from "../../context";
 import { loginHandler, signupHandler, inputHandler } from "../../utilities";
 import { ICONS_URL } from "../../constants";
 import styles from "./AuthModal.module.css";
@@ -14,6 +20,7 @@ const AuthModal = () => {
   const { authDispatch } = useAuth();
   const { cartDispatch } = useCart();
   const { wishlistDispatch } = useWishlist();
+  const { setLoader } = useLoader();
   const { authModalState, authModalHandler } = useAuthModal();
   const navigate = useNavigate();
 
@@ -47,6 +54,7 @@ const AuthModal = () => {
                 cartDispatch,
                 wishlistDispatch,
                 authModalHandler,
+                setLoader,
                 navigate
               )
             }
@@ -137,6 +145,7 @@ const AuthModal = () => {
                 signup,
                 authDispatch,
                 authModalHandler,
+                setLoader,
                 navigate
               )
             }
