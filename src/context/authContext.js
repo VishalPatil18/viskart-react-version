@@ -10,26 +10,28 @@ const AuthContext = createContext({
 const AuthProvider = ({ children }) => {
   const [authState, authDispatch] = useReducer(authReducer, initialAuthState);
 
-  useEffect(async () => {
-    try {
-      const currentUser = localStorage.getItem("viskartUser");
-      const currentToken = localStorage.getItem("viskartToken");
-      const addressesResponse =
-        currentToken !== null ? await getAddressService(currentToken) : [];
-      authDispatch({
-        type: "INITIAL_CHECK",
-        payload: {
-          token: currentToken,
-          user: JSON.parse(currentUser),
-          addresses:
-            addressesResponse.length !== 0
-              ? addressesResponse.data.address
-              : addressesResponse,
-        },
-      });
-    } catch (error) {
-      console.log("ERROR: ", error);
-    }
+  useEffect(() => {
+    (async () => {
+      try {
+        const currentUser = localStorage.getItem("viskartUser");
+        const currentToken = localStorage.getItem("viskartToken");
+        const addressesResponse =
+          currentToken !== null ? await getAddressService(currentToken) : [];
+        authDispatch({
+          type: "INITIAL_CHECK",
+          payload: {
+            token: currentToken,
+            user: JSON.parse(currentUser),
+            addresses:
+              addressesResponse.length !== 0
+                ? addressesResponse.data.address
+                : addressesResponse,
+          },
+        });
+      } catch (error) {
+        console.log("ERROR: ", error);
+      }
+    })();
   }, [authState.token]);
 
   return (

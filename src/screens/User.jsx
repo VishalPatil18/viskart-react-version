@@ -12,7 +12,7 @@ const User = ({ cname }) => {
 
   return (
     <section className={cname}>
-      {authState ? (
+      {authState.token ? (
         <p className={styles.greet}>Hello, {authState.user.username}👋</p>
       ) : null}
       <Address />
