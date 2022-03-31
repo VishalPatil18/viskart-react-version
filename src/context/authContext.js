@@ -1,5 +1,6 @@
 import { createContext, useContext, useReducer, useEffect } from "react";
 import { authReducer, initialAuthState } from "../redux";
+import { getAddressService } from "../services";
 
 const AuthContext = createContext({
   authState: {},
@@ -10,19 +11,27 @@ const AuthProvider = ({ children }) => {
   const [authState, authDispatch] = useReducer(authReducer, initialAuthState);
 
   useEffect(() => {
-    try {
-      const currentUser = localStorage.getItem("viskartUser");
-      const currentToken = localStorage.getItem("viskartToken");
-      authDispatch({
-        type: "INITIAL_CHECK",
-        payload: {
-          token: currentToken,
-          user: JSON.parse(currentUser),
-        },
-      });
-    } catch (error) {
-      console.log("ERROR: ", error);
-    }
+    (async () => {
+      try {
+        const currentUser = localStorage.getItem("viskartUser");
+        const currentToken = localStorage.getItem("viskartToken");
+        const addressesResponse =
+          currentToken !== null ? await getAddressService(currentToken) : [];
+        authDispatch({
+          type: "INITIAL_CHECK",
+          payload: {
+            token: currentToken,
+            user: JSON.parse(currentUser),
+            addresses:
+              addressesResponse.length !== 0
+                ? addressesResponse.data.address
+                : addressesResponse,
+          },
+        });
+      } catch (error) {
+        console.log("ERROR: ", error);
+      }
+    })();
   }, [authState.token]);
 
   return (

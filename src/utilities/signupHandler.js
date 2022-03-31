@@ -30,6 +30,8 @@ const signupHandler = async (
       setLoader(false, "I'm Working");
       toast.success(`Signup Successful ${signup.username}!`);
       navigate("/");
+    } else {
+      throw new Error("Something went wrong! Please try again later");
     }
   } catch (error) {
     setLoader(false, "I'm Working");

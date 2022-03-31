@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router";
+import { Address } from "../components";
 import { useAuth, useCart, useWishlist } from "../context";
 import { logoutHandler } from "../utilities/logoutHandler";
 import styles from "./User.module.css";
@@ -11,9 +12,10 @@ const User = ({ cname }) => {
 
   return (
     <section className={cname}>
-      {authState.user && (
+      {authState.token ? (
         <p className={styles.greet}>Hello, {authState.user.username}👋</p>
-      )}
+      ) : null}
+      <Address />
       <button
         className="button btn-solid-primary"
         onClick={() =>

@@ -18,8 +18,10 @@ const updateCartHandler = async (
           cart: response.data.cart,
         },
       });
+      setBtnDisabled(false);
+    } else {
+      throw new Error("Something went wrong! Please try again later");
     }
-    setBtnDisabled(false);
   } catch (error) {
     setBtnDisabled(false);
     toast.error(error.response.data.errors[0]);

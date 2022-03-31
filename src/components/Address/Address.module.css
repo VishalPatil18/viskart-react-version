@@ -1,0 +1,25 @@
+.addressWrapper {
+  background-color: var(--light);
+  border-radius: var(--br-md);
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-sm);
+}
+
+.addNewBtn {
+  margin: auto;
+}
+
+.addressCard {
+  background-color: white;
+  border-radius: var(--br-sm);
+  border: 1px solid var(--grey-2);
+  margin: var(--space-sm) 0;
+  padding: var(--space-sm);
+}
+
+.btnWrapper {
+  display: flex;
+  gap: var(--space-xxs);
+  margin-top: var(--space-sm);
+}
