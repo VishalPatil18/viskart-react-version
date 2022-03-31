@@ -4,7 +4,7 @@ import {
   ratingFilterHandler,
   priceSliderFilterHandler,
   searchHandler,
-} from "../utilities";
+} from "../../utilities";
 
 const filterHandler = (
   products,

@@ -1,5 +1,5 @@
 import { toast } from "react-toastify";
-import { updateCartService } from "../services";
+import { updateCartService } from "../../services";
 
 const updateCartHandler = async (
   item,

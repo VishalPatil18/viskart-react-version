@@ -1,5 +1,5 @@
 import { toast } from "react-toastify";
-import { addToWishlistService } from "../services";
+import { addToWishlistService } from "../../services";
 
 const addToWishlistHandler = async (item, wishlistDispatch, token) => {
   try {

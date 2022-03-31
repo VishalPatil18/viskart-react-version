@@ -20,4 +20,4 @@ export {
   addToWishlistService,
   removeFromWishlistService,
   wishlistService,
-} from "./addToWishlist.service";
+} from "./wishlist";

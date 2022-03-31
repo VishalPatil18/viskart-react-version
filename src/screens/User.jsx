@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router";
 import { Address } from "../components";
 import { useAuth, useCart, useWishlist } from "../context";
-import { logoutHandler } from "../utilities/logoutHandler";
+import { logoutHandler } from "../utilities";
 import styles from "./User.module.css";
 
 const User = ({ cname }) => {

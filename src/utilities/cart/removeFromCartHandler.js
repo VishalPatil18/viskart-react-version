@@ -1,4 +1,4 @@
-import { removeFromCartService } from "../services";
+import { removeFromCartService } from "../../services";
 
 const removeFromCartHandler = async (item, cartDispatch, token) => {
   try {
