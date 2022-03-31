@@ -1,20 +1,32 @@
-export { addNewAddressHandler } from "./addNewAddressHandler";
-export { addToCartHandler } from "./addToCartHandler";
-export { addToWishlistHandler } from "./addToWishlistHandler";
-export { categoryFilterHandler } from "./categoryFilterHandler";
-export { filterHandler } from "./filterHandler";
-export { getPriceDetails } from "./getPriceDetails";
-export { getSingleProductHandler } from "./getSingleProductHandler";
-export { inputHandler } from "./inputHandler";
-export { isInArrayList } from "./isInArraylist";
-export { loginHandler } from "./loginHandler";
-export { logoutHandler } from "./logoutHandler";
-export { priceSliderFilterHandler } from "./priceSliderFilterHandler";
-export { ratingFilterHandler } from "./ratingFilterHandler";
-export { removeAddressHandler } from "./removeAddressHandler";
-export { removeFromCartHandler } from "./removeFromCartHandler";
-export { removeFromWishlistHandler } from "./removeFromWishlistHandler";
-export { signupHandler } from "./signupHandler";
-export { sortByHandler } from "./sortByHandler";
-export { updateAddressHandler } from "./updateAddressHandler";
-export { updateCartHandler } from "./updateCartHandler";
+export {
+  addNewAddressHandler,
+  removeAddressHandler,
+  updateAddressHandler,
+} from "./address";
+
+export { loginHandler, logoutHandler, signupHandler } from "./auth";
+
+export {
+  addToCartHandler,
+  removeFromCartHandler,
+  updateCartHandler,
+} from "./cart";
+
+export {
+  categoryFilterHandler,
+  filterHandler,
+  priceSliderFilterHandler,
+  ratingFilterHandler,
+  searchHandler,
+  sortByHandler,
+} from "./filters";
+
+export {
+  getPriceDetails,
+  getSingleProductHandler,
+  inputHandler,
+  isInArrayList,
+  modalHandler,
+} from "./misc";
+
+export { addToWishlistHandler, removeFromWishlistHandler } from "./wishlist";

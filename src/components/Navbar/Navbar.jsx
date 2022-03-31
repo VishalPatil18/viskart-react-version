@@ -1,13 +1,15 @@
 import { AuthModal } from "../../components";
 import { ASSETS_URL, ICONS_URL } from "../../constants";
-import { useAuth, useAuthModal } from "../../context";
+import { useAuth, useAuthModal, useFilter } from "../../context";
 import { toast } from "react-toastify";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import styles from "./Navbar.module.css";
 
 const Navbar = () => {
   const { authState } = useAuth();
+  const { filterState, filterDispatch } = useFilter();
   const { authModalState, authModalHandler } = useAuthModal();
+  const location = useLocation();
 
   return (
     <header className={styles.header}>
@@ -29,15 +31,26 @@ const Navbar = () => {
           Top
         </Link>
       </div>
-      <div className={(styles.headerItem, styles.headerItemSearch)}>
-        <div className="input input__icons">
-          <input
-            className="input__field--text search"
-            type="text"
-            placeholder="Search..."
-          />
+      {location.pathname === "/products" ? (
+        <div className={(styles.headerItem, styles.headerItemSearch)}>
+          <div className="input input__icons">
+            <input
+              className="input__field--text search"
+              type="text"
+              placeholder="Search..."
+              value={filterState.search}
+              onChange={(e) =>
+                filterDispatch({
+                  type: "SEARCH",
+                  payload: {
+                    search: e.target.value,
+                  },
+                })
+              }
+            />
+          </div>
         </div>
-      </div>
+      ) : null}
       <div className={(styles.headerItem, styles.headerMenuWrapper)}>
         {authState.user ? (
           <Link to="/cart" className={`txt-center ${styles.headerMenuItem}`}>

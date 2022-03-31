@@ -1,4 +1,3 @@
-import { FilterProvider } from "../context";
 import { Breadcrumb, FeaturedGames, Filters, Pagination } from "../components";
 import styles from "./ProductListing.module.css";
 
@@ -11,15 +10,14 @@ const ProductListing = () => {
           { name: "Products", path: "/products" },
         ]}
       />
-      <FilterProvider>
-        <div className={styles.productsWrapper}>
-          <Filters cname={styles.sidebar} />
-          <div className={styles.mainBody}>
-            <FeaturedGames />
-            <Pagination />
-          </div>
+
+      <div className={styles.productsWrapper}>
+        <Filters cname={styles.sidebar} />
+        <div className={styles.mainBody}>
+          <FeaturedGames />
+          <Pagination />
         </div>
-      </FilterProvider>
+      </div>
     </div>
   );
 };
