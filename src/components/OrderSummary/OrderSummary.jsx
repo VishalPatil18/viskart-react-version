@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router";
-import { useCart, useOrder } from "../../context";
+import { useAuth, useCart, useOrder } from "../../context";
 import { displayRazorpay } from "../../utilities";
 import { AddressCard } from "../AddressCard/AddressCard";
 import styles from "./OrderSummary.module.css";
@@ -7,6 +7,7 @@ import styles from "./OrderSummary.module.css";
 const OrderSummary = ({ setStep }) => {
   const { orderState, orderDispatch } = useOrder();
   const { cartDispatch } = useCart();
+  const { authState } = useAuth();
   const navigate = useNavigate();
 
   return (
@@ -98,7 +99,13 @@ const OrderSummary = ({ setStep }) => {
         <button
           className="button btn-solid-primary"
           onClick={() =>
-            displayRazorpay(orderState, orderDispatch, cartDispatch, navigate)
+            displayRazorpay(
+              orderState,
+              orderDispatch,
+              cartDispatch,
+              navigate,
+              authState.token
+            )
           }
         >
           Place Order

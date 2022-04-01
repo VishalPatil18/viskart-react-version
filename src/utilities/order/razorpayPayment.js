@@ -1,3 +1,4 @@
+import { clearCartService } from "../../services";
 import { toast } from "react-toastify";
 
 const loadScript = async (url) => {
@@ -20,7 +21,8 @@ const displayRazorpay = async (
   orderState,
   orderDispatch,
   cartDispatch,
-  navigate
+  navigate,
+  token
 ) => {
   const res = await loadScript("https://checkout.razorpay.com/v1/checkout.js");
 
@@ -37,23 +39,28 @@ const displayRazorpay = async (
     description: "Thank you for shopping with us! Enjoy your Games",
     image:
       "https://raw.githubusercontent.com/VishalPatil18/VISKart/development/assets/logo.svg",
-    handler: function () {
-      orderDispatch({
-        type: "ADD_NEW_ORDER",
-        payload: {
-          order: {
-            items: orderState.items,
-            priceDetails: orderState.priceDetails,
-            address: orderState.address,
-            message: orderState.message,
+    handler: async function () {
+      const response = await clearCartService(token);
+      if (response.status === 200) {
+        cartDispatch({
+          type: "RESET_CART",
+        });
+        orderDispatch({
+          type: "ADD_NEW_ORDER",
+          payload: {
+            order: {
+              items: orderState.items,
+              priceDetails: orderState.priceDetails,
+              address: orderState.address,
+              message: orderState.message,
+            },
           },
-        },
-      });
-      cartDispatch({
-        type: "RESET_CART",
-      });
-      navigate("/user");
-      toast.success("Order Placed Successfully!");
+        });
+        navigate("/user");
+        toast.success("Order Placed Successfully!");
+      } else {
+        toast.error("Order Failed! Please try again!");
+      }
     },
     prefill: {
       name: "Bablu Tailor",
