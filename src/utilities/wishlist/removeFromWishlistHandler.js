@@ -1,4 +1,4 @@
-import { removeFromWishlistService } from "../services";
+import { removeFromWishlistService } from "../../services";
 
 const removeFromWishlistHandler = async (item, wishlistDispatch, token) => {
   try {

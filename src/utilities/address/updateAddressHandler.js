@@ -1,5 +1,5 @@
 import { toast } from "react-toastify";
-import { updateAddressService } from "../services";
+import { updateAddressService } from "../../services";
 
 const updateAddressHandler = async (
   event,

@@ -10,6 +10,7 @@ import {
   AuthModalProvider,
   WishlistProvider,
   LoaderProvider,
+  FilterProvider,
 } from "./context";
 
 // Call make Server
@@ -20,13 +21,15 @@ ReactDOM.render(
     <LoaderProvider>
       <AuthModalProvider>
         <AuthProvider>
-          <CartProvider>
-            <WishlistProvider>
-              <BrowserRouter>
-                <App />
-              </BrowserRouter>
-            </WishlistProvider>
-          </CartProvider>
+          <FilterProvider>
+            <CartProvider>
+              <WishlistProvider>
+                <BrowserRouter>
+                  <App />
+                </BrowserRouter>
+              </WishlistProvider>
+            </CartProvider>
+          </FilterProvider>
         </AuthProvider>
       </AuthModalProvider>
     </LoaderProvider>

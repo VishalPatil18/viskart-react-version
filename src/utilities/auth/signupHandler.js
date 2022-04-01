@@ -1,5 +1,5 @@
 import { toast } from "react-toastify";
-import { signupService } from "../services";
+import { signupService } from "../../services";
 
 const signupHandler = async (
   event,

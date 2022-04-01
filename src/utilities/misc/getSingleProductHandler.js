@@ -1,5 +1,5 @@
 import { toast } from "react-toastify";
-import { getSingleProductService } from "../services";
+import { getSingleProductService } from "../../services";
 
 const getSingleProductHandler = async (productID) => {
   try {

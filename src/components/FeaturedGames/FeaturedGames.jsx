@@ -16,7 +16,8 @@ const FeaturedGames = ({ isHomePage = false }) => {
     filterState.sortBy,
     filterState.categories,
     filterState.rating,
-    filterState.priceRange
+    filterState.priceRange,
+    filterState.search
   );
 
   useEffect(() => {
@@ -43,9 +44,13 @@ const FeaturedGames = ({ isHomePage = false }) => {
         <button className="st-1 button btn-plain btn-primary">See all</button>
       </div>
       <section className={styles.main_products}>
-        {filteredProducts.map((item) => (
-          <GamesCard key={item._id} item={item} />
-        ))}
+        {filteredProducts.length > 0 ? (
+          filteredProducts.map((item) => (
+            <GamesCard key={item._id} item={item} />
+          ))
+        ) : (
+          <h5 className="h-5">No Products Found</h5>
+        )}
       </section>
     </div>
   );

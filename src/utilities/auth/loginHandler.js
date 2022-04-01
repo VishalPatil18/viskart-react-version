@@ -4,7 +4,7 @@ import {
   cartService,
   wishlistService,
   getAddressService,
-} from "../services";
+} from "../../services";
 
 const loginHandler = async (
   event,

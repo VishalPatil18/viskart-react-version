@@ -3,14 +3,16 @@ import {
   sortByHandler,
   ratingFilterHandler,
   priceSliderFilterHandler,
-} from "../utilities";
+  searchHandler,
+} from "../../utilities";
 
 const filterHandler = (
   products,
   sortBy,
   categories = [],
   rating,
-  priceRange
+  priceRange,
+  search
 ) => {
   let filteredProducts = products;
 
@@ -28,6 +30,10 @@ const filterHandler = (
 
   if (sortBy) {
     filteredProducts = sortByHandler(filteredProducts, sortBy);
+  }
+
+  if (search) {
+    filteredProducts = searchHandler(filteredProducts, search);
   }
 
   return filteredProducts;

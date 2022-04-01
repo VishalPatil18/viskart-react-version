@@ -3,6 +3,7 @@ const initialFilterState = {
   categories: [],
   rating: "",
   priceRange: "300",
+  search: "",
 };
 
 const filterReducer = (state, action) => {
@@ -28,6 +29,11 @@ const filterReducer = (state, action) => {
       return {
         ...state,
         priceRange: action.payload.priceRange,
+      };
+    case "SEARCH":
+      return {
+        ...state,
+        search: action.payload.search,
       };
     default:
       return state;

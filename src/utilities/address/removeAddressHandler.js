@@ -1,5 +1,5 @@
 import { toast } from "react-toastify";
-import { removeAddressService } from "../services";
+import { removeAddressService } from "../../services";
 
 const removeAddressHandler = async (
   addressId,

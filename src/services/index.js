@@ -1,15 +1,23 @@
-export { addNewAddressService } from "./addNewAddress.service";
-export { addToCartService } from "./addToCart.service";
-export { addToWishlistService } from "./addToWishlist.service";
-export { cartService } from "./cart.service";
-export { getAddressService } from "./getAddress.service";
-export { getSingleProductService } from "./getSingleProduct.service";
-export { loginService } from "./login.service";
-export { productsService } from "./products.service";
-export { removeAddressService } from "./removeAddress.service";
-export { removeFromCartService } from "./removeFromCart.service";
-export { removeFromWishlistService } from "./removeFromWishlist.service";
-export { signupService } from "./signup.service";
-export { updateAddressService } from "./updateAddress.service";
-export { updateCartService } from "./updateCart.service";
-export { wishlistService } from "./wishlist.service";
+export {
+  addNewAddressService,
+  getAddressService,
+  removeAddressService,
+  updateAddressService,
+} from "./address";
+
+export { loginService, signupService } from "./auth";
+
+export {
+  addToCartService,
+  cartService,
+  removeFromCartService,
+  updateCartService,
+} from "./cart";
+
+export { getSingleProductService, productsService } from "./products";
+
+export {
+  addToWishlistService,
+  removeFromWishlistService,
+  wishlistService,
+} from "./wishlist";
