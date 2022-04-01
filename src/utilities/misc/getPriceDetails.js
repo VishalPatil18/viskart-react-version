@@ -1,4 +1,4 @@
-const getPriceDetails = (cart) => {
+const getPriceDetails = (cart, orderDispatch) => {
   const totalItems = cart.reduce((acc, curr) => (acc += curr.qty), 0);
 
   const totalPrice = cart
@@ -16,9 +16,30 @@ const getPriceDetails = (cart) => {
     )
     .toFixed(2);
 
-  const totalAmount = (totalPrice - totalDiscount).toFixed(2);
+  const deliveryCharges = 5;
 
-  return { totalPrice, totalDiscount, totalAmount, totalItems };
+  const totalAmount = (totalPrice - totalDiscount + deliveryCharges).toFixed(2);
+
+  orderDispatch({
+    type: "PRICE_DETAILS",
+    payload: {
+      priceDetails: {
+        totalPrice,
+        totalDiscount,
+        deliveryCharges,
+        totalAmount,
+        totalItems,
+      },
+    },
+  });
+
+  return {
+    totalPrice,
+    totalDiscount,
+    deliveryCharges,
+    totalAmount,
+    totalItems,
+  };
 };
 
 export { getPriceDetails };

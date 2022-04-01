@@ -2,7 +2,7 @@ import { AuthModal } from "../../components";
 import { ASSETS_URL, ICONS_URL } from "../../constants";
 import { useAuth, useAuthModal, useFilter } from "../../context";
 import { toast } from "react-toastify";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import styles from "./Navbar.module.css";
 
 const Navbar = () => {

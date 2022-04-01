@@ -1,0 +1,1 @@
+export { displayRazorpay } from "./razorpayPayment";

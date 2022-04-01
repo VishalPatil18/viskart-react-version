@@ -1,12 +1,24 @@
-import { useCart } from "../../context";
+import { useCart, useOrder } from "../../context";
 import { getPriceDetails } from "../../utilities";
 import { ICONS_URL } from "../../constants";
 import styles from "./PriceDetails.module.css";
+import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const PriceDetails = () => {
   const { cartState } = useCart();
-  const { totalPrice, totalDiscount, totalAmount, totalItems } =
-    getPriceDetails(cartState.cart);
+  const { orderDispatch } = useOrder();
+  const [cartPrice, setCartPrice] = useState({});
+
+  useEffect(() => {
+    setCartPrice(getPriceDetails(cartState.cart, orderDispatch));
+    orderDispatch({
+      type: "ADD_ITEMS",
+      payload: {
+        items: cartState.cart,
+      },
+    });
+  }, [cartState]);
 
   return (
     <div className={styles.card}>
@@ -15,26 +27,24 @@ const PriceDetails = () => {
       </div>
       <div className={styles.cardContent}>
         <div className={styles.priceDesc}>
-          <p className="bd-5">Price ({totalItems} items)</p>
-          <p className="st-1 price-value">${totalPrice}</p>
+          <p className="bd-5">Price ({cartPrice.totalItems} items)</p>
+          <p className="st-1 price-value">${cartPrice.totalPrice}</p>
         </div>
         <div className={styles.priceDesc}>
           <p className="bd-5">Discount</p>
-          <p className="st-1 price-value">-${totalDiscount}</p>
+          <p className="st-1 price-value">-${cartPrice.totalDiscount}</p>
         </div>
         <div className={styles.priceDesc}>
           <p className="bd-5">Delivery Charges</p>
-          <p className="st-1 price-value">$5.00</p>
+          <p className="st-1 price-value">${cartPrice.deliveryCharges}</p>
         </div>
         <div className={styles.totalAmount}>
           <p className="bd-5">TOTAL AMOUNT</p>
-          <p className="st-1 price-value">
-            ${(Number(totalAmount) + 5).toFixed(2)}
-          </p>
+          <p className="st-1 price-value">${cartPrice.totalAmount}</p>
         </div>
         <div className={styles.priceDesc}>
           <p className="cp card-caption">
-            You will save ${totalDiscount} on this order
+            You will save ${cartPrice.totalDiscount} on this order
           </p>
           <button className={`button txt-center ${styles.applyCouponsBtn}`}>
             <img
@@ -46,9 +56,12 @@ const PriceDetails = () => {
           </button>
         </div>
       </div>
-      <button className={`button btn-solid-primary ${styles.palceOrderBtn}`}>
-        Place Order - ${(Number(totalAmount) + 5).toFixed(2)}
-      </button>
+      <Link
+        to="/checkout"
+        className={`button btn-solid-primary ${styles.palceOrderBtn}`}
+      >
+        Checkout - ${cartPrice.totalAmount}
+      </Link>
     </div>
   );
 };

@@ -1,5 +1,12 @@
 import { Navbar, Footer, Loader, SingleProductPage } from "./components";
-import { Home, ProductListing, Cart, Wishlist, User } from "./screens";
+import {
+  Home,
+  ProductListing,
+  Cart,
+  Wishlist,
+  User,
+  Checkout,
+} from "./screens";
 import { Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { useLoader } from "./context";
@@ -35,6 +42,7 @@ function App() {
         <Route path="/wishlist" element={<Wishlist cname={styles.main} />} />
         <Route path="/user" element={<User cname={styles.main} />} />
         <Route path="/product/:productID" element={<SingleProductPage />} />
+        <Route path="/checkout" element={<Checkout />} />
       </Routes>
       <Footer />
     </div>
