@@ -10,6 +10,7 @@ export { loginService, signupService } from "./auth";
 export {
   addToCartService,
   cartService,
+  clearCartService,
   removeFromCartService,
   updateCartService,
 } from "./cart";

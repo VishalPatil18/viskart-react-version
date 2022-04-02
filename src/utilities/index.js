@@ -29,4 +29,6 @@ export {
   modalHandler,
 } from "./misc";
 
+export { displayRazorpay } from "./order";
+
 export { addToWishlistHandler, removeFromWishlistHandler } from "./wishlist";

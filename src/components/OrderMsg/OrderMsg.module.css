@@ -1,0 +1,20 @@
+.body {
+  background-color: var(--light);
+  border-radius: var(--br-md);
+  margin: var(--space-sm) auto;
+  padding: var(--space-sm) var(--space-lg);
+  width: fit-content;
+}
+
+.btnsWrapper {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--space-sm);
+}
+
+.textarea {
+  background-color: white;
+  resize: vertical;
+  width: min(100%, 450px);
+}

@@ -1,0 +1,44 @@
+.body {
+  background-color: var(--light);
+  border-radius: var(--br-md);
+  margin: var(--space-sm) auto;
+  padding: var(--space-sm) var(--space-lg);
+  width: fit-content;
+}
+
+.addressCard {
+  align-items: center;
+  background-color: white;
+  border-radius: var(--br-sm);
+  border: 1px solid var(--grey-4);
+  display: flex;
+  gap: var(--space-xs);
+  justify-content: center;
+  margin-top: var(--space-sm);
+  padding: var(--space-sm);
+  width: fit-content;
+}
+
+.addressCard div > h5 {
+  font-size: var(--fs-sm-2);
+}
+
+.addressCard div > p {
+  font-size: var(--fs-xs-1);
+}
+
+.btnsWrapper {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--space-sm);
+}
+
+.disabledBtn {
+  background-color: var(--grey-4);
+  cursor: not-allowed;
+}
+
+.disabledBtn:hover {
+  background-color: var(--grey-4);
+}

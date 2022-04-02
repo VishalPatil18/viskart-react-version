@@ -1,0 +1,77 @@
+.body {
+  background-color: var(--light);
+  border-radius: var(--br-md);
+  margin: var(--space-sm) auto;
+  padding: var(--space-sm) var(--space-lg);
+  width: min(100%, 550px);
+}
+
+.productsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xxxs);
+}
+
+.productCard {
+  background-color: white;
+  border-radius: var(--br-xs);
+  border: 1px solid var(--grey-1);
+  padding: var(--space-xs);
+  transition: box-shadow 0.2s ease-in;
+}
+
+.productCard:hover {
+  box-shadow: var(--bs-xs);
+}
+
+.productTitle {
+  font-size: var(--fs-sm-1);
+  font-weight: var(--fw-5);
+}
+
+.priceQtyWrapper {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.priceQty {
+  font-size: var(--fs-xs-1);
+}
+
+.table {
+  width: 100%;
+}
+
+.tableData {
+  font-size: var(--fs-sm-1);
+  font-weight: var(--fw-5);
+}
+
+.saveNote {
+  color: var(--success);
+  font-size: var(--fs-xs-2);
+  margin-top: var(--space-xs);
+}
+
+.addressCard h5,
+.addressCard p {
+  font-size: var(--fs-xs-1);
+  font-weight: var(--fw-4);
+}
+
+.sectionHeading {
+  font-size: var(--fs-sm-1);
+  font-weight: var(--fw-5);
+}
+
+.parcelMsg {
+  font-size: var(--fs-xs-1);
+}
+
+.btnsWrapper {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--space-sm);
+}
