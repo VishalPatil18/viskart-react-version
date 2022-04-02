@@ -13,6 +13,10 @@
   width: 50px;
 }
 
+.cardDiscount {
+  font-size: var(--fs-xxs-2);
+}
+
 .cardTitleWrapper {
   padding-bottom: 0;
   padding: var(--space-xs);
@@ -30,9 +34,7 @@
 }
 
 .cardPrice {
-  padding: 0 var(--space-xs);
   text-align: center;
-  width: 100%;
 }
 
 .cardNewPrice {
@@ -84,4 +86,47 @@
   border-bottom-left-radius: var(--br-sm);
   border-bottom-right-radius: var(--br-sm);
   width: 100%;
+}
+
+.rating {
+  align-items: center;
+  background-color: var(--success);
+  border-radius: var(--br-xxs);
+  color: white;
+  display: flex;
+  flex-shrink: 0;
+  font-size: var(--fs-xs-1);
+  gap: var(--space-xxxs);
+  padding: var(--space-xxxs) var(--space-xxs);
+  width: fit-content;
+}
+
+.ratingStar {
+  height: 15px;
+  width: 15px;
+}
+
+/*
+***************** MEDIA QUERIES *****************
+*/
+@media screen and (max-width: 720px) {
+  .badgeIconWidth {
+    height: 40px;
+    width: 30px;
+  }
+
+  .cardDiscount {
+    font-size: var(--fs-xxs-2);
+    top: 2px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .cardBody .cardNewPrice {
+    font-size: var(--fs-sm-2);
+  }
+
+  .cardPrice {
+    font-size: var(--fs-xs-1);
+  }
 }

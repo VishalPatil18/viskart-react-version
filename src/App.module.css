@@ -20,3 +20,12 @@
 .toast {
   font-size: var(--fs-xs-1);
 }
+
+/*
+***************** MEDIA QUERIES *****************
+*/
+@media screen and (max-width: 640px) {
+  .main {
+    padding: var(--space-sm) var(--space-sm);
+  }
+}

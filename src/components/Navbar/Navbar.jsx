@@ -1,6 +1,12 @@
 import { AuthModal } from "../../components";
 import { ASSETS_URL, ICONS_URL } from "../../constants";
-import { useAuth, useAuthModal, useFilter } from "../../context";
+import {
+  useAuth,
+  useAuthModal,
+  useCart,
+  useFilter,
+  useWishlist,
+} from "../../context";
 import { toast } from "react-toastify";
 import { Link, useLocation } from "react-router-dom";
 import styles from "./Navbar.module.css";
@@ -9,6 +15,8 @@ const Navbar = () => {
   const { authState } = useAuth();
   const { filterState, filterDispatch } = useFilter();
   const { authModalState, authModalHandler } = useAuthModal();
+  const { cartState } = useCart();
+  const { wishlistState } = useWishlist();
   const location = useLocation();
 
   return (
@@ -53,12 +61,20 @@ const Navbar = () => {
       ) : null}
       <div className={(styles.headerItem, styles.headerMenuWrapper)}>
         {authState.user ? (
-          <Link to="/cart" className={`txt-center ${styles.headerMenuItem}`}>
+          <Link
+            to="/cart"
+            className={`txt-center badge__container ${styles.headerMenuItem}`}
+          >
             <img
               className="icon-md icon-dark"
               src={`${ICONS_URL}/shopping-cart.svg`}
               alt="cart"
             />
+            {cartState.cart.length > 0 ? (
+              <span className={`badge bdg-danger ${styles.badge}`}>
+                {cartState.cart.length}
+              </span>
+            ) : null}
           </Link>
         ) : (
           <button
@@ -78,13 +94,18 @@ const Navbar = () => {
         {authState.user ? (
           <Link
             to="/wishlist"
-            className={`txt-center ${styles.headerMenuItem}`}
+            className={`txt-center badge__container ${styles.headerMenuItem}`}
           >
             <img
               className="icon-md icon-dark"
               src={`${ICONS_URL}/heart.svg`}
               alt="heart"
             />
+            {wishlistState.wishlist.length > 0 ? (
+              <span className={`badge bdg-danger ${styles.badge}`}>
+                {wishlistState.wishlist.length}
+              </span>
+            ) : null}
           </Link>
         ) : (
           <button
@@ -132,11 +153,11 @@ const Navbar = () => {
               src={`${ICONS_URL}/user.svg`}
               alt="login"
             />
-            <p>{authState.user.username}</p>
+            <p className={styles.userName}>{authState.user.username}</p>
           </Link>
         ) : (
           <button
-            className={`txt-center ${styles.headerMenuItem}`}
+            className={`txt-center ${styles.headerMenuItem} ${styles.profileIcon}`}
             onClick={() => authModalHandler("OPEN")}
           >
             <img

@@ -1,5 +1,6 @@
 .products_heading {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin-top: var(--space-xl);
 }
@@ -20,4 +21,26 @@
   color: var(--grey-5);
   font-size: var(--fs-xs-1);
   margin: auto auto auto var(--space-sm);
+}
+
+/*
+***************** MEDIA QUERIES *****************
+*/
+@media screen and (max-width: 640px) {
+  .main_products {
+    gap: var(--space-sm);
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .products_heading {
+    margin-top: 0;
+  }
+
+  .showingProductsCaption {
+    margin: 0;
+    order: 2;
+    width: 100%;
+  }
 }

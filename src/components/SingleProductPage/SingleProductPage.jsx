@@ -71,14 +71,16 @@ const SingleProductPage = () => {
               src={`${ICONS_URL}/bookmark.svg`}
               alt="bookmark-icon"
             />
-            <span className="card__discount">{product.discount}% OFF</span>
+            <span className={`card__discount ${styles.cardDiscount}`}>
+              {product.discount}% OFF
+            </span>
           </div>
         )}
         <div className={styles.imgWrapper}>
           <img className={styles.productImage} src={product.imageSrc} />
         </div>
         <div className={styles.detailsWrapper}>
-          <h5 className="h-5">{product.title}</h5>
+          <h5 className={`h-5 ${styles.title}`}>{product.title}</h5>
           <small className={styles.vendor}>{product.vendor}</small>
           <div className={styles.categoryWrapper}>
             {product.categoryName

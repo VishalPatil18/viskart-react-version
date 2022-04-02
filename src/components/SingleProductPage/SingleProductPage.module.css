@@ -8,7 +8,6 @@
 }
 
 .imgWrapper {
-  flex-shrink: 1;
   max-width: 450px;
   width: 100%;
 }
@@ -20,13 +19,25 @@
   width: 100%;
 }
 
+.cardDiscount {
+  font-size: var(--fs-xs-1);
+}
+
 .detailsWrapper {
   display: flex;
   flex-direction: column;
-  flex-shrink: 3;
   height: 100%;
   padding: var(--space-sm);
   width: 100%;
+}
+
+.title {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 80%;
 }
 
 .vendor {
@@ -116,4 +127,33 @@
 
 .badgeIconWidth {
   width: 50px;
+}
+
+/*
+***************** MEDIA QUERIES *****************
+*/
+@media screen and (max-width: 640px) {
+  .productCard {
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .productImage {
+    border-radius: var(--br-lg) var(--br-lg) 0 0;
+  }
+
+  .imgWrapper {
+    height: 200px;
+    max-width: 640px;
+  }
+
+  .badgeIconWidth {
+    height: 40px;
+    width: 30px;
+  }
+
+  .cardDiscount {
+    font-size: var(--fs-xxs-2);
+    top: 2px;
+  }
 }

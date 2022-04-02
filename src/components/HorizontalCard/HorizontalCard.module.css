@@ -15,9 +15,9 @@
 .myItemImage {
   border-bottom-left-radius: var(--br-xl);
   border-top-left-radius: var(--br-xl);
-  flex-shrink: 0;
+  height: 100%;
   object-fit: cover;
-  width: 40%;
+  width: 100%;
 }
 
 .cardBody {
@@ -30,9 +30,11 @@
 }
 
 .cardTitle {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
   width: 23vw;
 }
 
@@ -53,6 +55,7 @@
   position: absolute;
   top: -5px;
   width: 50px;
+  z-index: 2;
 }
 
 .newPrice {
@@ -111,6 +114,10 @@
     border-top-left-radius: var(--br-xl);
     border-top-right-radius: var(--br-xl);
     height: 250px;
+    width: 100%;
+  }
+
+  .cardTitle {
     width: 100%;
   }
 }

@@ -25,7 +25,10 @@ const GamesCard = ({ item }) => {
 
   return (
     <article className={`card card__ecommerce ${styles.cardBody}`}>
-      <Link to={`/product/${item._id}`} className="card__body">
+      <Link
+        to={`/product/${item._id}`}
+        className={`card__body ${styles.cardBodyLink}`}
+      >
         {item.discount !== "0" && (
           <div className="card__badge">
             <img
@@ -33,7 +36,9 @@ const GamesCard = ({ item }) => {
               src={`${ICONS_URL}/bookmark.svg`}
               alt="bookmark-icon"
             />
-            <span className="card__discount">{item.discount}% OFF</span>
+            <span className={`card__discount ${styles.cardDiscount}`}>
+              {item.discount}% OFF
+            </span>
           </div>
         )}
         <img
@@ -47,7 +52,7 @@ const GamesCard = ({ item }) => {
           </h1>
           <p className="caption">{item.vendor}</p>
         </div>
-        <div className="card__content">
+        <div className={`card__content ${styles.cardContent}`}>
           <p className={`bd-5 ${styles.cardPrice}`}>
             ${item.discount !== "0" && <strike>{item.price}</strike>}
             {
@@ -64,6 +69,14 @@ const GamesCard = ({ item }) => {
             }
             /-
           </p>
+          <div className={styles.rating}>
+            <img
+              className={`icon-light ${styles.ratingStar}`}
+              src={`${ICONS_URL}/star-solid.svg`}
+              alt="star"
+            />
+            {item.rating}
+          </div>
         </div>
       </Link>
       <div className={`card__footer ${styles.cardFooter}`}>
