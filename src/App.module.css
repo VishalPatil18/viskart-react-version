@@ -7,7 +7,8 @@
 
 .main {
   height: 100%;
-  padding: var(--space-sm) 10%;
+  padding: var(--space-sm) 10% 330px;
+  position: relative;
   width: 100%;
 }
 
@@ -21,11 +22,40 @@
   font-size: var(--fs-xs-1);
 }
 
+.bannerImg {
+  cursor: pointer;
+  margin-top: var(--space-xl);
+  transition: box-shadow 0.2s ease-in;
+}
+
 /*
 ***************** MEDIA QUERIES *****************
 */
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 1280px) {
+  .main {
+    padding: var(--space-sm) 5%;
+  }
+
+  .mainPaddingBottom {
+    padding-bottom: 330px;
+  }
+}
+@media screen and (max-width: 1024px) {
   .main {
     padding: var(--space-sm) var(--space-sm);
+  }
+
+  .mainPaddingBottom {
+    padding-bottom: 300px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .main {
+    padding: var(--space-sm) var(--space-sm);
+  }
+
+  .mainPaddingBottom {
+    padding-bottom: 250px;
   }
 }

@@ -32,10 +32,16 @@ const Navbar = () => {
         </Link>
       </div>
       <div className={(styles.headerItem, styles.headerButtonWrapper)}>
-        <Link to="/products" className="button btn-solid-primary">
+        <Link
+          to="/products"
+          className={`button btn-solid-primary ${styles.navbarBtn}`}
+        >
           Featured
         </Link>
-        <Link to="/products" className="button btn-plain btn-primary">
+        <Link
+          to="/products"
+          className={`button btn-plain btn-primary ${styles.navbarBtn}`}
+        >
           Top
         </Link>
       </div>
@@ -43,7 +49,7 @@ const Navbar = () => {
         <div className={(styles.headerItem, styles.headerItemSearch)}>
           <div className="input input__icons">
             <input
-              className="input__field--text search"
+              className={`input__field--text search ${styles.searchInput}`}
               type="text"
               placeholder="Search..."
               value={filterState.search}
@@ -70,9 +76,10 @@ const Navbar = () => {
               src={`${ICONS_URL}/shopping-cart.svg`}
               alt="cart"
             />
+            <p className={styles.optionText}>My Cart</p>
             {cartState.cart.length > 0 ? (
               <span className={`badge bdg-danger ${styles.badge}`}>
-                {cartState.cart.length}
+                {cartState.cart.length < 10 ? cartState.cart.length : "9+"}
               </span>
             ) : null}
           </Link>
@@ -89,6 +96,7 @@ const Navbar = () => {
               src={`${ICONS_URL}/shopping-cart.svg`}
               alt="cart"
             />
+            <p className={styles.optionText}>My Cart</p>
           </button>
         )}
         {authState.user ? (
@@ -101,9 +109,12 @@ const Navbar = () => {
               src={`${ICONS_URL}/heart.svg`}
               alt="heart"
             />
+            <p className={styles.optionText}>Wishlist</p>
             {wishlistState.wishlist.length > 0 ? (
               <span className={`badge bdg-danger ${styles.badge}`}>
-                {wishlistState.wishlist.length}
+                {wishlistState.wishlist.length < 10
+                  ? wishlistState.wishlist.length
+                  : "9+"}
               </span>
             ) : null}
           </Link>
@@ -118,25 +129,11 @@ const Navbar = () => {
             <img
               className="icon-md icon-dark"
               src={`${ICONS_URL}/heart.svg`}
-              alt="cart"
+              alt="heart"
             />
+            <p className={styles.optionText}>Wishlist</p>
           </button>
         )}
-        <button className={`txt-center ${styles.headerMenuItem}`}>
-          <img
-            className="icon-md icon-dark"
-            src={`${ICONS_URL}/bell.svg`}
-            alt="notification"
-          />
-        </button>
-
-        <button className={`txt-center ${styles.headerMenuItem}`}>
-          <img
-            className="icon-md icon-dark"
-            src={`${ICONS_URL}/cog.svg`}
-            alt="settings"
-          />
-        </button>
 
         <button className={`button btn-plain-icon ${styles.themeSwitcher}`}>
           <img

@@ -8,7 +8,7 @@
 .main_products {
   column-gap: var(--space-md);
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
   margin-top: var(--space-md);
   row-gap: var(--space-xl);
 }

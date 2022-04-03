@@ -1,0 +1,78 @@
+.section {
+  align-items: center;
+  background-image: url("https://raw.githubusercontent.com/VishalPatil18/VISKart/main/assets/whyShopWithUs.webp");
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  left: 0;
+  margin: auto;
+  padding: var(--space-md);
+  position: absolute;
+  width: 100%;
+}
+
+.cardsWrapper {
+  display: flex;
+  gap: var(--space-xl);
+  overflow-y: scroll;
+  scrollbar-color: var(--primary) transparent;
+  scrollbar-width: thin;
+  width: 90%;
+}
+
+.cardsWrapper::-webkit-scrollbar {
+  width: 5px;
+}
+
+.cardsWrapper:hover.cardsWrapper::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: var(--br-full);
+}
+
+.card {
+  align-items: center;
+  background-color: white;
+  border-radius: var(--br-xs);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  flex: 1;
+  min-width: 200px;
+  padding: var(--space-sm);
+  text-align: center;
+}
+
+.title {
+  color: white;
+  font-size: var(--fs-lg-2);
+  margin: auto auto var(--space-md);
+  text-align: center;
+}
+
+.cardTitle {
+  font-size: var(--fs-sm-2);
+  font-weight: var(--fw-6);
+  margin-top: var(--space-xs);
+  text-transform: uppercase;
+}
+
+.cardCaption {
+  color: var(--grey-3);
+  font-size: var(--fs-xs-1);
+  font-weight: var(--fw-3);
+}
+
+/*
+***************** MEDIA QUERIES *****************
+*/
+@media screen and (max-width: 640px) {
+  .cardsWrapper {
+    padding: 0 var(--space-md);
+    width: 100%;
+  }
+
+  .section {
+    padding: var(--space-md) 0;
+  }
+}

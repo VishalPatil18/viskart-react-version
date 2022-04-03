@@ -5,12 +5,22 @@
 }
 
 .newProducts {
-  align-items: center;
   background-color: var(--light);
   border-radius: var(--br-xl);
   display: flex;
   gap: var(--space-lg);
-  margin-top: var(--space-md);
+  margin: var(--space-md);
   overflow-x: scroll;
   padding: var(--space-md);
+  scrollbar-color: var(--primary) transparent;
+  scrollbar-width: thin;
+}
+
+.newProducts::-webkit-scrollbar {
+  width: 5px;
+}
+
+.newProducts:hover.newProducts::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: var(--br-full);
 }

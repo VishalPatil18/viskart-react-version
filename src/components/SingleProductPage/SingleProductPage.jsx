@@ -120,42 +120,41 @@ const SingleProductPage = () => {
             </div>
           </div>
           <div className={styles.btnsWrapper}>
-            <button className="button btn-solid-primary">
-              Buy - $
-              {product.discount === "0"
-                ? product.price
-                : (
-                    product.price -
-                    Number.parseFloat(product.price * (product.discount / 100))
-                  ).toFixed(2)}
+            <button className={`button btn-solid-primary ${styles.buyButton}`}>
+              <img
+                className="icon-md icon-light"
+                src={`${ICONS_URL}/shipping-fast.svg`}
+              />
+              Buy
             </button>
             <div className={styles.CartbtnsWrapper}>
               {!itemAdded ? (
                 <button
-                  className={`button btn-solid-dark ${styles.addToCartBtn}`}
+                  className={`button btn-solid-dark ${styles.buyButton}`}
                   onClick={() => {
                     if (authState.token) {
                       setItemAdded(true);
-                      return addToCartHandler(product, cartDispatch, authState);
+                      return addToCartHandler(
+                        product,
+                        cartDispatch,
+                        authState.token
+                      );
                     }
                     toast.warning("You're not logged in");
                     return authModalHandler("LOGIN");
                   }}
                 >
-                  Add to cart - $
-                  {product.discount === "0"
-                    ? product.price
-                    : (
-                        product.price -
-                        Number.parseFloat(
-                          product.price * (product.discount / 100)
-                        )
-                      ).toFixed(2)}
+                  <img
+                    className="icon-md icon-light"
+                    src={`${ICONS_URL}/shopping-cart.svg`}
+                    alt="cart"
+                  />
+                  Add to cart
                 </button>
               ) : (
                 <Link
                   to="/cart"
-                  className={`button btn-sm btn-solid-success card__button ${styles.buyButton}`}
+                  className={`button btn-solid-success ${styles.buyButton}`}
                 >
                   Go to Cart
                 </Link>

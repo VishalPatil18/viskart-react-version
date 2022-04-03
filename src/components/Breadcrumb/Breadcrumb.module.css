@@ -14,6 +14,12 @@
   padding: var(--space-xxs) var(--space-xs);
 }
 
+.breadcrumbItem:last-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .breadcrumbLink {
   color: var(--grey-4);
   font-size: var(--fs-xs-2);
@@ -39,7 +45,7 @@
 /*
 ***************** MEDIA QUERIES *****************
 */
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 1024px) {
   .breadcrumb {
     padding: 0 var(--space-xs);
   }

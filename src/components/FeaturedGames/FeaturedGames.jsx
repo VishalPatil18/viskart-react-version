@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
 import { GamesCard } from "../../components";
 import { useFilter, useLoader } from "../../context";
@@ -41,7 +43,9 @@ const FeaturedGames = ({ isHomePage = false }) => {
         <p className={styles.showingProductsCaption}>
           {!isHomePage && `(showing ${filteredProducts.length} products)`}
         </p>
-        <button className="st-1 button btn-plain btn-primary">See all</button>
+        <Link to="/products" className="st-1 button btn-plain btn-primary">
+          See all
+        </Link>
       </div>
       <section className={styles.main_products}>
         {filteredProducts.length > 0 ? (

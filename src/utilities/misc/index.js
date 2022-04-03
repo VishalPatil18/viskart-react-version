@@ -1,3 +1,4 @@
+export { categoryProductsHandler } from "./categoryProductsHandler";
 export { getPriceDetails } from "./getPriceDetails";
 export { getSingleProductHandler } from "./getSingleProductHandler";
 export { inputHandler } from "./inputHandler";

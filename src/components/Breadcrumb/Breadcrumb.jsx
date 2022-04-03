@@ -12,6 +12,7 @@ const Breadcrumb = ({ links }) => {
             <li className={styles.breadcrumbItem}>
               <Link
                 to={item.path}
+                title={item.name}
                 className={
                   i === links.length - 1 ? styles.active : styles.breadcrumbLink
                 }
@@ -20,7 +21,7 @@ const Breadcrumb = ({ links }) => {
               </Link>
             </li>
             {i < links.length - 1 && (
-              <li className={styles.breadcrumbItem}>
+              <li>
                 <img
                   className={`icon-md icon-grey ${styles.breadcrumbIcon}`}
                   src={`${ICONS_URL}/angle-up.svg`}
