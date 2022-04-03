@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useAuth, useCart, useWishlist } from "../../context";
 import {
   updateCartHandler,
@@ -26,16 +27,18 @@ const HorizontalCard = ({ item }) => {
           <span className="card__discount">{item.discount}% OFF</span>
         </div>
       )}
-      <img
-        className={styles.myItemImage}
-        src={item.imageSrc}
-        alt={item.title}
-      />
+      <Link to={`/product/${item._id}`} className="card__body">
+        <img
+          className={styles.myItemImage}
+          src={item.imageSrc}
+          alt={item.title}
+        />
+      </Link>
       <div className={styles.cardBody}>
-        <div className="my-item__disc">
+        <Link to={`/product/${item._id}`} className="my-item__disc">
           <h5 className={`h-5 ${styles.cardTitle}`}>{item.title}</h5>
           <p className="bd-5">{item.desc}</p>
-        </div>
+        </Link>
         <p className="bd-5">
           ${item.discount !== "0" && <strike>{item.price}</strike>}
           {

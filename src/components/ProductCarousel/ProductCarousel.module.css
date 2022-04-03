@@ -36,4 +36,8 @@
     border-bottom-right-radius: var(--br-xl);
     width: 100%;
   }
+
+  .mainCarousel {
+    margin: var(--space-md) auto;
+  }
 }

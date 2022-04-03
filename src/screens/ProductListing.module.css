@@ -25,3 +25,50 @@
   margin: 0 var(--space-lg);
   width: 100%;
 }
+
+.filtersBtn {
+  background-color: #1b1c1c;
+  border-radius: 0;
+  bottom: 0;
+  display: none;
+  font-size: var(--fs-md-2);
+  left: 0;
+  padding: var(--space-sm) 0;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+}
+
+/*
+***************** MEDIA QUERIES *****************
+*/
+@media screen and (max-width: 768px) {
+  .sidebar {
+    display: none;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 5;
+  }
+
+  .openSidebar {
+    display: initial;
+  }
+
+  .filtersBtn {
+    display: initial;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .mainBody {
+    margin: 0 var(--space-xs);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .mainBody {
+    margin: 0 var(--space-xs);
+  }
+}

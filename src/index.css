@@ -1,4 +1,4 @@
-@import url("https://vispaui-postdev-deploy.netlify.app/css/main.css");
+@import url("https://vispa-ui.vercel.app/css/main.css");
 /*
 ***************** GLOBAL STYLING *****************
 */
@@ -36,6 +36,7 @@ body {
 #root {
   height: 100vh;
   width: 100%;
+  max-width: 1536px;
 }
 
 .dark-mode {
@@ -68,4 +69,37 @@ body {
 .Toastify__close-button > svg {
   height: 20px !important;
   width: 20px !important;
+}
+
+/*
+***************** MEDIA QUERIES *****************
+*/
+@media screen and (max-width: 1536px) {
+  :root {
+    font-size: 66%;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  :root {
+    font-size: 62.5%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  :root {
+    font-size: 58%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  :root {
+    font-size: 54%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  :root {
+    font-size: 50%;
+  }
 }

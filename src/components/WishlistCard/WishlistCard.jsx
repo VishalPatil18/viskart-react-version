@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useAuth, useCart, useWishlist } from "../../context";
 import { removeFromWishlistHandler, addToCartHandler } from "../../utilities";
 import { ICONS_URL } from "../../constants";
@@ -10,15 +11,19 @@ const WishlistCard = ({ item }) => {
 
   return (
     <article className={`card card__ecommerce ${styles.cardBody}`}>
-      <div className="card__body">
-        <div className="card__badge">
-          <img
-            className={`badge__icon icon-danger ${styles.badgeIconWidth}`}
-            src={`${ICONS_URL}/bookmark.svg`}
-            alt="bookmark-icon"
-          />
-          <span className="card__discount">{item.discount}% OFF</span>
-        </div>
+      <Link to={`/product/${item._id}`} className="card__body">
+        {item.discount !== "0" && (
+          <div className="card__badge">
+            <img
+              className={`badge__icon icon-danger ${styles.badgeIconWidth}`}
+              src={`${ICONS_URL}/bookmark.svg`}
+              alt="bookmark-icon"
+            />
+            <span className={`card__discount ${styles.cardDiscount}`}>
+              {item.discount}% OFF
+            </span>
+          </div>
+        )}
         <img
           src={item.imageSrc}
           className={`card__img ${styles.cardImgAdjustment}`}
@@ -32,21 +37,31 @@ const WishlistCard = ({ item }) => {
         </div>
         <div className="card__content">
           <p className={`bd-5 ${styles.cardPrice}`}>
-            $
-            {item.discount === "0" ? item.price : <strike>{item.price}</strike>}
-            {item.discount !== "0" && (
+            ${item.discount !== "0" && <strike>{item.price}</strike>}
+            {
               <span
                 className={`card__content--newprice ${styles.cardNewPrice}`}
               >
-                {Number.parseFloat(item.price * (item.discount / 100)).toFixed(
-                  2
-                )}
+                {item.discount === "0"
+                  ? item.price
+                  : (
+                      item.price -
+                      Number.parseFloat(item.price * (item.discount / 100))
+                    ).toFixed(2)}
               </span>
-            )}
+            }
             /-
           </p>
+          <div className={styles.rating}>
+            <img
+              className={`icon-light ${styles.ratingStar}`}
+              src={`${ICONS_URL}/star-solid.svg`}
+              alt="star"
+            />
+            {item.rating}
+          </div>
         </div>
-      </div>
+      </Link>
       <div className={`card__footer ${styles.cardFooter}`}>
         <div className={`card__footer--left ${styles.cardFooterLeft}`}>
           <button
