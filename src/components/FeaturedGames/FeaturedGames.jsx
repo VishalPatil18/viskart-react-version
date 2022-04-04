@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
 import { GamesCard } from "../../components";
 import { useFilter, useLoader } from "../../context";
@@ -36,14 +38,16 @@ const FeaturedGames = ({ isHomePage = false }) => {
 
   return (
     <div className={styles.featuredGamesWrapper}>
-      <div className={styles.products_heading}>
+      <div className={styles.productsHeading}>
         <h5 className="h-5">Featured Games</h5>
         <p className={styles.showingProductsCaption}>
           {!isHomePage && `(showing ${filteredProducts.length} products)`}
         </p>
-        <button className="st-1 button btn-plain btn-primary">See all</button>
+        <Link to="/products" className="st-1 button btn-plain btn-primary">
+          See all
+        </Link>
       </div>
-      <section className={styles.main_products}>
+      <section className={styles.mainProducts}>
         {filteredProducts.length > 0 ? (
           filteredProducts.map((item) => (
             <GamesCard key={item._id} item={item} />

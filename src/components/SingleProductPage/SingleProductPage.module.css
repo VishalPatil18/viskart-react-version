@@ -1,13 +1,17 @@
 .productCard {
-  background-color: var(--light);
   border-radius: var(--br-lg);
   display: flex;
   height: 400px;
-  margin: var(--space-xl) 10%;
+  margin: var(--space-xl) auto;
+  max-width: 1000px;
+  padding: 0 var(--space-sm);
   position: relative;
 }
 
 .imgWrapper {
+  border: 1px solid var(--grey-1);
+  border-radius: var(--br-lg) 0 0 var(--br-lg);
+  border-right: none;
   max-width: 450px;
   width: 100%;
 }
@@ -24,6 +28,9 @@
 }
 
 .detailsWrapper {
+  border: 1px solid var(--grey-1);
+  border-left: none;
+  border-radius: 0 var(--br-lg) var(--br-lg) 0;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -64,15 +71,22 @@
 .btnsWrapper {
   display: flex;
   flex-direction: column;
-  gap: var(--space-xxxs);
+  gap: var(--space-xxs);
+  width: clamp(150px, 100%, 300px);
 }
 
 .CartbtnsWrapper {
   display: flex;
-  gap: var(--space-xxxs);
+  gap: var(--space-xxs);
 }
 
-.addToCartBtn {
+.buyButton {
+  align-items: center;
+  display: flex;
+  font-size: var(--fs-sm-1);
+  gap: var(--space-xxs);
+  justify-content: center;
+  text-transform: uppercase;
   width: 100%;
 }
 
@@ -122,7 +136,7 @@
 
 .cardBadge {
   left: initial;
-  right: 20px;
+  right: 35px;
 }
 
 .badgeIconWidth {
@@ -132,10 +146,28 @@
 /*
 ***************** MEDIA QUERIES *****************
 */
+@media screen and (max-width: 768px) {
+  .badgeIconWidth {
+    height: 50px;
+    width: 40px;
+  }
+}
 @media screen and (max-width: 640px) {
   .productCard {
     flex-direction: column;
     height: 100%;
+  }
+
+  .detailsWrapper {
+    border: 1px solid var(--grey-1);
+    border-top: none;
+    border-radius: 0 0 var(--br-lg) var(--br-lg);
+  }
+
+  .imgWrapper {
+    border: 1px solid var(--grey-1);
+    border-bottom: none;
+    border-radius: var(--br-lg) var(--br-lg) 0 0;
   }
 
   .productImage {

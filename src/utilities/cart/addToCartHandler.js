@@ -1,9 +1,9 @@
 import { toast } from "react-toastify";
 import { addToCartService } from "../../services";
 
-const addToCartHandler = async (item, cartDispatch, authState) => {
+const addToCartHandler = async (item, cartDispatch, token) => {
   try {
-    const response = await addToCartService(item, authState.token);
+    const response = await addToCartService(item, token);
     if (response.status === 201) {
       cartDispatch({
         type: "ADD_TO_CART",

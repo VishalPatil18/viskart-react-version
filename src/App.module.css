@@ -7,8 +7,15 @@
 
 .main {
   height: 100%;
+  margin: 0 auto;
+  max-width: 1536px;
   padding: var(--space-sm) 10%;
+  position: relative;
   width: 100%;
+}
+
+.mainPaddingBottom {
+  padding-bottom: 330px;
 }
 
 .seeAllGames {
@@ -21,11 +28,37 @@
   font-size: var(--fs-xs-1);
 }
 
+.bannerImg {
+  cursor: pointer;
+  margin-top: var(--space-xl);
+  transition: box-shadow 0.2s ease-in;
+}
+
 /*
 ***************** MEDIA QUERIES *****************
 */
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 1280px) {
+  .main {
+    padding: var(--space-sm) 5%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
   .main {
     padding: var(--space-sm) var(--space-sm);
+  }
+
+  .mainPaddingBottom {
+    padding-bottom: 300px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .main {
+    padding: var(--space-sm) var(--space-sm);
+  }
+
+  .mainPaddingBottom {
+    padding-bottom: 250px;
   }
 }

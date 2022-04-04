@@ -1,4 +1,6 @@
 .breadcrumb {
+  margin: 0 auto;
+  max-width: 1536px;
   padding: 0 10%;
   width: 100%;
 }
@@ -12,6 +14,12 @@
   gap: var(--space-xxs);
   height: 100%;
   padding: var(--space-xxs) var(--space-xs);
+}
+
+.breadcrumbItem:last-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .breadcrumbLink {
@@ -39,7 +47,7 @@
 /*
 ***************** MEDIA QUERIES *****************
 */
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 1024px) {
   .breadcrumb {
     padding: 0 var(--space-xs);
   }

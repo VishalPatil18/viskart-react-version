@@ -1,6 +1,12 @@
 .cardBody {
+  border: 1px solid var(--grey-1);
+  box-shadow: none;
   justify-self: center;
-  width: 250px;
+  width: 100%;
+}
+
+.cardBody:hover {
+  box-shadow: var(--bs-sm);
 }
 
 .cardBodyLink {
@@ -8,17 +14,18 @@
 }
 
 .cardImgAdjustment {
-  height: 250px;
+  height: 200px;
   object-fit: cover;
   width: 100%;
 }
 
 .badgeIconWidth {
-  width: 50px;
+  height: 50px;
+  width: 35px;
 }
 
 .cardTitleWrapper {
-  padding: var(--space-xs) var(--space-xs) 0;
+  padding: var(--space-xxxs) var(--space-xs) 0;
   text-align: center;
 }
 
@@ -30,9 +37,11 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   display: -webkit-box;
+  font-size: var(--fs-md-1);
+  margin: auto;
   overflow: hidden;
   text-overflow: ellipsis;
-  width: 230px;
+  width: 200px;
 }
 
 .cardContent {
@@ -41,9 +50,12 @@
 
 .cardPrice {
   text-align: center;
+  width: 100%;
 }
 
-.cardNewPrice {
+.cardPrice .cardNewPrice {
+  font-size: var(--fs-md-1);
+  font-weight: var(--fw-4);
   margin-left: var(--space-xxs);
 }
 
@@ -80,7 +92,7 @@
   gap: 5px;
   position: absolute;
   right: 5px;
-  top: 200px;
+  top: 155px;
 }
 
 .cardFooterLeft {
@@ -88,22 +100,42 @@
 }
 
 .cardFooter .buyButton {
+  align-items: center;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+  display: flex;
+  font-size: var(--fs-xs-2);
+  gap: var(--space-xxs);
+  justify-content: center;
   padding: var(--space-xxs) var(--space-xs);
+  text-transform: uppercase;
 }
 
 .rating {
   align-items: center;
-  background-color: var(--success);
   border-radius: var(--br-xxs);
   color: white;
   display: flex;
   flex-shrink: 0;
   font-size: var(--fs-xs-1);
   gap: var(--space-xxxs);
+  left: 5px;
   padding: var(--space-xxxs) var(--space-xxs);
+  position: absolute;
+  top: 164px;
   width: fit-content;
+}
+
+.ratingSuccess {
+  background-color: var(--success);
+}
+
+.ratingDanger {
+  background-color: var(--danger);
+}
+
+.ratingWarning {
+  background-color: var(--yellow-5);
 }
 
 .ratingStar {
@@ -139,15 +171,15 @@
     height: 150px;
   }
 
+  .rating {
+    top: 120px;
+  }
+
   .cardFooterRight {
     top: 105px;
   }
 
   .cardBody .cardNewPrice {
     font-size: var(--fs-sm-2);
-  }
-
-  .cardPrice {
-    font-size: var(--fs-xs-1);
   }
 }

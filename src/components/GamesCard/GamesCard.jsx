@@ -46,6 +46,22 @@ const GamesCard = ({ item }) => {
           className={`card__img ${styles.cardImgAdjustment}`}
           alt="card-image"
         />
+        <div
+          className={`${styles.rating} ${
+            item.rating > 3.5
+              ? styles.ratingSuccess
+              : item.rating > 1.5
+              ? styles.ratingWarning
+              : styles.ratingDanger
+          }`}
+        >
+          <img
+            className={`icon-light ${styles.ratingStar}`}
+            src={`${ICONS_URL}/star-solid.svg`}
+            alt="star"
+          />
+          {item.rating}
+        </div>
         <div className={`card__title ${styles.cardTitleWrapper}`}>
           <h1 title={item.title} className={`h-5 ${styles.cardTitle}`}>
             {item.title}
@@ -69,14 +85,6 @@ const GamesCard = ({ item }) => {
             }
             /-
           </p>
-          <div className={styles.rating}>
-            <img
-              className={`icon-light ${styles.ratingStar}`}
-              src={`${ICONS_URL}/star-solid.svg`}
-              alt="star"
-            />
-            {item.rating}
-          </div>
         </div>
       </Link>
       <div className={`card__footer ${styles.cardFooter}`}>
@@ -87,25 +95,29 @@ const GamesCard = ({ item }) => {
               onClick={() => {
                 if (authState.token) {
                   setItemAdded(true);
-                  return addToCartHandler(item, cartDispatch, authState);
+                  return addToCartHandler(item, cartDispatch, authState.token);
                 }
                 toast.warning("You're not logged in");
                 return authModalHandler("LOGIN");
               }}
             >
-              Add to Cart - $
-              {item.discount !== "0"
-                ? (
-                    item.price -
-                    Number.parseFloat(item.price * (item.discount / 100))
-                  ).toFixed(2)
-                : item.price}
+              <img
+                className="icon-md icon-light"
+                src={`${ICONS_URL}/shopping-cart.svg`}
+                alt="cart"
+              />
+              Add to Cart
             </button>
           ) : (
             <Link
               to="/cart"
               className={`button btn-sm btn-solid-success card__button ${styles.buyButton}`}
             >
+              <img
+                className="icon-md icon-light"
+                src={`${ICONS_URL}/shopping-cart.svg`}
+                alt="cart"
+              />
               Go to Cart
             </Link>
           )}
@@ -143,18 +155,19 @@ const GamesCard = ({ item }) => {
               alt="heart-icon"
             />
           </button>
-          <button className={`button ${styles.iconButton}`}>
+          <button
+            className={`button ${styles.iconButton}`}
+            onClick={() => {
+              navigator.clipboard.writeText(
+                `${window.location.href}product/${item._id}`
+              );
+              toast.success(`${item.title} Link Copied!`);
+            }}
+          >
             <img
               className="icon-sm icon-success"
               src={`${ICONS_URL}/share.svg`}
               alt="share-icon"
-            />
-          </button>
-          <button className={`button ${styles.iconButton}`}>
-            <img
-              className="icon-sm icon-primary"
-              src={`${ICONS_URL}/menu.svg`}
-              alt="menu-icon"
             />
           </button>
         </div>

@@ -1,3 +1,5 @@
+import { categoryProductsHandler } from "./misc";
+
 export {
   addNewAddressHandler,
   removeAddressHandler,
@@ -22,6 +24,7 @@ export {
 } from "./filters";
 
 export {
+  categoryProductsHandler,
   getPriceDetails,
   getSingleProductHandler,
   inputHandler,

@@ -1,15 +1,16 @@
+import { Link } from "react-router-dom";
 import styles from "./NewGamesCard.module.css";
 
-const NewGamesCard = ({ title, price, imageSrc }) => {
+const NewGamesCard = ({ id, title, price, imageSrc }) => {
   return (
     <article className={styles.newItem}>
-      <img className={styles.newItemImage} src={imageSrc} alt={title} />
-      <div className={styles.newItemDisc}>
-        <p className="st-2">{title}</p>
-      </div>
-      <button
-        className={`button btn-sm btn-solid-primary ${styles.newItemButton}`}
-      >
+      <Link to={`/product/${id}`} className={styles.detailsWrapper}>
+        <img className={styles.newItemImage} src={imageSrc} alt={title} />
+        <div className={styles.newItemDisc}>
+          <p className={`st-2 ${styles.title}`}>{title}</p>
+        </div>
+      </Link>
+      <button className={`button btn-sm btn-solid-primary ${styles.buyBtn}`}>
         ${price}
       </button>
     </article>

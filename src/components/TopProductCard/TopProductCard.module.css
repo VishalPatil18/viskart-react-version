@@ -5,6 +5,10 @@
   width: 100%;
 }
 
+.detailsWrapper {
+  display: flex;
+}
+
 .topItemImage {
   border-radius: var(--br-md);
   height: 60px;

@@ -8,7 +8,7 @@ const RatingFilter = () => {
     <div className={styles.checkbox}>
       <h6 className={`h-6 ${styles.sidebarItemTitle}`}>Rating</h6>
       {[4, 3, 2, 1].map((rating) => (
-        <div className="radio-item" key={rating}>
+        <div className={`radio-item ${styles.ratingItem}`} key={rating}>
           <input
             className="input__field--radio"
             name="rating"

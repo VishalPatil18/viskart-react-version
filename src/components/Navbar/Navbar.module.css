@@ -5,6 +5,8 @@
   display: flex;
   gap: var(--space-md);
   left: 0;
+  margin: 0 auto;
+  max-width: 1536px;
   padding: var(--space-sm) 10%;
   position: sticky;
   right: 0;
@@ -32,10 +34,6 @@
   width: 5rem;
 }
 
-.profileIcon {
-  margin-left: var(--space-xxs);
-}
-
 .brandname {
   background-color: initial;
   border: none;
@@ -55,8 +53,10 @@
   margin-left: var(--space-sm);
 }
 
-.headerButtonWrapper .button {
+.navbarBtn {
   border-radius: var(--br-sm);
+  padding: var(--space-xxs) var(--space-xs);
+  text-transform: uppercase;
 }
 
 .headerItemSearch {
@@ -88,7 +88,12 @@
   cursor: pointer;
   height: 40px;
   padding: 1rem;
-  width: 40px;
+  width: fit-content;
+  font-size: var(--fs-xs-1);
+  display: flex;
+  align-items: center;
+  gap: var(--space-xxxs);
+  transition: background-color 0.2s ease-in;
 }
 
 .headerMenuItem:hover {
@@ -105,7 +110,7 @@
 }
 
 .themeSwitcher {
-  margin-left: var(--space-xs);
+  margin: 0 var(--space-xs);
   padding: 0;
 }
 
@@ -132,7 +137,7 @@
   justify-content: flex-start;
   margin: auto 1rem;
   max-width: 120px;
-  padding: var(--space-xxxs) var(--space-xs);
+  padding: var(--space-xxs) var(--space-xs);
   width: fit-content;
 }
 
@@ -144,10 +149,25 @@
 }
 
 .badge {
-  font-size: var(--fs-xs-1);
+  font-size: var(--fs-xxs-2);
   padding: 0px 5px;
-  right: -5px;
+  left: 22px;
   top: -5px;
+  min-width: 14px;
+  border: 2px solid white;
+  font-weight: var(--fw-7);
+  width: fit-content;
+}
+
+.searchInput {
+  margin: 0;
+  border-radius: var(--br-sm);
+  border: none;
+}
+
+.headerItemSearch .searchInput:focus {
+  border: none;
+  outline: 2px solid var(--blue-3);
 }
 
 /*
@@ -169,10 +189,6 @@
     width: 220px;
   }
 
-  .headerButtonWrapper {
-    display: none;
-  }
-
   .headerMenuList {
     padding: 0;
   }
@@ -181,10 +197,25 @@
 /*
 ***************** MEDIA QUERIES *****************
 */
+@media screen and (max-width: 1024px) {
+  .headerItemSearch {
+    order: 4;
+    width: 100%;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .headerItemSearch {
     order: 4;
     width: 100%;
+  }
+
+  .headerButtonWrapper {
+    display: none;
+  }
+
+  .optionText {
+    display: none;
   }
 }
 
@@ -206,9 +237,5 @@
 
   .brandname {
     font-size: var(--fs-md-2);
-  }
-
-  .userName {
-    display: none;
   }
 }

@@ -1,4 +1,4 @@
-import { Breadcrumb, WishlistCard } from "../components";
+import { Breadcrumb, HorizontalCard, WishlistCard } from "../components";
 import { useWishlist } from "../context";
 import { Link } from "react-router-dom";
 import styles from "./Wishlist.module.css";
@@ -37,7 +37,7 @@ const Wishlist = ({ cname }) => {
             </div>
           )}
           {wishlistState.wishlist.map((item) => (
-            <WishlistCard key={item._id} item={item} />
+            <HorizontalCard key={item._id} item={item} />
           ))}
         </section>
       </div>

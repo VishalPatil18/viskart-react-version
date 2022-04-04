@@ -19,8 +19,9 @@
   border-radius: 0;
   border-bottom-left-radius: var(--br-xl);
   border-bottom-right-radius: var(--br-xl);
-  padding: var(--space-sm);
+  padding: var(--space-xs);
   text-align: center;
+  text-transform: uppercase;
 }
 
 .cardTitleValue {

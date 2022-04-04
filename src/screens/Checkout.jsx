@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { OrderMsg, OrderSummary, SelectAddress } from "../components";
+import styles from "../App.module.css";
 
 const Checkout = () => {
   const [step, setStep] = useState(1);
 
   return (
-    <div>
+    <div className={styles.main}>
       <h5 className="h-5 txt-center">Checkout Page</h5>
       {(() => {
         switch (step) {

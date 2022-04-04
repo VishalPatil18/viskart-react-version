@@ -1,4 +1,5 @@
 .mainCarousel {
+  display: flex;
   height: 300px;
   margin: var(--space-md) auto 0;
   position: relative;

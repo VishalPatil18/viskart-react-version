@@ -1,41 +1,56 @@
 .horizontalCard {
-  background-color: white;
-  border-radius: var(--br-xl);
-  box-shadow: var(--bs-xs);
+  border-top: 1px solid var(--grey-1);
   display: flex;
+  gap: var(--space-sm);
+  padding: var(--space-sm);
   position: relative;
   width: 100%;
 }
 
-.horizontalCard:hover {
-  box-shadow: var(--bs-sm);
-  transition: 0.2s ease-in;
+.horizontalCard:last-child {
+  border-bottom: 1px solid var(--grey-1);
 }
 
 .myItemImage {
-  border-bottom-left-radius: var(--br-xl);
-  border-top-left-radius: var(--br-xl);
-  height: 100%;
+  border-radius: var(--br-sm);
+  height: 200px;
   object-fit: cover;
   width: 100%;
 }
 
+.imageWrapper {
+  width: 250px;
+}
+
 .cardBody {
+  align-items: center;
   color: var(--dark);
   display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-  padding: var(--space-sm);
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  justify-content: flex-start;
   width: 100%;
+}
+.cardTitleWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xxs);
+  justify-content: center;
+  width: clamp(150px, 100%, 250px);
 }
 
 .cardTitle {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   display: -webkit-box;
+  font-size: var(--fs-sm-2);
+  min-width: 150px;
   overflow: hidden;
   text-overflow: ellipsis;
-  width: 23vw;
+}
+
+.cardTitle:hover {
+  text-decoration: underline;
 }
 
 .cardContentNewprice {
@@ -43,19 +58,42 @@
   font-size: var(--fs-md-2);
 }
 
+.buttonsWrapper {
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+  gap: var(--space-xxs);
+  margin-left: auto;
+}
+
 .cardButtonWrapper {
+  align-items: center;
+  background-color: var(--blue-1);
+  border-radius: var(--br-xs);
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-sm);
-  margin-top: auto;
+  padding: var(--space-xxs);
+  width: fit-content;
 }
 
 .cardBadge {
+  height: 40px;
   left: 20px;
   position: absolute;
-  top: -5px;
+  top: 11px;
   width: 50px;
   z-index: 2;
+}
+
+.cardBadge > img {
+  height: 50px;
+  width: 50px;
+}
+
+.cardDiscount {
+  font-size: var(--fs-xxs-2);
+  top: 0;
 }
 
 .newPrice {
@@ -64,9 +102,22 @@
   margin-left: var(--space-xxs);
 }
 
-.topItemButton {
-  flex: 1;
-  margin: 0px;
+.wishlistBtn {
+  background-color: initial;
+  border-radius: var(--br-xxs);
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  cursor: pointer;
+  font-size: var(--fs-xs-2);
+  padding: var(--space-xxxs) var(--space-xs);
+  text-transform: uppercase;
+  transition: background-color 0.2s ease-in;
+  width: fit-content;
+}
+
+.wishlistBtn:hover {
+  background-color: var(--primary);
+  color: white;
 }
 
 .shareCartBtn {
@@ -80,10 +131,12 @@
 
 .quantityButton {
   align-items: center;
-  background-color: var(--primary);
+  background-color: initial;
   border-radius: var(--br-full);
-  color: white;
+  box-shadow: none;
+  color: var(--dark);
   display: flex;
+  font-size: var(--fs-md-2);
   height: 25px;
   justify-content: center;
   padding: 0rem;
@@ -91,7 +144,6 @@
 }
 
 .disabledBtn {
-  background-color: var(--grey-2);
   cursor: not-allowed;
 }
 
@@ -100,24 +152,30 @@
   font-weight: var(--fw-6);
 }
 
+.deleteBtn {
+  background-color: initial;
+  border: none;
+  cursor: pointer;
+}
+
 /*
 ***************** MEDIA QUERIES *****************
 */
+@media screen and (max-width: 720px) {
+  .cardDiscount {
+    font-size: var(--fs-xxs-2);
+    top: 2px;
+  }
+}
+
 @media screen and (max-width: 680px) {
-  .horizontalCard {
+  .cardBody {
+    align-items: flex-start;
     flex-direction: column;
-    height: initial;
+    justify-content: center;
   }
 
-  .myItemImage {
-    border-radius: 0;
-    border-top-left-radius: var(--br-xl);
-    border-top-right-radius: var(--br-xl);
-    height: 250px;
-    width: 100%;
-  }
-
-  .cardTitle {
-    width: 100%;
+  .buttonsWrapper {
+    margin: 0;
   }
 }

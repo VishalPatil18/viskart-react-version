@@ -7,8 +7,6 @@
 
 .wishlistItems {
   align-items: center;
-  background-color: var(--light);
-  border-radius: var(--br-xl);
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-md);
