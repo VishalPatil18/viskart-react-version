@@ -1,15 +1,18 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { HorizontalCard, PriceDetails, Breadcrumb } from "../components";
-import { ICONS_URL } from "../constants";
 import { useAuth, useCart } from "../context";
+import { scrollToTop } from "../utilities";
 import styles from "./Cart.module.css";
 
 const Cart = ({ cname }) => {
   const { cartState } = useCart();
   const { authState } = useAuth();
 
+  useEffect(scrollToTop, []);
+
   return (
-    <div>
+    <div id="mainBody">
       <Breadcrumb
         links={[
           { name: "Home", path: "/" },
@@ -29,13 +32,16 @@ const Cart = ({ cname }) => {
           <section className={styles.myProducts}>
             {cartState.cart.length === 0 && (
               <div className={styles.emptyCartMsgWrapper}>
+                <img
+                  src="https://res.cloudinary.com/dbjdu0hvl/image/upload/v1649097607/VISKart/emptyCart_ewsfjb.png"
+                  loading="lazy"
+                  alt="empty-cart"
+                />
                 <p className={styles.emptyCartMsg}>
                   Your Cart is Empty! <br /> Add something to make us happy
-                  <br />
-                  🙃
                 </p>
                 <Link to="/products" className="button btn-solid-primary">
-                  Continue Shopping
+                  Start Shopping Now
                 </Link>
               </div>
             )}
@@ -48,16 +54,6 @@ const Cart = ({ cname }) => {
           {cartState.cart.length !== 0 && (
             <aside className={styles.priceDetails}>
               <PriceDetails />
-              <button
-                className={`button btn-solid-primary txt-center ${styles.shareCartBtn}`}
-              >
-                <img
-                  className="icon-md icon-light"
-                  src={`${ICONS_URL}/share-square.svg`}
-                  alt="share"
-                />
-                Share Cart
-              </button>
             </aside>
           )}
         </div>

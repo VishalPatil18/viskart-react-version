@@ -31,36 +31,38 @@ const OrderSummary = ({ setStep }) => {
 
         <div className={styles.productCard}>
           <table className={styles.table}>
-            <tr>
-              <td className={styles.tableData}>Total Items</td>
-              <td className={styles.tableData}>
-                {orderState.priceDetails.totalItems}
-              </td>
-            </tr>
-            <tr>
-              <td className={styles.tableData}>Total Price</td>
-              <td className={styles.tableData}>
-                ${orderState.priceDetails.totalPrice}
-              </td>
-            </tr>
-            <tr>
-              <td className={styles.tableData}>Total Discount</td>
-              <td className={styles.tableData}>
-                ${orderState.priceDetails.totalDiscount}
-              </td>
-            </tr>
-            <tr>
-              <td className={styles.tableData}>Delivery Charges</td>
-              <td className={styles.tableData}>
-                ${orderState.priceDetails.deliveryCharges}
-              </td>
-            </tr>
-            <tr>
-              <td className={styles.tableData}>Total Amount to pay</td>
-              <td className={styles.tableData}>
-                ${orderState.priceDetails.totalAmount}
-              </td>
-            </tr>
+            <tbody>
+              <tr>
+                <td className={styles.tableData}>Total Items</td>
+                <td className={styles.tableData}>
+                  {orderState.priceDetails.totalItems}
+                </td>
+              </tr>
+              <tr>
+                <td className={styles.tableData}>Total Price</td>
+                <td className={styles.tableData}>
+                  ${orderState.priceDetails.totalPrice}
+                </td>
+              </tr>
+              <tr>
+                <td className={styles.tableData}>Total Discount</td>
+                <td className={styles.tableData}>
+                  ${orderState.priceDetails.totalDiscount}
+                </td>
+              </tr>
+              <tr>
+                <td className={styles.tableData}>Delivery Charges</td>
+                <td className={styles.tableData}>
+                  ${orderState.priceDetails.deliveryCharges}
+                </td>
+              </tr>
+              <tr>
+                <td className={styles.tableData}>Total Amount to pay</td>
+                <td className={styles.tableData}>
+                  ${orderState.priceDetails.totalAmount}
+                </td>
+              </tr>
+            </tbody>
           </table>
           <small className={`txt-center ${styles.saveNote}`}>
             You will save $
@@ -81,11 +83,9 @@ const OrderSummary = ({ setStep }) => {
         <div className={styles.productCard}>
           <p className={styles.sectionHeading}>Parcel Message</p>
           <p className={styles.parcelMsg}>
-            {orderState.message.length > 0 ? (
-              orderState.message
-            ) : (
-              <p>No Message Written</p>
-            )}
+            {orderState.message.length > 0
+              ? orderState.message
+              : "No Message Written"}
           </p>
         </div>
       </div>

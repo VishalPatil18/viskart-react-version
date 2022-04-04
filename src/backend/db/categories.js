@@ -10,7 +10,7 @@ export const categories = [
     _id: uuid(),
     categoryName: "action",
     imageSrc:
-      "https://staticg.sportskeeda.com/editor/2019/03/cedbb-15534102082658-800.jpg",
+      "https://res.cloudinary.com/dbjdu0hvl/image/upload/v1649096234/VISKart/cedbb-15534102082658-800_yjmt2v.jpg",
     description:
       "Meant to cause discomfort and fear for both the character and readers, horror writers often make use of supernatural and paranormal elements in morbid stories that are sometimes a little too realistic.",
   },
@@ -18,7 +18,7 @@ export const categories = [
     _id: uuid(),
     categoryName: "adventure",
     imageSrc:
-      "https://www.gamingscan.com/wp-content/uploads/2020/09/Best-Games-Like-Tomb-Raider-1200x900.jpg",
+      "https://res.cloudinary.com/dbjdu0hvl/image/upload/v1649096271/VISKart/Best-Games-Like-Tomb-Raider-1200x900_qcdibc.jpg",
     description:
       "Non-fiction is writing that gives information or describes real events, rather than telling a story.",
   },
@@ -26,7 +26,7 @@ export const categories = [
     _id: uuid(),
     categoryName: "arcade-and-puzzle",
     imageSrc:
-      "https://i.pinimg.com/originals/da/fb/bc/dafbbca71a06d6b5877364f5942fa320.png",
+      "https://res.cloudinary.com/dbjdu0hvl/image/upload/v1649096313/VISKart/dafbbca71a06d6b5877364f5942fa320_mhtqky.png",
     description:
       "Meant to cause discomfort and fear for both the character and readers, horror writers often make use of supernatural and paranormal elements in morbid stories that are sometimes a little too realistic.",
   },
@@ -34,7 +34,7 @@ export const categories = [
     _id: uuid(),
     categoryName: "racing",
     imageSrc:
-      "https://static.digit.in/default/a264b186e1890ec0e41a1b9770ee62343110deaa.jpeg?tr=w-1200",
+      "https://res.cloudinary.com/dbjdu0hvl/image/upload/v1649096359/VISKart/a264b186e1890ec0e41a1b9770ee62343110deaa_wmcszi.jpg",
     description:
       "Meant to cause discomfort and fear for both the character and readers, horror writers often make use of supernatural and paranormal elements in morbid stories that are sometimes a little too realistic.",
   },
@@ -42,7 +42,7 @@ export const categories = [
     _id: uuid(),
     categoryName: "simulation",
     imageSrc:
-      "https://staticg.sportskeeda.com/editor/2019/03/cedbb-15534102082658-800.jpg",
+      "https://res.cloudinary.com/dbjdu0hvl/image/upload/v1649096575/VISKart/pgcom-highlight-top10-simulation-games-switch-1010x505_ux452d.jpg",
     description:
       "Meant to cause discomfort and fear for both the character and readers, horror writers often make use of supernatural and paranormal elements in morbid stories that are sometimes a little too realistic.",
   },
@@ -50,7 +50,7 @@ export const categories = [
     _id: uuid(),
     categoryName: "sports",
     imageSrc:
-      "https://media.pocketgamer.com/artwork/ra-86030-1615817872/pgcom-highlight-25best-sports-games-switch-1010x505.jpg",
+      "https://res.cloudinary.com/dbjdu0hvl/image/upload/v1649096528/VISKart/images_dtgcjd.jpg",
     description:
       "Meant to cause discomfort and fear for both the character and readers, horror writers often make use of supernatural and paranormal elements in morbid stories that are sometimes a little too realistic.",
   },

@@ -34,7 +34,7 @@ const orderReducer = (orderState, orderAction) => {
         priceDetails: {},
         address: {},
         message: "",
-        prevOrders: [...orderState.prevOrders, orderAction.payload.order],
+        prevOrders: [orderAction.payload.order, ...orderState.prevOrders],
       };
     default:
       return orderState;

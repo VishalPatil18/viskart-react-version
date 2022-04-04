@@ -68,6 +68,7 @@ const AuthModal = () => {
                 <img
                   className="icon-light icon-lg button__icon"
                   src={`${ICONS_URL}/close.svg`}
+                  loading="lazy"
                   alt="close"
                 />
               </button>
@@ -159,6 +160,7 @@ const AuthModal = () => {
                 <img
                   className="icon-light icon-lg button__icon"
                   src={`${ICONS_URL}/close.svg`}
+                  loading="lazy"
                   alt="close"
                 />
               </button>

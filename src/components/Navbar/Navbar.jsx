@@ -1,5 +1,5 @@
 import { AuthModal } from "../../components";
-import { ASSETS_URL, ICONS_URL } from "../../constants";
+import { ICONS_URL } from "../../constants";
 import {
   useAuth,
   useAuthModal,
@@ -24,7 +24,8 @@ const Navbar = () => {
       <div className={(styles.headerItem, styles.headerLogo)}>
         <img
           className={styles.logo}
-          src={`${ASSETS_URL}/logo.svg`}
+          src="https://res.cloudinary.com/dbjdu0hvl/image/upload/v1649095093/VISKart/logo_tysi5c.png"
+          loading="lazy"
           alt="logo"
         />
         <Link to="/" className={`h-4 ${styles.brandname}`}>
@@ -74,6 +75,7 @@ const Navbar = () => {
             <img
               className="icon-md icon-dark"
               src={`${ICONS_URL}/shopping-cart.svg`}
+              loading="lazy"
               alt="cart"
             />
             <p className={styles.optionText}>My Cart</p>
@@ -94,6 +96,7 @@ const Navbar = () => {
             <img
               className="icon-md icon-dark"
               src={`${ICONS_URL}/shopping-cart.svg`}
+              loading="lazy"
               alt="cart"
             />
             <p className={styles.optionText}>My Cart</p>
@@ -107,6 +110,7 @@ const Navbar = () => {
             <img
               className="icon-md icon-dark"
               src={`${ICONS_URL}/heart.svg`}
+              loading="lazy"
               alt="heart"
             />
             <p className={styles.optionText}>Wishlist</p>
@@ -129,25 +133,19 @@ const Navbar = () => {
             <img
               className="icon-md icon-dark"
               src={`${ICONS_URL}/heart.svg`}
+              loading="lazy"
               alt="heart"
             />
             <p className={styles.optionText}>Wishlist</p>
           </button>
         )}
 
-        <button className={`button btn-plain-icon ${styles.themeSwitcher}`}>
-          <img
-            className="icon-dark"
-            src={`${ICONS_URL}/moon.svg`}
-            alt="moon"
-            id="theme-icon"
-          />
-        </button>
         {authState.user ? (
           <Link to="/user" className={styles.profileBadge}>
             <img
               className="icon-md icon-light"
               src={`${ICONS_URL}/user.svg`}
+              loading="lazy"
               alt="login"
             />
             <p className={styles.userName}>{authState.user.username}</p>
@@ -160,6 +158,7 @@ const Navbar = () => {
             <img
               className="icon-md icon-dark"
               src={`${ICONS_URL}/user.svg`}
+              loading="lazy"
               alt="login"
             />
           </button>

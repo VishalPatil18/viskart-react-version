@@ -29,15 +29,6 @@
   width: 100%;
 }
 
-.shareCartBtn {
-  margin: var(--space-lg) 0;
-  width: 100%;
-}
-
-.shareCartBtn > img {
-  margin-right: var(--space-xs);
-}
-
 .emptyCartMsg {
   color: var(--grey-5);
   font-size: var(--fs-md-2);

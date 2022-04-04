@@ -1,0 +1,106 @@
+.card {
+  border-radius: var(--br-xs);
+  border: 1px solid var(--grey-1);
+  margin: var(--space-sm) auto 0;
+  max-width: 600px;
+  transition: box-shadow 0.2s ease-in;
+}
+
+.card:hover {
+  box-shadow: var(--bs-xs);
+}
+
+.detailsWrapper {
+  font-size: var(--fs-xs-2);
+  padding: var(--space-sm);
+}
+
+.orderConfirmText {
+  color: var(--success);
+  font-size: var(--fs-md-1);
+  font-weight: var(--fw-6);
+  text-transform: uppercase;
+}
+
+.date {
+  color: var(--grey-4);
+  font-size: var(--fs-xs-1);
+  font-weight: var(--fw-4);
+  text-transform: uppercase;
+}
+
+.addressWrapper {
+  margin: var(--space-xs) 0 0;
+}
+
+.horizontalCard {
+  border-top: 1px solid var(--grey-1);
+  display: flex;
+  gap: var(--space-xxs);
+  position: relative;
+  width: 100%;
+}
+
+.horizontalCard:last-child {
+  border-bottom: 1px solid var(--grey-1);
+}
+
+.myItemImage {
+  height: 70px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.imageWrapper {
+  border-right: 1px solid var(--grey-1);
+  width: 70px;
+}
+
+.cardBody {
+  color: var(--dark);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.cardTitle {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  font-size: var(--fs-sm-1);
+  min-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cardTitle:hover {
+  text-decoration: underline;
+}
+
+.newPrice {
+  color: var(--danger);
+  font-size: var(--fs-xs-2);
+}
+
+.priceQtyWrapper {
+  align-items: center;
+  display: flex;
+  font-size: var(--fs-xs-1);
+  font-weight: var(--fw-5);
+  justify-content: space-between;
+  max-width: 250px;
+  width: 100%;
+}
+
+/*
+***************** MEDIA QUERIES *****************
+*/
+@media screen and (max-width: 680px) {
+  .cardBody {
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+  }
+}

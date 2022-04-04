@@ -5,7 +5,12 @@ const TopProductCard = ({ id, imageSrc, title, desc, price }) => {
   return (
     <article className={styles.topItem}>
       <Link to={`/product/${id}`} className={styles.detailsWrapper}>
-        <img className={styles.topItemImage} src={imageSrc} alt={title} />
+        <img
+          className={styles.topItemImage}
+          src={imageSrc}
+          loading="lazy"
+          alt={title}
+        />
         <div className={styles.topItemDisc}>
           <p className="st-1">{title}</p>
           <p className="cp">{desc}</p>

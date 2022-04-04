@@ -25,6 +25,7 @@ const Breadcrumb = ({ links }) => {
                 <img
                   className={`icon-md icon-grey ${styles.breadcrumbIcon}`}
                   src={`${ICONS_URL}/angle-up.svg`}
+                  loading="lazy"
                   alt="arrow"
                 />
               </li>
