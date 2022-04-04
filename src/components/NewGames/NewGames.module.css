@@ -17,10 +17,10 @@
 }
 
 .newProducts::-webkit-scrollbar {
-  width: 5px;
+  width: 3px;
 }
 
 .newProducts:hover.newProducts::-webkit-scrollbar-thumb {
-  background: var(--primary);
+  background-color: var(--primary);
   border-radius: var(--br-full);
 }

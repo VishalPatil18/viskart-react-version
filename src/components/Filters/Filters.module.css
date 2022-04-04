@@ -12,6 +12,6 @@
   align-items: center;
   display: flex;
   justify-content: space-between;
-  margin: var(--space-xl) auto;
+  margin: 0 auto var(--space-lg);
   width: 100%;
 }

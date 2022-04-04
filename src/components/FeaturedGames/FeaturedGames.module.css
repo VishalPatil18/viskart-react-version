@@ -1,11 +1,10 @@
-.products_heading {
+.productsHeading {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-top: var(--space-xl);
 }
 
-.main_products {
+.mainProducts {
   column-gap: var(--space-md);
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
@@ -27,14 +26,14 @@
 ***************** MEDIA QUERIES *****************
 */
 @media screen and (max-width: 640px) {
-  .main_products {
+  .mainProducts {
     gap: var(--space-sm);
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   }
 }
 
 @media screen and (max-width: 480px) {
-  .products_heading {
+  .productsHeading {
     margin-top: 0;
   }
 

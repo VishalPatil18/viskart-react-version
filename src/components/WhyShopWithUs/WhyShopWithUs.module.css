@@ -22,7 +22,7 @@
 }
 
 .cardsWrapper::-webkit-scrollbar {
-  width: 5px;
+  width: 3px;
 }
 
 .cardsWrapper:hover.cardsWrapper::-webkit-scrollbar-thumb {

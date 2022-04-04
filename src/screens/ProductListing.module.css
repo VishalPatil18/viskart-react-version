@@ -1,12 +1,24 @@
 .sidebar {
   background-color: var(--secondary-theme-background);
-  height: 100%;
+  height: calc(100vh - 80px);
   left: 0;
   overflow-y: scroll;
   padding: 0 var(--space-lg) var(--space-lg);
   position: sticky;
-  top: 125px;
+  scrollbar-color: var(--primary) transparent;
+  scrollbar-width: thin;
+  top: 80px;
   width: 320px;
+}
+
+.sidebar::-webkit-scrollbar {
+  border-radius: var(--br-full);
+  width: 3px;
+}
+
+.sidebar:hover.carousel::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: var(--br-full);
 }
 
 .productsPage {
@@ -15,6 +27,8 @@
 
 .productsWrapper {
   display: flex;
+  margin: 40px auto;
+  max-width: 1536px;
   width: 100%;
 }
 
@@ -42,9 +56,15 @@
 /*
 ***************** MEDIA QUERIES *****************
 */
+@media screen and (max-width: 1024px) {
+  .sidebar {
+    top: 113px;
+  }
+}
 @media screen and (max-width: 768px) {
   .sidebar {
     display: none;
+    height: 100vh;
     left: 0;
     position: fixed;
     top: 0;

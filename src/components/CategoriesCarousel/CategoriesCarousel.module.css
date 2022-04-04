@@ -18,10 +18,11 @@
 }
 
 .carousel::-webkit-scrollbar {
-  width: 5px;
+  border-radius: var(--br-full);
+  width: 3px;
 }
 
 .carousel:hover.carousel::-webkit-scrollbar-thumb {
-  background: var(--primary);
+  background-color: var(--primary);
   border-radius: var(--br-full);
 }

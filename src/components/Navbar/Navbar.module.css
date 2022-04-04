@@ -5,6 +5,8 @@
   display: flex;
   gap: var(--space-md);
   left: 0;
+  margin: 0 auto;
+  max-width: 1536px;
   padding: var(--space-sm) 10%;
   position: sticky;
   right: 0;
@@ -159,6 +161,13 @@
 
 .searchInput {
   margin: 0;
+  border-radius: var(--br-sm);
+  border: none;
+}
+
+.headerItemSearch .searchInput:focus {
+  border: none;
+  outline: 2px solid var(--blue-3);
 }
 
 /*

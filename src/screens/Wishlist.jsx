@@ -37,7 +37,6 @@ const Wishlist = ({ cname }) => {
             </div>
           )}
           {wishlistState.wishlist.map((item) => (
-            // <WishlistCard key={item._id} item={item} />
             <HorizontalCard key={item._id} item={item} />
           ))}
         </section>

@@ -38,7 +38,7 @@ const FeaturedGames = ({ isHomePage = false }) => {
 
   return (
     <div className={styles.featuredGamesWrapper}>
-      <div className={styles.products_heading}>
+      <div className={styles.productsHeading}>
         <h5 className="h-5">Featured Games</h5>
         <p className={styles.showingProductsCaption}>
           {!isHomePage && `(showing ${filteredProducts.length} products)`}
@@ -47,7 +47,7 @@ const FeaturedGames = ({ isHomePage = false }) => {
           See all
         </Link>
       </div>
-      <section className={styles.main_products}>
+      <section className={styles.mainProducts}>
         {filteredProducts.length > 0 ? (
           filteredProducts.map((item) => (
             <GamesCard key={item._id} item={item} />

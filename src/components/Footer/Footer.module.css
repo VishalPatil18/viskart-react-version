@@ -9,6 +9,8 @@
 .footerContent {
   align-items: flex-start;
   display: flex;
+  margin: 0 auto;
+  max-width: 1536px;
   width: 100%;
 }
 

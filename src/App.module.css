@@ -7,9 +7,15 @@
 
 .main {
   height: 100%;
-  padding: var(--space-sm) 10% 330px;
+  margin: 0 auto;
+  max-width: 1536px;
+  padding: var(--space-sm) 10%;
   position: relative;
   width: 100%;
+}
+
+.mainPaddingBottom {
+  padding-bottom: 330px;
 }
 
 .seeAllGames {
@@ -35,11 +41,8 @@
   .main {
     padding: var(--space-sm) 5%;
   }
-
-  .mainPaddingBottom {
-    padding-bottom: 330px;
-  }
 }
+
 @media screen and (max-width: 1024px) {
   .main {
     padding: var(--space-sm) var(--space-sm);

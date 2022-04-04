@@ -3,5 +3,6 @@
 }
 
 .radioItem {
+  align-items: center;
   display: flex;
 }
