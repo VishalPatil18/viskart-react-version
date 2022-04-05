@@ -8,6 +8,7 @@ const Pagination = () => {
           <img
             className={`icon-lg icon-dark ${styles.maincontent__sidebar__icon}`}
             src="https://vispaui-postdev-deploy.netlify.app/assets/angle-up.svg"
+            loading="lazy"
             alt="angle-icon"
           />
         </li>
@@ -20,6 +21,7 @@ const Pagination = () => {
           <img
             className={`icon-lg icon-dark ${styles.maincontent__sidebar__icon}`}
             src="https://vispaui-postdev-deploy.netlify.app/assets/angle-up.svg"
+            loading="lazy"
             alt="angle-icon"
           />
         </li>

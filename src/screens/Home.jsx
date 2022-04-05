@@ -13,7 +13,7 @@ const Home = ({ cname }) => {
   const navigate = useNavigate();
 
   return (
-    <div className={`${cname} ${styles.mainPaddingBottom}`}>
+    <div className={`${cname} ${styles.mainPaddingBottom}`} id="mainBody">
       <ProductCarousel />
       <CategoriesCarousel />
       <TopProducts />
@@ -21,7 +21,8 @@ const Home = ({ cname }) => {
       <img
         className={styles.bannerImg}
         onClick={() => navigate("/products")}
-        src="https://raw.githubusercontent.com/VishalPatil18/VISKart/main/assets/banner.webp"
+        src="https://res.cloudinary.com/dbjdu0hvl/image/upload/v1649094668/VISKart/banner_uaeijz.webp"
+        loading="lazy"
       />
 
       <NewGames />

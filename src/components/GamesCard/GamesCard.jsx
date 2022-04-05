@@ -34,6 +34,7 @@ const GamesCard = ({ item }) => {
             <img
               className={`badge__icon icon-danger ${styles.badgeIconWidth}`}
               src={`${ICONS_URL}/bookmark.svg`}
+              loading="lazy"
               alt="bookmark-icon"
             />
             <span className={`card__discount ${styles.cardDiscount}`}>
@@ -44,6 +45,7 @@ const GamesCard = ({ item }) => {
         <img
           src={item.imageSrc}
           className={`card__img ${styles.cardImgAdjustment}`}
+          loading="lazy"
           alt="card-image"
         />
         <div
@@ -58,6 +60,7 @@ const GamesCard = ({ item }) => {
           <img
             className={`icon-light ${styles.ratingStar}`}
             src={`${ICONS_URL}/star-solid.svg`}
+            loading="lazy"
             alt="star"
           />
           {item.rating}
@@ -104,6 +107,7 @@ const GamesCard = ({ item }) => {
               <img
                 className="icon-md icon-light"
                 src={`${ICONS_URL}/shopping-cart.svg`}
+                loading="lazy"
                 alt="cart"
               />
               Add to Cart
@@ -116,6 +120,7 @@ const GamesCard = ({ item }) => {
               <img
                 className="icon-md icon-light"
                 src={`${ICONS_URL}/shopping-cart.svg`}
+                loading="lazy"
                 alt="cart"
               />
               Go to Cart
@@ -152,6 +157,7 @@ const GamesCard = ({ item }) => {
               src={`${ICONS_URL}/${
                 isWishlisted ? "heart" : "heart-regular"
               }.svg`}
+              loading="lazy"
               alt="heart-icon"
             />
           </button>
@@ -167,6 +173,7 @@ const GamesCard = ({ item }) => {
             <img
               className="icon-sm icon-success"
               src={`${ICONS_URL}/share.svg`}
+              loading="lazy"
               alt="share-icon"
             />
           </button>

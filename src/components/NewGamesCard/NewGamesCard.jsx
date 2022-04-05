@@ -5,7 +5,12 @@ const NewGamesCard = ({ id, title, price, imageSrc }) => {
   return (
     <article className={styles.newItem}>
       <Link to={`/product/${id}`} className={styles.detailsWrapper}>
-        <img className={styles.newItemImage} src={imageSrc} alt={title} />
+        <img
+          className={styles.newItemImage}
+          src={imageSrc}
+          loading="lazy"
+          alt={title}
+        />
         <div className={styles.newItemDisc}>
           <p className={`st-2 ${styles.title}`}>{title}</p>
         </div>

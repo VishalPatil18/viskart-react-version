@@ -1,0 +1,29 @@
+.card {
+  background-image: url("https://res.cloudinary.com/dbjdu0hvl/image/upload/v1649094696/VISKart/whyShopWithUs_g5lm20.webp");
+  border-radius: var(--br-lg);
+  color: white;
+  font-size: var(--fs-xxl-2);
+  font-weight: var(--fw-6);
+  height: 100%;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.greet {
+  background-color: rgba(4, 28, 107, 0.45);
+  border-radius: var(--br-lg);
+  padding: var(--space-xxl);
+}
+
+/*
+***************** MEDIA QUERIES *****************
+*/
+@media screen and (max-width: 640px) {
+  .card {
+    font-size: var(--fs-xl-2);
+  }
+
+  .greet {
+    padding: var(--space-lg);
+  }
+}

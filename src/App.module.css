@@ -41,6 +41,10 @@
   .main {
     padding: var(--space-sm) 5%;
   }
+
+  .mainPaddingBottom {
+    padding-bottom: 330px;
+  }
 }
 
 @media screen and (max-width: 1024px) {

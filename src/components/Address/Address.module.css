@@ -1,21 +1,26 @@
 .addressWrapper {
-  background-color: var(--light);
-  border-radius: var(--br-md);
   display: flex;
   flex-direction: column;
-  padding: var(--space-sm);
+  margin: auto;
+  padding: 0 var(--space-sm) var(--space-sm);
+  width: fit-content;
 }
 
 .addNewBtn {
-  margin: auto;
+  margin: var(--space-sm) auto 0;
 }
 
 .addressCard {
   background-color: white;
   border-radius: var(--br-sm);
-  border: 1px solid var(--grey-2);
-  margin: var(--space-sm) 0;
+  border: 1px solid var(--grey-1);
+  margin: var(--space-sm) 0 0;
   padding: var(--space-sm);
+  transition: box-shadow 0.2s ease-in;
+}
+
+.addressCard:hover {
+  box-shadow: var(--bs-xs);
 }
 
 .btnWrapper {

@@ -10,6 +10,7 @@ const WhyShopWithUs = () => {
           <img
             className="icon-xl icon-primary"
             src={`${ICONS_URL}/star-solid.svg`}
+            loading="lazy"
           />
           <h5 className={styles.cardTitle}>Quality and Saving</h5>
           <p className={styles.cardCaption}>
@@ -20,6 +21,7 @@ const WhyShopWithUs = () => {
           <img
             className="icon-xl icon-primary"
             src={`${ICONS_URL}/shipping-fast.svg`}
+            loading="lazy"
           />
           <h5 className={styles.cardTitle}>Fast Shipping</h5>
           <p className={styles.cardCaption}>
@@ -27,14 +29,22 @@ const WhyShopWithUs = () => {
           </p>
         </article>
         <article className={styles.card}>
-          <img className="icon-xl icon-primary" src={`${ICONS_URL}/lock.svg`} />
+          <img
+            className="icon-xl icon-primary"
+            src={`${ICONS_URL}/lock.svg`}
+            loading="lazy"
+          />
           <h5 className={styles.cardTitle}>Payment Security</h5>
           <p className={styles.cardCaption}>
             We ensure secure payment with Razorpay
           </p>
         </article>
         <article className={styles.card}>
-          <img className="icon-xl icon-primary" src={`${ICONS_URL}/bell.svg`} />
+          <img
+            className="icon-xl icon-primary"
+            src={`${ICONS_URL}/bell.svg`}
+            loading="lazy"
+          />
           <h5 className={styles.cardTitle}>Have Questions?</h5>
           <p className={styles.cardCaption}>
             24/7 Customer Service - We're here and happy to help!

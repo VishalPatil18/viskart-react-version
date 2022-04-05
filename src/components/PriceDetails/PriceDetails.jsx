@@ -50,6 +50,7 @@ const PriceDetails = () => {
             <img
               className="icon-md icon-success"
               src={`${ICONS_URL}/tags.svg`}
+              loading="lazy"
               alt="tags"
             />
             Apply Coupons

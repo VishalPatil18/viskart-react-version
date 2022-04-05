@@ -1,3 +1,4 @@
+import { v4 as uuid } from "uuid";
 import { clearCartService } from "../../services";
 import { toast } from "react-toastify";
 
@@ -49,10 +50,11 @@ const displayRazorpay = async (
           type: "ADD_NEW_ORDER",
           payload: {
             order: {
+              id: uuid(),
+              date: new Date(),
               items: orderState.items,
               priceDetails: orderState.priceDetails,
               address: orderState.address,
-              message: orderState.message,
             },
           },
         });

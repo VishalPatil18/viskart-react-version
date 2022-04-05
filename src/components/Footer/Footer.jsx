@@ -22,6 +22,7 @@ const Footer = () => {
               <img
                 className="icon-light icon-md button__icon"
                 src={`${ICONS_URL}/twitter.svg`}
+                loading="lazy"
                 alt="twitter"
               />
             </a>
@@ -30,6 +31,7 @@ const Footer = () => {
               <img
                 className="icon-light icon-md button__icon"
                 src={`${ICONS_URL}/linkedin.svg`}
+                loading="lazy"
                 alt="linkedin"
               />
             </a>
@@ -38,6 +40,7 @@ const Footer = () => {
               <img
                 className="icon-light icon-md button__icon"
                 src={`${ICONS_URL}/instagram.svg`}
+                loading="lazy"
                 alt="instagram"
               />
             </a>
@@ -46,6 +49,7 @@ const Footer = () => {
               <img
                 className="icon-light icon-md button__icon"
                 src={`${ICONS_URL}/medium.svg`}
+                loading="lazy"
                 alt="medium"
               />
             </a>

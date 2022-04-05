@@ -1,4 +1,6 @@
-import { Breadcrumb, HorizontalCard, WishlistCard } from "../components";
+import { useEffect } from "react";
+import { scrollToTop } from "../utilities";
+import { Breadcrumb, HorizontalCard } from "../components";
 import { useWishlist } from "../context";
 import { Link } from "react-router-dom";
 import styles from "./Wishlist.module.css";
@@ -6,8 +8,10 @@ import styles from "./Wishlist.module.css";
 const Wishlist = ({ cname }) => {
   const { wishlistState } = useWishlist();
 
+  useEffect(scrollToTop, []);
+
   return (
-    <>
+    <div id="mainBody">
       <Breadcrumb
         links={[
           { name: "Home", path: "/" },
@@ -26,13 +30,16 @@ const Wishlist = ({ cname }) => {
         <section className={styles.wishlistItems}>
           {wishlistState.wishlist.length === 0 && (
             <div className={styles.emptyWishlistMsgWrapper}>
+              <img
+                src="https://res.cloudinary.com/dbjdu0hvl/image/upload/v1649097607/VISKart/emptyWishlist_jujct9.png"
+                loading="lazy"
+                alt="empty-wishlist"
+              />
               <p className={styles.emptyWishlistMsg}>
                 Your Wishlist is Empty! <br /> Add something to make us happy
-                <br />
-                🙃
               </p>
               <Link to="/products" className="button btn-solid-primary">
-                Continue Shopping
+                Start Shopping Now
               </Link>
             </div>
           )}
@@ -41,7 +48,7 @@ const Wishlist = ({ cname }) => {
           ))}
         </section>
       </div>
-    </>
+    </div>
   );
 };
 

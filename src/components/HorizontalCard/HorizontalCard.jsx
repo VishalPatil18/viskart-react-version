@@ -32,6 +32,7 @@ const HorizontalCard = ({ item }) => {
           <img
             className="badge__icon icon-danger"
             src={`${ICONS_URL}/bookmark.svg`}
+            loading="lazy"
             alt="bookmark-icon"
           />
           <span className={`card__discount ${styles.cardDiscount}`}>
@@ -46,6 +47,7 @@ const HorizontalCard = ({ item }) => {
         <img
           className={styles.myItemImage}
           src={item.imageSrc}
+          loading="lazy"
           alt={item.title}
         />
       </Link>
@@ -157,6 +159,7 @@ const HorizontalCard = ({ item }) => {
               <img
                 className="icon-xl icon-danger"
                 src={`${ICONS_URL}/trash-can-solid.svg`}
+                loading="lazy"
                 alt="delete"
               />
             </button>

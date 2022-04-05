@@ -15,7 +15,6 @@ const Address = () => {
 
   return (
     <div className={styles.addressWrapper}>
-      <h4 className="h-5">My Addresses</h4>
       {authState.addresses ? (
         authState.addresses.map((address) => (
           <div className={styles.addressCard} key={address._id}>
@@ -53,7 +52,7 @@ const Address = () => {
         <p>You Don't have any Addresses</p>
       )}
       <button
-        className={`button ${styles.addNewBtn}`}
+        className={`button btn-outline-primary ${styles.addNewBtn}`}
         onClick={() =>
           setAddressModal({ active: true, action: "new", address: "" })
         }

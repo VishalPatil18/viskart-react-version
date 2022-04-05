@@ -31,6 +31,7 @@
   justify-content: flex-start;
   width: 100%;
 }
+
 .cardTitleWrapper {
   display: flex;
   flex-direction: column;

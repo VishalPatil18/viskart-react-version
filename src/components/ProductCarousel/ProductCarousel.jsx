@@ -1,4 +1,3 @@
-import { ASSETS_URL } from "../../constants";
 import styles from "./ProductCarousel.module.css";
 
 const ProductCarousel = () => {
@@ -6,7 +5,8 @@ const ProductCarousel = () => {
     <figure className={styles.mainCarousel}>
       <img
         className={styles.mainCarouselImage}
-        src={`${ASSETS_URL}/carousel-image.webp`}
+        src="https://res.cloudinary.com/dbjdu0hvl/image/upload/v1649094818/VISKart/carousel-image_lelnek.webp"
+        loading="lazy"
         alt="hero-image"
       />
       <figcaption className={`h-5 ${styles.mainCarouselCaption}`}>

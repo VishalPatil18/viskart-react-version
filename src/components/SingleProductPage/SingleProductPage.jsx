@@ -55,7 +55,7 @@ const SingleProductPage = () => {
   }, []);
 
   return (
-    <>
+    <div id="mainBody">
       <Breadcrumb
         links={[
           { name: "Home", path: "/" },
@@ -69,6 +69,7 @@ const SingleProductPage = () => {
             <img
               className={`badge__icon icon-danger ${styles.badgeIconWidth}`}
               src={`${ICONS_URL}/bookmark.svg`}
+              loading="lazy"
               alt="bookmark-icon"
             />
             <span className={`card__discount ${styles.cardDiscount}`}>
@@ -77,7 +78,11 @@ const SingleProductPage = () => {
           </div>
         )}
         <div className={styles.imgWrapper}>
-          <img className={styles.productImage} src={product.imageSrc} />
+          <img
+            className={styles.productImage}
+            src={product.imageSrc}
+            loading="lazy"
+          />
         </div>
         <div className={styles.detailsWrapper}>
           <h5 className={`h-5 ${styles.title}`}>{product.title}</h5>
@@ -115,6 +120,7 @@ const SingleProductPage = () => {
               <img
                 className={`icon-light ${styles.ratingStar}`}
                 src={`${ICONS_URL}/star-solid.svg`}
+                loading="lazy"
               />
               {product.rating}
             </div>
@@ -124,6 +130,7 @@ const SingleProductPage = () => {
               <img
                 className="icon-md icon-light"
                 src={`${ICONS_URL}/shipping-fast.svg`}
+                loading="lazy"
               />
               Buy
             </button>
@@ -147,6 +154,7 @@ const SingleProductPage = () => {
                   <img
                     className="icon-md icon-light"
                     src={`${ICONS_URL}/shopping-cart.svg`}
+                    loading="lazy"
                     alt="cart"
                   />
                   Add to cart
@@ -188,6 +196,7 @@ const SingleProductPage = () => {
                   src={`${ICONS_URL}/${
                     isWishlisted ? "heart" : "heart-regular"
                   }.svg`}
+                  loading="lazy"
                   alt="heart-icon"
                 />
               </button>
@@ -195,7 +204,7 @@ const SingleProductPage = () => {
           </div>
         </div>
       </article>
-    </>
+    </div>
   );
 };
 

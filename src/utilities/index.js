@@ -1,5 +1,3 @@
-import { categoryProductsHandler } from "./misc";
-
 export {
   addNewAddressHandler,
   removeAddressHandler,
@@ -30,6 +28,7 @@ export {
   inputHandler,
   isInArrayList,
   modalHandler,
+  scrollToTop,
 } from "./misc";
 
 export { displayRazorpay } from "./order";

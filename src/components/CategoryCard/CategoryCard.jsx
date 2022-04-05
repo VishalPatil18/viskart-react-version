@@ -14,7 +14,12 @@ const CategoryCard = ({ imageSrc, categoryName }) => {
         categoryProductsHandler(categoryName, filterDispatch, navigate)
       }
     >
-      <img src={imageSrc} alt={categoryName} className={styles.cardImg} />
+      <img
+        src={imageSrc}
+        alt={categoryName}
+        loading="lazy"
+        className={styles.cardImg}
+      />
       <p className={styles.title}>{categoryName}</p>
     </article>
   );

@@ -18,7 +18,7 @@ export const products = [
     isTop: true,
     rating: 4.2,
     imageSrc:
-      "https://raw.githubusercontent.com/VishalPatil18/VISKart/development/assets/fallguys.png",
+      "https://res.cloudinary.com/dbjdu0hvl/image/upload/v1649094291/VISKart/capsule_616x353_hlinmv.jpg",
   },
   {
     _id: uuid(),
@@ -32,7 +32,7 @@ export const products = [
     isTop: true,
     rating: 3.7,
     imageSrc:
-      "https://raw.githubusercontent.com/VishalPatil18/VISKart/development/assets/minecraft.png",
+      "https://res.cloudinary.com/dbjdu0hvl/image/upload/v1649094336/VISKart/images_jepzhy.jpg",
   },
   {
     _id: uuid(),
@@ -46,7 +46,7 @@ export const products = [
     isTop: true,
     rating: 4.7,
     imageSrc:
-      "https://raw.githubusercontent.com/VishalPatil18/VISKart/development/assets/pubg.png",
+      "https://res.cloudinary.com/dbjdu0hvl/image/upload/v1649094389/VISKart/playerunknowns-battlegrounds-pc-game-steam-cover_yr87li.jpg",
   },
   {
     _id: uuid(),
@@ -60,7 +60,7 @@ export const products = [
     isTop: true,
     rating: 4.8,
     imageSrc:
-      "https://raw.githubusercontent.com/VishalPatil18/VISKart/development/assets/dyinglight2.jpg",
+      "https://res.cloudinary.com/dbjdu0hvl/image/upload/v1649094436/VISKart/dying-light-2-hero-lead_gljgcs.jpg",
   },
   {
     _id: uuid(),
@@ -74,7 +74,7 @@ export const products = [
     isTop: false,
     rating: 3.2,
     imageSrc:
-      "https://raw.githubusercontent.com/VishalPatil18/VISKart/development/assets/cricket07.png",
+      "https://res.cloudinary.com/dbjdu0hvl/image/upload/v1649094482/VISKart/Cricket07_outjgo.png",
   },
   {
     _id: uuid(),
@@ -88,7 +88,7 @@ export const products = [
     isTop: false,
     rating: 2.2,
     imageSrc:
-      "https://raw.githubusercontent.com/VishalPatil18/VISKart/development/assets/crazytaxi.png",
+      "https://res.cloudinary.com/dbjdu0hvl/image/upload/v1649094536/VISKart/Crazy_Taxi_-_Catch_a_Ride_Coverart_kbn8wb.png",
   },
   {
     _id: uuid(),
@@ -102,7 +102,7 @@ export const products = [
     isTop: false,
     rating: 3.9,
     imageSrc:
-      "https://raw.githubusercontent.com/VishalPatil18/VISKart/development/assets/nfsmw.webp",
+      "https://res.cloudinary.com/dbjdu0hvl/image/upload/v1649094574/VISKart/Need_for_Speed_Most_Wanted_Box_Art_tz40ov.jpg",
   },
   {
     _id: uuid(),
@@ -116,7 +116,7 @@ export const products = [
     isTop: false,
     rating: 4.9,
     imageSrc:
-      "https://raw.githubusercontent.com/VishalPatil18/VISKart/development/assets/roadrash.webp",
+      "https://res.cloudinary.com/dbjdu0hvl/image/upload/v1649094220/VISKart/roadrash_xpczz1.webp",
   },
   {
     _id: uuid(),
@@ -130,7 +130,7 @@ export const products = [
     isTop: false,
     rating: 4.5,
     imageSrc:
-      "https://raw.githubusercontent.com/VishalPatil18/VISKart/development/assets/fifa07.jpg",
+      "https://res.cloudinary.com/dbjdu0hvl/image/upload/v1649094189/VISKart/fifa_07_a_qdldxb.jpg",
   },
   {
     _id: uuid(),
@@ -144,7 +144,7 @@ export const products = [
     isTop: false,
     rating: 1.2,
     imageSrc:
-      "https://raw.githubusercontent.com/VishalPatil18/VISKart/development/assets/tod.png",
+      "https://res.cloudinary.com/dbjdu0hvl/image/upload/v1649094206/VISKart/tod_ipehfi.png",
   },
   {
     _id: uuid(),
@@ -158,7 +158,7 @@ export const products = [
     isTop: false,
     rating: 2.2,
     imageSrc:
-      "https://cdn.akamai.steamstatic.com/steam/apps/1066780/capsule_616x353.jpg?t=1614103491",
+      "https://res.cloudinary.com/dbjdu0hvl/image/upload/v1649094172/VISKart/capsule_616x353_l3xpnw.jpg",
   },
   {
     _id: uuid(),
@@ -172,7 +172,7 @@ export const products = [
     isTop: false,
     rating: 4.3,
     imageSrc:
-      "https://cdn.akamai.steamstatic.com/steam/apps/952060/capsule_616x353.jpg?t=1614737794",
+      "https://res.cloudinary.com/dbjdu0hvl/image/upload/v1649094163/VISKart/capsule_616x353_rctjdc.jpg",
   },
   {
     _id: uuid(),
@@ -186,7 +186,7 @@ export const products = [
     isTop: false,
     rating: 0.8,
     imageSrc:
-      "https://cdn.akamai.steamstatic.com/steam/apps/1680300/capsule_616x353.jpg?t=1625692937",
+      "https://res.cloudinary.com/dbjdu0hvl/image/upload/v1649094036/VISKart/capsule_616x353_kybja2.jpg",
   },
   {
     _id: uuid(),
@@ -200,7 +200,7 @@ export const products = [
     isTop: false,
     rating: 3.2,
     imageSrc:
-      "https://cdn.akamai.steamstatic.com/steam/apps/1134570/capsule_616x353.jpg?t=1625849641",
+      "https://res.cloudinary.com/dbjdu0hvl/image/upload/v1649094027/VISKart/capsule_616x353_nkttpz.jpg",
   },
   {
     _id: uuid(),
@@ -214,7 +214,7 @@ export const products = [
     isTop: false,
     rating: 4.1,
     imageSrc:
-      "https://cdn.akamai.steamstatic.com/steam/bundles/12218/7cg856d5iyp2m6b2/capsule_616x353.jpg?t=1570208553",
+      "https://res.cloudinary.com/dbjdu0hvl/image/upload/v1649094017/VISKart/capsule_616x353_gmhfaj.jpg",
   },
   {
     _id: uuid(),
@@ -228,7 +228,7 @@ export const products = [
     isTop: false,
     rating: 4.7,
     imageSrc:
-      "https://cdn.akamai.steamstatic.com/steam/apps/1172620/capsule_616x353.jpg?t=1624888981",
+      "https://res.cloudinary.com/dbjdu0hvl/image/upload/v1649094008/VISKart/capsule_616x353_bem2o8.jpg",
   },
   {
     _id: uuid(),
@@ -242,7 +242,7 @@ export const products = [
     isTop: false,
     rating: 3.6,
     imageSrc:
-      "https://cdn.akamai.steamstatic.com/steam/apps/1263850/capsule_616x353.jpg?t=1612352842",
+      "https://res.cloudinary.com/dbjdu0hvl/image/upload/v1649093988/VISKart/capsule_616x353_imiyrb.jpg",
   },
   {
     _id: uuid(),
@@ -256,7 +256,7 @@ export const products = [
     isTop: false,
     rating: 2.5,
     imageSrc:
-      "https://cdn.akamai.steamstatic.com/steam/apps/1589380/capsule_616x353.jpg?t=1625921132",
+      "https://res.cloudinary.com/dbjdu0hvl/image/upload/v1649093977/VISKart/capsule_616x353_j44kqt.jpg",
   },
   {
     _id: uuid(),
@@ -270,7 +270,7 @@ export const products = [
     isTop: false,
     rating: 1.7,
     imageSrc:
-      "https://cdn.akamai.steamstatic.com/steam/apps/1639490/capsule_616x353.jpg?t=1625852561",
+      "https://res.cloudinary.com/dbjdu0hvl/image/upload/v1649093966/VISKart/capsule_616x353_ediomh.jpg",
   },
   {
     _id: uuid(),
@@ -284,6 +284,6 @@ export const products = [
     isTop: false,
     rating: 0.4,
     imageSrc:
-      "https://cdn.akamai.steamstatic.com/steam/apps/1380660/capsule_616x353.jpg?t=1625842713",
+      "https://res.cloudinary.com/dbjdu0hvl/image/upload/v1649093892/VISKart/capsule_616x353_mfmevr.jpg",
   },
 ];

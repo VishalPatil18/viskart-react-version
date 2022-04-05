@@ -1,1 +1,1 @@
-export { ASSETS_URL, ICONS_URL } from "./assests-url";
+export { ICONS_URL } from "./assests-url";

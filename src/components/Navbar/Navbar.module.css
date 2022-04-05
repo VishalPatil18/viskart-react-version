@@ -109,22 +109,6 @@
   background-color: var(--light);
 }
 
-.themeSwitcher {
-  margin: 0 var(--space-xs);
-  padding: 0;
-}
-
-.themeSwitcher:hover {
-  background-color: initial;
-  transform: rotate(360deg);
-  transition: 0.3s ease-in-out;
-}
-
-.themeSwitcher > img {
-  height: 20px;
-  width: 20px;
-}
-
 .profileBadge {
   align-items: center;
   background-color: var(--primary);
