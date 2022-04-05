@@ -161,6 +161,7 @@ const Navbar = () => {
               loading="lazy"
               alt="login"
             />
+            <p className={styles.optionText}>Login</p>
           </button>
         )}
       </div>
