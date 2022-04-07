@@ -6,3 +6,29 @@
   align-items: center;
   display: flex;
 }
+
+.radioInput {
+  display: none;
+}
+
+.label {
+  align-items: center;
+  background-color: var(--light);
+  border-radius: var(--br-xs);
+  border: 1px solid var(--blue-2);
+  cursor: pointer;
+  display: flex;
+  font-size: var(--fs-xxs-2);
+  gap: var(--space-xxs);
+  margin: var(--space-xxxs) 0;
+  padding: var(--space-xs) var(--space-sm);
+  text-transform: capitalize;
+  transition: 0.2s ease-in;
+  width: 100%;
+}
+
+.active {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  color: white;
+}

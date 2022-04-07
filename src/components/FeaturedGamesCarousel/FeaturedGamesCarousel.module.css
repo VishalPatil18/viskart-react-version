@@ -1,0 +1,33 @@
+.productsHeading {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.mainProducts {
+  column-gap: var(--space-md);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  margin-top: var(--space-md);
+  row-gap: var(--space-xl);
+}
+
+.featuredGamesWrapper {
+  width: 100%;
+}
+
+/*
+***************** MEDIA QUERIES *****************
+*/
+@media screen and (max-width: 640px) {
+  .mainProducts {
+    gap: var(--space-sm);
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .productsHeading {
+    margin-top: 0;
+  }
+}

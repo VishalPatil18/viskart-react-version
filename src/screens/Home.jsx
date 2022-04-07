@@ -2,9 +2,9 @@ import {
   ProductCarousel,
   TopProducts,
   NewGames,
-  FeaturedGames,
   CategoriesCarousel,
   WhyShopWithUs,
+  FeaturedGamesCarousel,
 } from "../components";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "../App.module.css";
@@ -26,7 +26,7 @@ const Home = ({ cname }) => {
       />
 
       <NewGames />
-      <FeaturedGames isHomePage={true} />
+      <FeaturedGamesCarousel />
       <div className={(styles.productHeading, styles.seeAllGames)}>
         <Link to="/products" className="st-1 button btn-plain btn-primary">
           See all Games

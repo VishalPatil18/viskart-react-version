@@ -6,6 +6,7 @@ import {
   Wishlist,
   User,
   Checkout,
+  Error404,
 } from "./screens";
 import { Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
@@ -43,6 +44,7 @@ function App() {
         <Route path="/user" element={<User cname={styles.main} />} />
         <Route path="/product/:productID" element={<SingleProductPage />} />
         <Route path="/checkout" element={<Checkout />} />
+        <Route path="*" element={<Error404 />} />
       </Routes>
       <Footer />
     </div>

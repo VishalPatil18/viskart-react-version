@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Breadcrumb, FeaturedGames, Filters, Pagination } from "../components";
+import { Breadcrumb, FeaturedGames, Filters } from "../components";
 import { scrollToTop } from "../utilities";
 import styles from "./ProductListing.module.css";
 
@@ -30,7 +30,6 @@ const ProductListing = () => {
 
         <div className={styles.mainBody}>
           <FeaturedGames />
-          <Pagination />
         </div>
       </div>
     </div>

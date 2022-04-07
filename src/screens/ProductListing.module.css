@@ -3,12 +3,12 @@
   height: calc(100vh - 80px);
   left: 0;
   overflow-y: scroll;
-  padding: 0 var(--space-lg) var(--space-lg);
+  padding: 0 var(--space-xs) var(--space-xxl);
   position: sticky;
   scrollbar-color: var(--primary) transparent;
   scrollbar-width: thin;
   top: 80px;
-  width: 320px;
+  width: 350px;
 }
 
 .sidebar::-webkit-scrollbar {
@@ -66,6 +66,7 @@
     display: none;
     height: 100vh;
     left: 0;
+    padding: var(--space-lg) var(--space-lg) var(--space-xxxl);
     position: fixed;
     top: 0;
     width: 100%;

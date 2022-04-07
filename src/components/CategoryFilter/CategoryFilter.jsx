@@ -1,11 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useFilter } from "../../context";
 import styles from "./CategoryFilter.module.css";
+import { Category } from "../Category/Category";
 
 const CategoryFilter = () => {
   const [categories, setCategories] = useState([]);
-  const { filterState, filterDispatch } = useFilter();
 
   useEffect(() => {
     (async () => {
@@ -20,44 +19,12 @@ const CategoryFilter = () => {
 
   return (
     <div className={styles.checkbox}>
-      <h6 className={`h-6 ${styles.sidebarItemTitle}`}>Category</h6>
-      {categories.map((category) => (
-        <label
-          className={`radio__label ${styles.categoryName}`}
-          htmlFor={category.categoryName}
-          key={category._id}
-        >
-          <input
-            className={"input__field--checkbox"}
-            type="checkbox"
-            id={category.categoryName}
-            checked={(() => {
-              return filterState.categories.find(
-                (currCategory) => currCategory === category.categoryName
-              )
-                ? true
-                : false;
-            })()}
-            onChange={(e) => {
-              filterDispatch({
-                type: "CATEGORISE",
-                payload: {
-                  categories: (() => {
-                    if (e.target.checked) {
-                      return [...filterState.categories, category.categoryName];
-                    } else {
-                      return filterState.categories.filter(
-                        (currCategory) => currCategory !== category.categoryName
-                      );
-                    }
-                  })(),
-                },
-              });
-            }}
-          />
-          {category.categoryName}
-        </label>
-      ))}
+      <fieldset className={styles.fieldset}>
+        <legend className={`h-6 ${styles.sidebarItemTitle}`}>Category</legend>
+        {categories.map((category) => (
+          <Category key={category._id} category={category} />
+        ))}
+      </fieldset>
     </div>
   );
 };
