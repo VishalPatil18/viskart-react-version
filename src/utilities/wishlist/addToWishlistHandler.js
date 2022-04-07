@@ -1,3 +1,17 @@
+/**
+ * Welcome to @VISKart / SRC / UTILITIES / WISHLIST / ADD_TO_WISHLIST_HANDLER!
+ *
+ * This is a utility function that adds a new item to wishlist using the @addToWishlistService
+ *
+ * @type - function
+ * @param {object} item - The item that needs to be added to wishlist
+ * @param {function} wishlistDispatch - Dispatch function to change the wishlistState in wishlistContext
+ * @param {string} token - Auth token which verifies users auth activity
+ * @return - no return
+ * @export {function} addToWishlistHandler - The function that performs the add to wishlist action
+ * @see Source - https://github.com/VishalPatil18/viskart-react-version
+ */
+
 import { toast } from "react-toastify";
 import { addToWishlistService } from "../../services";
 

@@ -1,3 +1,18 @@
+/**
+ * Welcome to @VISKart / SRC / UTILITIES / CART / ADD_TO_CART_HANDLER!
+ *
+ * This is a utility function that add's an item to cart of a logged-in user
+ * using the @addToCartService
+ *
+ * @type - function
+ * @param {object} item - The item that needs to be added to the cart in database
+ * @param {function} cartDispatch - Dispatch function to change the cartState in cartContext
+ * @param {string} token - Auth token which verifies users auth activity
+ * @return - no return
+ * @export {function} addToCartHandler - The function to perform addition of item to cart action
+ * @see Source - https://github.com/VishalPatil18/viskart-react-version
+ */
+
 import { toast } from "react-toastify";
 import { addToCartService } from "../../services";
 

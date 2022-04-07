@@ -1,3 +1,15 @@
+/**
+ * Welcome to @VISKart / SRC / REDUX / ORDER_REDUCER
+ *
+ * This is a Reducer function for the @OrderContext
+ *
+ * @type - reducer-function
+ * @return - {object} updated OrderState for OrderContext
+ * @export {object} -initialOrderState
+ * @export {dispatch-function} - orderReducer()
+ * @see Source - https://github.com/VishalPatil18/viskart-react-version
+ */
+
 const initialOrderState = {
   items: [],
   priceDetails: {},

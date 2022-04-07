@@ -1,3 +1,15 @@
+/**
+ * Welcome to @VISKart / SRC / CONTEXT / AUTH_MODAL_CONTEXT
+ *
+ * This is a Context Provider for the authModal
+ *
+ * @type - context-provider
+ * @return {react-component} - AuthModalProvider component
+ * @export {react-component} - AuthModalProvider component
+ * @export {custom-hook} - useAuthModal()
+ * @see Source - https://github.com/VishalPatil18/viskart-react-version
+ */
+
 import { createContext, useContext, useState } from "react";
 
 const AuthModalContext = createContext({

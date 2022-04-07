@@ -1,3 +1,15 @@
+/**
+ * Welcome to @VISKart / SRC / REDUX / AUTH_REDUCER
+ *
+ * This is a Reducer function for the @AuthContext
+ *
+ * @type - reducer-function
+ * @return - {object} updated AuthState for AuthContext
+ * @export {object} -initialAuthState
+ * @export {dispatch-function} - authReducer()
+ * @see Source - https://github.com/VishalPatil18/viskart-react-version
+ */
+
 const initialAuthState = {
   token: null,
   user: null,

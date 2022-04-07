@@ -1,3 +1,15 @@
+/**
+ * Welcome to @VISKart / SRC / CONTEXT / CART_CONTEXT
+ *
+ * This is a Context Provider for the Cart
+ *
+ * @type - context-provider
+ * @return {react-component} - CartProvider component
+ * @export {react-component} - CartProvider component
+ * @export {custom-hook} - useCart()
+ * @see Source - https://github.com/VishalPatil18/viskart-react-version
+ */
+
 import { createContext, useContext, useReducer, useEffect } from "react";
 import { initialCartState, cartReducer } from "../redux";
 import { useAuth } from "../context";

@@ -20,7 +20,7 @@ const Filters = ({ cname }) => {
           className={`button btn-sm ${styles.clearBtn}`}
           onClick={() =>
             filterDispatch({
-              type: "INITIALIZE_FILTERS",
+              type: "CLEAR",
             })
           }
         >

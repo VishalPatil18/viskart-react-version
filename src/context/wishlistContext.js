@@ -1,3 +1,15 @@
+/**
+ * Welcome to @VISKart / SRC / CONTEXT / WISHLIST_CONTEXT
+ *
+ * This is a Context Provider for the Wishlist
+ *
+ * @type - context-provider
+ * @return {react-component} -WishlistProvider component
+ * @export {react-component} -WishlistProvider component
+ * @export {custom-hook} - useWishlist()
+ * @see Source - https://github.com/VishalPatil18/viskart-react-version
+ */
+
 import { createContext, useContext, useReducer, useEffect } from "react";
 import { initialWishlistState, wishlistReducer } from "../redux";
 import { useAuth } from "../context";

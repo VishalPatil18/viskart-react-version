@@ -1,3 +1,15 @@
+/**
+ * Welcome to @VISKart / SRC / REDUX / FILTER_REDUCER
+ *
+ * This is a Reducer function for the @FilterContext
+ *
+ * @type - reducer-function
+ * @return - {object} updated FilterState for FilterContext
+ * @export {object} -initialFilterState
+ * @export {dispatch-function} - filterReducer()
+ * @see Source - https://github.com/VishalPatil18/viskart-react-version
+ */
+
 const initialFilterState = {
   sortBy: "",
   categories: [],
@@ -34,6 +46,14 @@ const filterReducer = (state, action) => {
       return {
         ...state,
         search: action.payload.search,
+      };
+    case "CLEAR":
+      return {
+        ...state,
+        sortBy: "",
+        rating: "",
+        priceRange: "300",
+        search: "",
       };
     default:
       return state;

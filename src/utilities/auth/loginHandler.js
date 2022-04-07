@@ -1,3 +1,22 @@
+/**
+ * Welcome to @VISKart / SRC / UTILITIES / AUTH / LOGIN_HANDLER!
+ *
+ * This is a utility function that loggs-in an already existing user using the @loginService
+ *
+ * @type - function
+ * @param {object} event - The event which triggered the login action
+ * @param {object} login - The object having `email` and `password` of the user trying to login
+ * @param {function} authDispatch - Dispatch function to change the authState in authContext
+ * @param {function} cartDispatch - Dispatch function to change the cartState in cartContext
+ * @param {function} wishlistDispatch - Dispatch function to change the wishlistState in wishlistContext
+ * @param {function} authModalHandler - Function to toggle the authModal
+ * @param {function} setLoader - Function to activate and deactivate loaders
+ * @param {function} navigate - Function used to navigate from one route to another
+ * @return - no return
+ * @export {function} loginHandler - The function to perform login operation
+ * @see Source - https://github.com/VishalPatil18/viskart-react-version
+ */
+
 import { toast } from "react-toastify";
 import {
   loginService,
