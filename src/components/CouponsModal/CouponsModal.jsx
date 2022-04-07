@@ -42,6 +42,9 @@ const CouponsModal = ({ setCouponsActive }) => {
               type="checkbox"
               className={styles.input}
               id="Aaiye aapka Intazaar tha offer"
+              disabled={
+                orderState.priceDetails.totalAmount < 500 ? true : false
+              }
               checked={coupon.title === "Aaiye aapka Intazaar tha offer"}
               onChange={() => {
                 if (coupon.title !== "Aaiye aapka Intazaar tha offer") {
@@ -87,6 +90,9 @@ const CouponsModal = ({ setCouponsActive }) => {
               type="checkbox"
               id="Malamaal Weekly Offer"
               className={styles.input}
+              disabled={
+                orderState.priceDetails.totalAmount < 799 ? true : false
+              }
               checked={coupon.title === "Malamaal Weekly Offer"}
               onChange={() => {
                 if (coupon.title !== "Malamaal Weekly Offer") {
