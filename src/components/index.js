@@ -7,6 +7,7 @@ export { CategoriesCarousel } from "./CategoriesCarousel/CategoriesCarousel";
 export { Category } from "./Category/Category";
 export { CategoryCard } from "./CategoryCard/CategoryCard";
 export { CategoryFilter } from "./CategoryFilter/CategoryFilter";
+export { CouponsModal } from "./CouponsModal/CouponsModal";
 export { FeaturedGames } from "./FeaturedGames/FeaturedGames";
 export { FeaturedGamesCarousel } from "./FeaturedGamesCarousel/FeaturedGamesCarousel";
 export { Filters } from "./Filters/Filters";

@@ -1,17 +1,23 @@
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useCart, useOrder } from "../../context";
 import { getPriceDetails } from "../../utilities";
 import { ICONS_URL } from "../../constants";
+import { CouponsModal } from "../CouponsModal/CouponsModal";
 import styles from "./PriceDetails.module.css";
-import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
 
 const PriceDetails = () => {
   const { cartState } = useCart();
   const { orderDispatch } = useOrder();
   const [cartPrice, setCartPrice] = useState({});
+  const [couponsActive, setCouponsActive] = useState(false);
+
+  console.log(cartState);
 
   useEffect(() => {
-    setCartPrice(getPriceDetails(cartState.cart, orderDispatch));
+    setCartPrice(
+      getPriceDetails(cartState.cart, cartState.coupon, orderDispatch)
+    );
     orderDispatch({
       type: "ADD_ITEMS",
       payload: {
@@ -46,7 +52,10 @@ const PriceDetails = () => {
           <p className="cp card-caption">
             You will save ${cartPrice.totalDiscount} on this order
           </p>
-          <button className={`button txt-center ${styles.applyCouponsBtn}`}>
+          <button
+            className={`button txt-center ${styles.applyCouponsBtn}`}
+            onClick={() => setCouponsActive(true)}
+          >
             <img
               className="icon-md icon-success"
               src={`${ICONS_URL}/tags.svg`}
@@ -63,6 +72,11 @@ const PriceDetails = () => {
       >
         Checkout - ${cartPrice.totalAmount}
       </Link>
+      {couponsActive ? (
+        <CouponsModal setCouponsActive={setCouponsActive} />
+      ) : (
+        <></>
+      )}
     </div>
   );
 };
