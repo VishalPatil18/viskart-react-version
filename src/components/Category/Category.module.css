@@ -1,22 +1,8 @@
-.sidebarItemTitle {
-  margin: var(--space-md) 0 var(--space-xxs);
-}
-
-.checkbox {
-  display: flex;
-  flex-direction: column;
-}
-
-.ratingItem {
-  align-items: center;
-  display: flex;
-}
-
-.radioInput {
+.input {
   display: none;
 }
 
-.label {
+.categoryName {
   align-items: center;
   background-color: var(--light);
   border-radius: var(--br-xs);
@@ -29,11 +15,19 @@
   padding: var(--space-xs) var(--space-sm);
   text-transform: capitalize;
   transition: 0.2s ease-in;
-  width: 100%;
 }
 
-.active {
+.categoryName:first-child {
+  margin-top: 0;
+}
+
+.categoryName:last-child {
+  margin-bottom: 0;
+}
+
+.selected {
   background-color: var(--primary);
   border-color: var(--primary);
+  box-shadow: var(--bs-xs);
   color: white;
 }

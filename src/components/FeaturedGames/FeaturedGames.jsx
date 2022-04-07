@@ -1,26 +1,21 @@
-import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
-import { GamesCard } from "../../components";
+import { GamesCard, Pagination } from "../../components";
 import { useFilter, useLoader } from "../../context";
 import { productsService } from "../../services";
 import { filterHandler } from "../../utilities";
 import styles from "./FeaturedGames.module.css";
 
 let filteredProducts = [];
-const FeaturedGames = ({ isHomePage = false }) => {
+const FeaturedGames = () => {
   const [data, setData] = useState([]);
+  const [page, setPage] = useState({
+    pageNo: 1,
+    isFiltered: false,
+  });
+  const [paginatedData, setPaginatedData] = useState([]);
   const { filterState } = useFilter();
   const { setLoader } = useLoader();
-
-  filteredProducts = filterHandler(
-    data,
-    filterState.sortBy,
-    filterState.categories,
-    filterState.rating,
-    filterState.priceRange,
-    filterState.search
-  );
 
   useEffect(() => {
     setLoader(true);
@@ -36,26 +31,62 @@ const FeaturedGames = ({ isHomePage = false }) => {
     })();
   }, []);
 
+  useEffect(() => {
+    setPage({
+      pageNo: 1,
+      isFiltered:
+        filterState.categories.length === 0 &&
+        filterState.rating === "" &&
+        filterState.priceRange === "300" &&
+        filterState.search === ""
+          ? false
+          : true,
+    });
+    filteredProducts = filterHandler(
+      data,
+      filterState.sortBy,
+      filterState.categories,
+      filterState.rating,
+      filterState.priceRange,
+      filterState.search
+    );
+    setPaginatedData(
+      filteredProducts.slice(page.pageNo * 10 - 10, page.pageNo * 10)
+    );
+  }, [filterState, data]);
+
+  useEffect(() => {
+    setPaginatedData(
+      filteredProducts.slice(page.pageNo * 10 - 10, page.pageNo * 10)
+    );
+  }, [page.pageNo]);
+
   return (
     <div className={styles.featuredGamesWrapper}>
       <div className={styles.productsHeading}>
         <h5 className="h-5">Featured Games</h5>
         <p className={styles.showingProductsCaption}>
-          {!isHomePage && `(showing ${filteredProducts.length} products)`}
+          (showing {filteredProducts.length} products)
         </p>
-        <Link to="/products" className="st-1 button btn-plain btn-primary">
-          See all
-        </Link>
       </div>
       <section className={styles.mainProducts}>
-        {filteredProducts.length > 0 ? (
-          filteredProducts.map((item) => (
-            <GamesCard key={item._id} item={item} />
-          ))
+        {paginatedData.length > 0 ? (
+          paginatedData.map((item) => <GamesCard key={item._id} item={item} />)
         ) : (
           <h5 className="h-5">No Products Found</h5>
         )}
       </section>
+      {page.pageNo > 1 || filteredProducts.length >= page.pageNo * 10 ? (
+        <Pagination
+          totalPages={
+            page.isFiltered
+              ? Math.ceil(filteredProducts.length / 10)
+              : Math.ceil(data.length / 10)
+          }
+          pageNo={page.pageNo}
+          setPage={setPage}
+        />
+      ) : null}
     </div>
   );
 };

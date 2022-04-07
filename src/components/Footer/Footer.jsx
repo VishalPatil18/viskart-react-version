@@ -65,9 +65,6 @@ const Footer = () => {
           <Link to="/products" className={styles.footerLink}>
             Featured
           </Link>
-          <Link to="/products" className={styles.footerLink}>
-            Top
-          </Link>
         </article>
         <article className={styles.footerRight}>
           <Link to="/cart" className={styles.footerLink}>
@@ -76,10 +73,7 @@ const Footer = () => {
           <Link to="/wishlist" className={styles.footerLink}>
             Wishlist
           </Link>
-          <Link to="/" className={styles.footerLink}>
-            About
-          </Link>
-          <Link to="/" className={styles.footerLink}>
+          <Link to="/user" className={styles.footerLink}>
             Settings
           </Link>
         </article>

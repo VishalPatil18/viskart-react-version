@@ -1,14 +1,21 @@
 .sidebarItemTitle {
-  margin: var(--space-md) 0 var(--space-xxs);
+  margin: 0;
 }
 
 .checkbox {
   display: flex;
   flex-direction: column;
+  max-width: 400px;
+  width: 100%;
 }
 
-.categoryName {
-  align-items: center;
+.fieldset {
+  border-radius: var(--br-xs);
+  border: 1px solid var(--grey-1);
   display: flex;
-  text-transform: capitalize;
+  flex-direction: column;
+  margin: auto;
+  max-width: 400px;
+  padding: var(--space-sm);
+  width: 100%;
 }

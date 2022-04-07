@@ -12,22 +12,24 @@ const Filters = ({ cname }) => {
   return (
     <aside className={cname}>
       <div className={styles.sidebarTitle}>
-        <h5 className="h-5">Filters</h5>
+        <CategoryFilter />
+      </div>
+      <fieldset className={styles.fieldset}>
+        <legend className="h-5">Filters</legend>
         <button
-          className="button btn-plain btn-sm btn-danger"
+          className={`button btn-sm ${styles.clearBtn}`}
           onClick={() =>
             filterDispatch({
               type: "INITIALIZE_FILTERS",
             })
           }
         >
-          Clear
+          Clear Filters
         </button>
-      </div>
-      <PriceSliderFilter />
-      <SortByPriceFilter />
-      <CategoryFilter />
-      <RatingFilter />
+        <PriceSliderFilter />
+        <SortByPriceFilter />
+        <RatingFilter />
+      </fieldset>
     </aside>
   );
 };

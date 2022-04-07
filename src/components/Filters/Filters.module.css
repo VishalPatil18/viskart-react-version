@@ -11,7 +11,33 @@
 .sidebarTitle {
   align-items: center;
   display: flex;
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  margin: 0 auto var(--space-lg);
+  margin: 0 auto var(--space-sm);
+  width: 100%;
+}
+
+.clearBtn {
+  background-color: var(--red-2);
+  border: 1px solid var(--red-3);
+  box-shadow: var(--bs-xxs);
+  margin: auto;
+  transition: 0.2s ease-in;
+}
+
+.clearBtn:hover {
+  background-color: var(--danger);
+  color: white;
+}
+
+.fieldset {
+  border-radius: var(--br-xs);
+  border: 1px solid var(--grey-1);
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  max-width: 400px;
+  padding: var(--space-sm);
   width: 100%;
 }
