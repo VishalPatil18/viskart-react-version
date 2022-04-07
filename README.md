@@ -124,6 +124,35 @@
 
 <br />
 
+<!-- FOLDER STRUCTURE -->
+
+## **🗂 Folder Structure**
+
+```jsx
+- /public
+- /src
+   - /backend
+   - /components
+   - /constants
+   - /context
+   - /hooks
+   - /redux
+   - /screens
+   - /services
+   - /utilities
+   - App.js
+   - App.module.css
+   - index.css
+   - index.js
+   - server.js
+- package-lock.json
+- package.json
+- README.md
+- yarn.lock
+```
+
+<br />
+
 <!-- CONTRIBUTING -->
 
 ## **📤 Contributing**
