@@ -1,7 +1,7 @@
 /**
  * Welcome to @VISKart / SRC / UTILITIES / MISC / GET_PRICE_DETAILS!
  *
- * This is a utility function that calculated the price details like totalItems, totalPrice, 
+ * This is a utility function that calculated the price details like totalItems, totalPrice,
  * totalDiscount, delivery charges and total amount to be paid by the user from the cart items.
  *
  * @type - function
@@ -12,23 +12,23 @@
  * @see Source - https://github.com/VishalPatil18/viskart-react-version
  */
 
-const getPriceDetails = (cart, orderDispatch) => {
+const getPriceDetails = (cart, coupon, orderDispatch) => {
   const totalItems = cart.reduce((acc, curr) => (acc += curr.qty), 0);
 
   const totalPrice = cart
     .reduce((acc, curr) => (acc += Number(curr.price) * Number(curr.qty)), 0)
     .toFixed(2);
 
-  const totalDiscount = cart
-    .reduce(
+  const totalDiscount = (
+    cart.reduce(
       (acc, curr) =>
         (acc += curr.discount
           ? Number(curr.qty) *
             (Number(curr.price) * (Number(curr.discount) / 100))
           : 0),
       0
-    )
-    .toFixed(2);
+    ) + coupon.price
+  ).toFixed(2);
 
   const deliveryCharges = 5;
 

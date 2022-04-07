@@ -12,12 +12,13 @@
 
 const initialCartState = {
   cart: [],
+  coupon: { price: 0, title: "" },
 };
 
 const cartReducer = (cartState, cartAction) => {
   switch (cartAction.type) {
     case "INITIAL_CART":
-      return { ...cartState, cart: cartAction.payload.cart };
+      return { ...cartState, cart: cartAction.payload.cart, coupons: 0 };
     case "ADD_TO_CART":
       return {
         ...cartState,
@@ -35,6 +36,11 @@ const cartReducer = (cartState, cartAction) => {
       };
     case "RESET_CART":
       return initialCartState;
+    case "COUPONS":
+      return {
+        ...cartState,
+        coupon: cartAction.payload.coupon,
+      };
     default:
       return cartState;
   }
