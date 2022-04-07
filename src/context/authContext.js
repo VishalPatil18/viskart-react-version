@@ -1,3 +1,15 @@
+/**
+ * Welcome to @VISKart / SRC / CONTEXT / AUTH_CONTEXT
+ *
+ * This is a Context Provider for the AuthState
+ *
+ * @type - context-provider
+ * @return {react-component} - AuthProvider component
+ * @export {react-component} - AuthProvider component
+ * @export {custom-hook} - useAuth()
+ * @see Source - https://github.com/VishalPatil18/viskart-react-version
+ */
+
 import { createContext, useContext, useReducer, useEffect } from "react";
 import { authReducer, initialAuthState } from "../redux";
 import { getAddressService } from "../services";

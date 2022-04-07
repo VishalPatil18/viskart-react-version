@@ -1,3 +1,19 @@
+/**
+ * Welcome to @VISKart / SRC / UTILITIES / ORDER / RAZORPAY_PAYMENT!
+ *
+ * This is a razorpay script and function used for payment integration
+ *
+ * @type - function
+ * @param {object} orderState - A state object which has all order details from orderContext
+ * @param {function} orderDispatch - Dispatch function to change the orderState in orderContext
+ * @param {function} cartDispatch - Dispatch function to change the cartState in cartContext
+ * @param {function} navigate - Function used to navigate from one route to another
+ * @param {string} token - Auth token which verifies users auth activity
+ * @return - no return
+ * @export {function} displayRazorpay - The function that performs the mock payment
+ * @see Source - https://github.com/VishalPatil18/viskart-react-version
+ */
+
 import { v4 as uuid } from "uuid";
 import { clearCartService } from "../../services";
 import { toast } from "react-toastify";

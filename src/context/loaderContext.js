@@ -1,3 +1,15 @@
+/**
+ * Welcome to @VISKart / SRC / CONTEXT / LOADER_CONTEXT
+ *
+ * This is a Context Provider for the Loaders
+ *
+ * @type - context-provider
+ * @return {react-component} - LoaderProvider component
+ * @export {react-component} - LoaderProvider component
+ * @export {custom-hook} - useLoader()
+ * @see Source - https://github.com/VishalPatil18/viskart-react-version
+ */
+
 import { createContext, useContext, useState } from "react";
 
 const LoaderContext = createContext({});

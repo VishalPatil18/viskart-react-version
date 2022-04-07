@@ -1,3 +1,15 @@
+/**
+ * Welcome to @VISKart / SRC / REDUX / CART_REDUCER
+ *
+ * This is a Reducer function for the @CartContext
+ *
+ * @type - reducer-function
+ * @return - {object} updated CartState for CartContext
+ * @export {object} -initialCartState
+ * @export {dispatch-function} - cartReducer()
+ * @see Source - https://github.com/VishalPatil18/viskart-react-version
+ */
+
 const initialCartState = {
   cart: [],
 };
