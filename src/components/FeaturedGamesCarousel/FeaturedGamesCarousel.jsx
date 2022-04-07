@@ -17,9 +17,6 @@ const FeaturedGamesCarousel = () => {
         const response = await productsService();
         setData(response.data.products.slice(0, 8));
         setTimeout(() => setLoader(false), 1000);
-        if (pathname === "/") {
-          setPaginatedData(response.data.products.slice(0, 8));
-        }
       } catch (error) {
         setLoader(false);
         toast.warning(error.response.data.errors[0]);

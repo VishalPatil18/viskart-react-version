@@ -41,11 +41,13 @@ const loginHandler = async (
   try {
     const response = await loginService(login);
     if (response.status === 200) {
-      localStorage.setItem("viskartToken", response.data.encodedToken);
-      localStorage.setItem(
-        "viskartUser",
-        JSON.stringify(response.data.foundUser)
-      );
+      if (login.rememberMe) {
+        localStorage.setItem("viskartToken", response.data.encodedToken);
+        localStorage.setItem(
+          "viskartUser",
+          JSON.stringify(response.data.foundUser)
+        );
+      }
       const addressResponse = await getAddressService(
         response.data.encodedToken
       );

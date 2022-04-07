@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import { toast } from "react-toastify";
 import {
   useAuth,
   useAuthModal,
@@ -7,7 +8,13 @@ import {
   useLoader,
   useWishlist,
 } from "../../context";
-import { loginHandler, signupHandler, inputHandler } from "../../utilities";
+import {
+  loginHandler,
+  signupHandler,
+  inputHandler,
+  validateLoginUser,
+  validateSignupUser,
+} from "../../utilities";
 import { ICONS_URL } from "../../constants";
 import styles from "./AuthModal.module.css";
 
@@ -27,13 +34,17 @@ const AuthModal = () => {
   const [login, setLogin] = useState({
     email: "",
     password: "",
+    rememberMe: false,
   });
 
   const [signup, setSignup] = useState({
     email: "",
     password: "",
     username: "",
+    confirmPassword: "",
   });
+
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   const guestLoginHandler = (e) => {
     e.preventDefault();
@@ -46,18 +57,28 @@ const AuthModal = () => {
         {authModalState.login ? (
           <form
             className="modal mdl__icons mdl-primary"
-            onSubmit={(event) =>
-              loginHandler(
-                event,
-                login,
-                authDispatch,
-                cartDispatch,
-                wishlistDispatch,
-                authModalHandler,
-                setLoader,
-                navigate
-              )
-            }
+            onSubmit={(event) => {
+              event.preventDefault();
+              const validation = validateLoginUser(login);
+              if (validation === true) {
+                loginHandler(
+                  event,
+                  login,
+                  authDispatch,
+                  cartDispatch,
+                  wishlistDispatch,
+                  authModalHandler,
+                  setLoader,
+                  navigate
+                );
+              } else {
+                setLogin((prevState) => ({
+                  ...prevState,
+                  password: "",
+                }));
+                toast.warning(validation);
+              }
+            }}
           >
             <header className="modal__title">
               <h1 className="h-5">Login</h1>
@@ -89,11 +110,22 @@ const AuthModal = () => {
                 <div className="input__password">
                   <input
                     className="input__field--text password"
-                    type="text"
+                    type={isPasswordVisible ? "text" : "password"}
                     value={login.password}
                     placeholder="********"
                     onChange={(event) =>
                       inputHandler(event, "password", setLogin)
+                    }
+                  />
+                  <img
+                    className={`icon-md button__icon ${styles.showPwrdBtn}`}
+                    src={`${ICONS_URL}/${
+                      isPasswordVisible ? "eye-slash-solid" : "eye-solid"
+                    }.svg`}
+                    loading="lazy"
+                    alt="close"
+                    onClick={() =>
+                      setIsPasswordVisible((prevState) => !prevState)
                     }
                   />
                   <label className="input__label">Password</label>
@@ -108,13 +140,17 @@ const AuthModal = () => {
                       className="input__field--checkbox"
                       id="remember-me"
                       type="checkbox"
+                      value={login.rememberMe}
+                      onChange={() =>
+                        setLogin((prevState) => ({
+                          ...prevState,
+                          rememberMe: !prevState.rememberMe,
+                        }))
+                      }
                     />
                     Remember me!
                   </label>
                 </div>
-                <button className={`cp ${styles.forgetPassword}`}>
-                  Forget Password?
-                </button>
               </div>
             </main>
             <footer className="modal__footer">
@@ -140,16 +176,27 @@ const AuthModal = () => {
         ) : (
           <form
             className="modal mdl__icons mdl-primary"
-            onSubmit={(event) =>
-              signupHandler(
-                event,
-                signup,
-                authDispatch,
-                authModalHandler,
-                setLoader,
-                navigate
-              )
-            }
+            onSubmit={(event) => {
+              event.preventDefault();
+              const signupValidation = validateSignupUser(signup);
+              if (signupValidation === true) {
+                signupHandler(
+                  event,
+                  signup,
+                  authDispatch,
+                  authModalHandler,
+                  setLoader,
+                  navigate
+                );
+              } else {
+                setSignup((prevState) => ({
+                  ...prevState,
+                  password: "",
+                  confirmPassword: "",
+                }));
+                toast.warning(signupValidation);
+              }
+            }}
           >
             <header className="modal__title">
               <h1 className="h-5">Sign Up</h1>
@@ -171,6 +218,7 @@ const AuthModal = () => {
                   <input
                     className="input__field--text email"
                     type="text"
+                    value={signup.email}
                     placeholder="bablu_tailor@gmail.com"
                     onChange={(event) =>
                       inputHandler(event, "email", setSignup)
@@ -183,6 +231,7 @@ const AuthModal = () => {
                   <input
                     className="input__field--text user"
                     type="text"
+                    value={signup.username}
                     placeholder="bablu_tailor"
                     onChange={(event) =>
                       inputHandler(event, "username", setSignup)
@@ -194,25 +243,39 @@ const AuthModal = () => {
                 <div className="input__password">
                   <input
                     className="input__field--text password"
-                    type="text"
+                    type={isPasswordVisible ? "text" : "password"}
+                    value={signup.password}
                     placeholder="********"
                     onChange={(event) =>
                       inputHandler(event, "password", setSignup)
                     }
                   />
+                  <img
+                    className={`icon-md button__icon ${styles.showPwrdBtn}`}
+                    src={`${ICONS_URL}/${
+                      isPasswordVisible ? "eye-slash-solid" : "eye-solid"
+                    }.svg`}
+                    loading="lazy"
+                    alt="close"
+                    onClick={() =>
+                      setIsPasswordVisible((prevState) => !prevState)
+                    }
+                  />
                   <label className="input__label">Password</label>
                 </div>
-              </div>
-              <div className="checkbox txt-center">
-                <label className="radio__label" htmlFor="remember-me-signup">
+
+                <div className="input__password">
                   <input
-                    className="input__field--checkbox"
-                    id="remember-me-signup"
-                    name="unchecked"
-                    type="checkbox"
+                    className="input__field--text password"
+                    type="password"
+                    value={signup.confirmPassword}
+                    placeholder="********"
+                    onChange={(event) =>
+                      inputHandler(event, "confirmPassword", setSignup)
+                    }
                   />
-                  Remember me!
-                </label>
+                  <label className="input__label">Confirm Password</label>
+                </div>
               </div>
             </main>
             <footer className="modal__footer">

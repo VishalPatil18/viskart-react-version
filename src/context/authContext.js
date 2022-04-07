@@ -44,7 +44,7 @@ const AuthProvider = ({ children }) => {
         console.log("ERROR: ", error);
       }
     })();
-  }, [authState.token]);
+  }, []);
 
   return (
     <AuthContext.Provider value={{ authState, authDispatch }}>

@@ -19,3 +19,11 @@
 .guestLogin {
   margin-right: auto;
 }
+
+.showPwrdBtn {
+  cursor: pointer;
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+}
