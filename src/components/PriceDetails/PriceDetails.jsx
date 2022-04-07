@@ -12,8 +12,6 @@ const PriceDetails = () => {
   const [cartPrice, setCartPrice] = useState({});
   const [couponsActive, setCouponsActive] = useState(false);
 
-  console.log(cartState);
-
   useEffect(() => {
     setCartPrice(
       getPriceDetails(cartState.cart, cartState.coupon, orderDispatch)
